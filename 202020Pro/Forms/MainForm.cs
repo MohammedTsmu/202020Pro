@@ -81,7 +81,7 @@ namespace _202020Pro.Forms
             settingsMenu.DropDownItems.Add(new ToolStripSeparator()); // فاصل بين العناصر
             settingsMenu.DropDownItems.Add("🎨 تخصيص واجهة الاستراحة", null, CustomizeBreakScreen_Click);
             settingsMenu.DropDownItems.Add("🧹 إعادة واجهة الاستراحة للوضع الافتراضي", null, ResetBreakScreenDefaults_Click);
-            settingsMenu.DropDownItems.Add("🧪 عرض واجهة الاستراحة الآن", null, ShowBreakScreenNow_Click);
+            settingsMenu.DropDownItems.Add("🧪 عرض واجهة الاستراحة الآن للمعاينة", null, ShowBreakScreenNow_Click);
 
 
 
