@@ -81,6 +81,7 @@ namespace _202020Pro.Forms
             settingsMenu.DropDownItems.Add(new ToolStripSeparator()); // فاصل بين العناصر
             settingsMenu.DropDownItems.Add("🎨 تخصيص واجهة الاستراحة", null, CustomizeBreakScreen_Click);
             settingsMenu.DropDownItems.Add("🧹 إعادة واجهة الاستراحة للوضع الافتراضي", null, ResetBreakScreenDefaults_Click);
+            settingsMenu.DropDownItems.Add("🧪 عرض واجهة الاستراحة الآن", null, ShowBreakScreenNow_Click);
 
 
 
@@ -547,6 +548,20 @@ namespace _202020Pro.Forms
             else
             {
                 MessageBox.Show("لم يتم إجراء أي تغييرات.", "إلغاء", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        // 🧪 عرض واجهة الاستراحة الآن لاغراض المعاينة المباشرة
+        private void ShowBreakScreenNow_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                BreakForm breakForm = new BreakForm();
+                breakForm.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("حدث خطأ أثناء عرض واجهة الاستراحة: " + ex.Message, "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
