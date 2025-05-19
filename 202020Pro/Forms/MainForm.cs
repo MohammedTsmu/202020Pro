@@ -80,6 +80,7 @@ namespace _202020Pro.Forms
 
             settingsMenu.DropDownItems.Add(new ToolStripSeparator()); // فاصل بين العناصر
             settingsMenu.DropDownItems.Add("🎨 تخصيص واجهة الاستراحة", null, CustomizeBreakScreen_Click);
+            settingsMenu.DropDownItems.Add("🧹 إعادة واجهة الاستراحة للوضع الافتراضي", null, ResetBreakScreenDefaults_Click);
 
 
 
@@ -448,6 +449,7 @@ namespace _202020Pro.Forms
         //}
         // 📁 MainForm.cs
 
+        // 🎨 تخصيص واجهة الاستراحة
         private void CustomizeBreakScreen_Click(object sender, EventArgs e)
         {
             try
@@ -480,19 +482,19 @@ namespace _202020Pro.Forms
                 // 👀 عرض معاينة مباشرة
                 ShowBreakPreview();
 
-                // 🔁 تأكيد عرض إعادة الإعدادات
-                if (MessageBox.Show("هل ترغب بإعادة الإعدادات الافتراضية؟", "إعادة؟", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                {
-                    AppConfig.BreakBackgroundColor = "#000000";
-                    AppConfig.BreakTextColor = "#FFFFFF";
-                    AppConfig.BreakFontFamily = "Segoe UI";
-                    AppConfig.BreakFontSize = 24;
-                    MessageBox.Show("تمت إعادة الإعدادات الافتراضية.", "تم");
-                }
-                else
-                {
-                    MessageBox.Show("تم حفظ التخصيص بنجاح.", "نجاح");
-                }
+                //// 🔁 تأكيد عرض إعادة الإعدادات
+                //if (MessageBox.Show("هل ترغب بإعادة الإعدادات الافتراضية؟", "إعادة؟", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                //{
+                //    AppConfig.BreakBackgroundColor = "#000000";
+                //    AppConfig.BreakTextColor = "#FFFFFF";
+                //    AppConfig.BreakFontFamily = "Segoe UI";
+                //    AppConfig.BreakFontSize = 24;
+                //    MessageBox.Show("تمت إعادة الإعدادات الافتراضية.", "تم");
+                //}
+                //else
+                //{
+                //    MessageBox.Show("تم حفظ التخصيص بنجاح.", "نجاح");
+                //}
             }
             catch (Exception ex)
             {
@@ -505,7 +507,7 @@ namespace _202020Pro.Forms
         {
             Form preview = new Form();
             preview.Text = "معاينة الاستراحة";
-            preview.Size = new Size(500, 200);
+            preview.Size = new Size(700, 400);
             preview.BackColor = ColorTranslator.FromHtml(AppConfig.BreakBackgroundColor);
             preview.StartPosition = FormStartPosition.CenterScreen;
 
@@ -520,6 +522,33 @@ namespace _202020Pro.Forms
             preview.ShowDialog();
         }
 
+        // 🧹 إعادة واجهة الاستراحة للوضع الافتراضي
+        //private void ResetBreakScreenDefaults_Click(object sender, EventArgs e)
+        //{
+        //    AppConfig.BreakBackgroundColor = "#000000";
+        //    AppConfig.BreakTextColor = "#FFFFFF";
+        //    AppConfig.BreakFontFamily = "Segoe UI";
+        //    AppConfig.BreakFontSize = 24;
+        //    MessageBox.Show("تمت إعادة واجهة الاستراحة للوضع الافتراضي.", "نجاح");
+        //}
+        private void ResetBreakScreenDefaults_Click(object sender, EventArgs e)
+        {
+            // تأكيد إعادة الإعدادات الافتراضية
+            if (MessageBox.Show("هل أنت متأكد من أنك تريد إعادة واجهة الاستراحة للوضع الافتراضي؟",
+                                "تأكيد", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                AppConfig.BreakBackgroundColor = "#000000";
+                AppConfig.BreakTextColor = "#FFFFFF";
+                AppConfig.BreakFontFamily = "Segoe UI";
+                AppConfig.BreakFontSize = 24;
+
+                MessageBox.Show("تمت إعادة واجهة الاستراحة إلى الإعدادات الافتراضية.", "نجاح", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("لم يتم إجراء أي تغييرات.", "إلغاء", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
 
     }
 
