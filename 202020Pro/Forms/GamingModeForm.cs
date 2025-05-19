@@ -11,14 +11,6 @@ using _202020Pro.Models;
 
 namespace _202020Pro.Forms
 {
-    //public partial class GamingModeForm : Form
-    //{
-    //    public GamingModeForm()
-    //    {
-    //        InitializeComponent();
-    //    }
-    //}
-
     public partial class GamingModeForm : Form
     {
         public GamingModeForm()
@@ -49,19 +41,7 @@ namespace _202020Pro.Forms
                 Dock = DockStyle.Top
             };
 
-            //btnConfirm.Click += (s, e) =>
-            //{
-            //    if (txtPassword.Text == "gamer") // رمز التفعيل
-            //    {
-            //        AppSettings.IsGamingMode = true;
-            //        MessageBox.Show("تم تفعيل وضع الألعاب بنجاح", "نجاح", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            //        this.Close();
-            //    }
-            //    else
-            //    {
-            //        MessageBox.Show("رمز خاطئ", "رفض", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //    }
-            //};
+
             btnConfirm.Click += (s, e) =>
             {
                 if (txtPassword.Text == "gamer")
@@ -89,5 +69,4 @@ namespace _202020Pro.Forms
             Controls.Add(lbl);
         }
     }
-
 }

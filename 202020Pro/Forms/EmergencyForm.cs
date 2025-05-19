@@ -10,14 +10,6 @@ using System.Windows.Forms;
 
 namespace _202020Pro.Forms
 {
-    //public partial class EmergencyForm : Form
-    //{
-    //    public EmergencyForm()
-    //    {
-    //        InitializeComponent();
-    //    }
-    //}
-
     public partial class EmergencyForm : Form
     {
         public bool IsAuthorized { get; private set; } = false;
@@ -67,7 +59,5 @@ namespace _202020Pro.Forms
             Controls.Add(txtPassword);
             Controls.Add(lbl);
         }
-
     }
-
 }

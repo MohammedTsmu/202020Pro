@@ -53,8 +53,7 @@ namespace _202020Pro.Forms
             trayMenu.Items.Add("تفعيل/تعطيل وضع الألعاب", null, ToggleGamingMode_Click);
             trayMenu.Items.Add("خروج", null, Exit_Click);
 
-            //trayMenu.Items.Add(new ToolStripSeparator()); // فاصل بين العناصر
-            //trayMenu.Items.Add("⏱️ تعديل مدة الراحة", null, ChangeBreakInterval_Click);
+            trayMenu.Items.Add(new ToolStripSeparator()); // فاصل بين العناصر
 
 
             // إضافة قائمة فرعية للإعدادات
@@ -78,11 +77,7 @@ namespace _202020Pro.Forms
             };
         }
 
-        //private void MainTimer_Tick(object sender, EventArgs e)
-        //{
-        //    BreakForm breakForm = new BreakForm();
-        //    breakForm.ShowDialog(); // نافذة لا يمكن تجاوزها بسهولة
-        //}
+        
         private void MainTimer_Tick(object sender, EventArgs e)
         {
             if (this.IsDisposed || !this.IsHandleCreated)
@@ -149,26 +144,6 @@ namespace _202020Pro.Forms
         }
 
 
-        //private void Exit_Click(object sender, EventArgs e)
-        //{
-        //    try
-        //    {
-        //        if (trayIcon != null)
-        //        {
-        //            trayIcon.Visible = false;
-        //            trayIcon.Dispose();
-        //            trayIcon = null;
-        //        }
-
-        //        Application.ExitThread(); // الأفضل من Exit()
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        // تسجيل أو عرض الخطأ (اختياري)
-        //        MessageBox.Show("خطأ أثناء الإغلاق: " + ex.Message);
-        //    }
-        //}
-
         private void Exit_Click(object sender, EventArgs e)
         {
             try
@@ -226,7 +201,8 @@ namespace _202020Pro.Forms
                 return $"{ts.Minutes} دقيقة";
         }
 
-        // 🟦 كلمة مرور الطوارئ
+        // 🟦 تعديل كلمة مرور الطوارئ
+        // 🟦 كلمة مرور الطوارئ 
         private void ChangeEmergencyPassword_Click(object sender, EventArgs e)
         {
             string input = Microsoft.VisualBasic.Interaction.InputBox("أدخل كلمة المرور الجديدة للطوارئ:", "تعديل كلمة مرور الطوارئ", AppConfig.EmergencyPassword);

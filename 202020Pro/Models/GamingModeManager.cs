@@ -1,17 +1,4 @@
-﻿//using System;
-//using System.Collections.Generic;
-//using System.Linq;
-//using System.Text;
-//using System.Threading.Tasks;
-
-//namespace _202020Pro.Models
-//{
-//    internal class GamingModeManager
-//    {
-//    }
-//}
-
-using System;
+﻿using System;
 
 namespace _202020Pro.Models
 {
@@ -21,7 +8,6 @@ namespace _202020Pro.Models
 
         public static DateTime? GamingStartTime { get; private set; } = null;
 
-        //public static TimeSpan AllowedPerDay = TimeSpan.FromHours(3);
         public static TimeSpan AllowedPerDay => TimeSpan.FromMinutes(AppConfig.GamingModeMinutes);
 
 

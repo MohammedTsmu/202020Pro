@@ -100,17 +100,6 @@ namespace _202020Pro.Forms
             this.Close(); // إغلاق بعد انتهاء المدة
         }
 
-        //private void BtnEmergency_Click(object sender, EventArgs e)
-        //{
-        //    EmergencyForm emergencyForm = new EmergencyForm();
-        //    emergencyForm.ShowDialog();
-
-        //    if (emergencyForm.IsAuthorized)
-        //    {
-        //        breakTimer.Stop(); // إيقاف المؤقت
-        //        this.Close();      // إغلاق نافذة الاستراحة
-        //    }
-        //}
         private void BtnEmergency_Click(object sender, EventArgs e)
         {
             this.TopMost = false; // نوقف الواجهة فوق الكل مؤقتاً
@@ -120,8 +109,8 @@ namespace _202020Pro.Forms
                 emergencyForm.ShowDialog();
                 if (emergencyForm.IsAuthorized)
                 {
-                    breakTimer.Stop();
-                    this.Close();
+                    breakTimer.Stop(); // إيقاف المؤقت
+                    this.Close();     // إغلاق نافذة الاستراحة
                 }
             }
 
