@@ -58,6 +58,12 @@
     <Compile Include="Forms\BreakForm.Designer.cs">
       <DependentUpon>BreakForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\EmergencyForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\EmergencyForm.Designer.cs">
+      <DependentUpon>EmergencyForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>

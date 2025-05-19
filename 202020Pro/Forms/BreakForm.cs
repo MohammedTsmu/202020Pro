@@ -14,6 +14,7 @@ namespace _202020Pro.Forms
     {
         private Timer breakTimer;
 
+
         public BreakForm()
         {
             InitializeComponent();
@@ -23,15 +24,42 @@ namespace _202020Pro.Forms
             this.BackColor = Color.Black;
             this.Opacity = 0.8;
 
+            // إعدادات الرسالة
             Label message = new Label
             {
                 Text = "👁️ خذ استراحة الآن! انظر بعيداً لمدة 20 ثانية",
                 ForeColor = Color.White,
                 Font = new Font("Segoe UI", 24, FontStyle.Bold),
-                Dock = DockStyle.Fill,
-                TextAlign = ContentAlignment.MiddleCenter
+                AutoSize = true,
+                BackColor = Color.Transparent
             };
+            message.Location = new Point(
+                (this.ClientSize.Width - message.PreferredWidth) / 2,
+                (this.ClientSize.Height - message.PreferredHeight) / 2
+            );
+            message.Anchor = AnchorStyles.None;
             Controls.Add(message);
+
+
+
+            // إضافة زر الطوارئ
+            Button btnEmergency = new Button
+            {
+                Text = "طوارئ؟",
+                Font = new Font("Segoe UI", 10, FontStyle.Bold),
+                BackColor = Color.FromArgb(180, Color.Red), // شبه شفاف
+                ForeColor = Color.White,
+                Width = 90,
+                Height = 30,
+                FlatStyle = FlatStyle.Flat,
+                Top = 10,
+                Left = this.ClientSize.Width - 100,
+                Anchor = AnchorStyles.Top | AnchorStyles.Right
+            };
+            btnEmergency.FlatAppearance.BorderSize = 0;
+            btnEmergency.Click += BtnEmergency_Click;
+            Controls.Add(btnEmergency);
+
 
             breakTimer = new Timer();
             breakTimer.Interval = 20000; // 20 ثانية
@@ -44,5 +72,35 @@ namespace _202020Pro.Forms
             breakTimer.Stop();
             this.Close(); // إغلاق بعد انتهاء المدة
         }
+
+        //private void BtnEmergency_Click(object sender, EventArgs e)
+        //{
+        //    EmergencyForm emergencyForm = new EmergencyForm();
+        //    emergencyForm.ShowDialog();
+
+        //    if (emergencyForm.IsAuthorized)
+        //    {
+        //        breakTimer.Stop(); // إيقاف المؤقت
+        //        this.Close();      // إغلاق نافذة الاستراحة
+        //    }
+        //}
+        private void BtnEmergency_Click(object sender, EventArgs e)
+        {
+            this.TopMost = false; // نوقف الواجهة فوق الكل مؤقتاً
+
+            using (EmergencyForm emergencyForm = new EmergencyForm())
+            {
+                emergencyForm.ShowDialog();
+                if (emergencyForm.IsAuthorized)
+                {
+                    breakTimer.Stop();
+                    this.Close();
+                }
+            }
+
+            this.TopMost = true; // نعيدها فوق الكل
+        }
+
+
     }
 }
