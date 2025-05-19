@@ -166,5 +166,17 @@ namespace _202020Pro.Properties {
                 this["BreakFontSize"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool BreakCountdownEnabled {
+            get {
+                return ((bool)(this["BreakCountdownEnabled"]));
+            }
+            set {
+                this["BreakCountdownEnabled"] = value;
+            }
+        }
     }
 }

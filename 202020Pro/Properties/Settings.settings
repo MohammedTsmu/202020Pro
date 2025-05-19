@@ -38,5 +38,8 @@
     <Setting Name="BreakFontSize" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">24</Value>
     </Setting>
+    <Setting Name="BreakCountdownEnabled" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

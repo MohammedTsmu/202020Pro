@@ -83,6 +83,9 @@ namespace _202020Pro.Forms
             settingsMenu.DropDownItems.Add("🧹 إعادة واجهة الاستراحة للوضع الافتراضي", null, ResetBreakScreenDefaults_Click);
             settingsMenu.DropDownItems.Add("🧪 عرض واجهة الاستراحة الآن للمعاينة", null, ShowBreakScreenNow_Click);
 
+            settingsMenu.DropDownItems.Add(new ToolStripSeparator()); // فاصل بين العناصر
+            settingsMenu.DropDownItems.Add("⏳ تشغيل/إيقاف العداد العكسي", null, ToggleBreakCountdown_Click);
+
 
 
             trayMenu.Items.Add(settingsMenu);
@@ -563,6 +566,12 @@ namespace _202020Pro.Forms
             {
                 MessageBox.Show("حدث خطأ أثناء عرض واجهة الاستراحة: " + ex.Message, "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void ToggleBreakCountdown_Click(object sender, EventArgs e)
+        {
+            AppConfig.BreakCountdownEnabled = !AppConfig.BreakCountdownEnabled;
+            MessageBox.Show("تم " + (AppConfig.BreakCountdownEnabled ? "تفعيل" : "إيقاف") + " العداد العكسي.", "الإعدادات");
         }
 
     }

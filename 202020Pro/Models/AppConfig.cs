@@ -113,6 +113,16 @@
             set { Properties.Settings.Default.BreakFontSize = value; Properties.Settings.Default.Save(); }
         }
 
+        /// Break Countdown Enabled
+        public static bool BreakCountdownEnabled
+        {
+            get => Properties.Settings.Default.BreakCountdownEnabled;
+            set
+            {
+                Properties.Settings.Default.BreakCountdownEnabled = value;
+                Properties.Settings.Default.Save();
+            }
+        }
 
 
         public static void ResetToDefaults()

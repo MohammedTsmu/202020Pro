@@ -16,6 +16,8 @@ namespace _202020Pro.Forms
     public partial class BreakForm : Form
     {
         private Timer breakTimer;
+        private int countdownSeconds = 20;
+        private Label countdownLabel = null;
 
 
         public BreakForm()
@@ -72,6 +74,58 @@ namespace _202020Pro.Forms
             message.Anchor = AnchorStyles.None;
             Controls.Add(message);
 
+            // إعدادات العد التنازلي
+            //Label countdownLabel = new Label
+            //{
+            //    ForeColor = ColorTranslator.FromHtml(AppConfig.BreakTextColor),
+            //    Font = new Font(AppConfig.BreakFontFamily, AppConfig.BreakFontSize - 4, FontStyle.Regular),
+            //    AutoSize = true,
+            //    BackColor = Color.Transparent
+            //};
+
+
+
+
+            //countdownLabel = new Label
+            //{
+            //    ForeColor = ColorTranslator.FromHtml(AppConfig.BreakTextColor),
+            //    Font = new Font(AppConfig.BreakFontFamily, AppConfig.BreakFontSize - 4, FontStyle.Regular),
+            //    AutoSize = true,
+            //    BackColor = Color.Transparent
+            //};
+
+            //countdownLabel.Location = new Point(
+            //    (this.ClientSize.Width - countdownLabel.PreferredWidth) / 2,
+            //    message.Location.Y + message.Height + 20
+            //);
+            //Controls.Add(countdownLabel);
+            //// إعدادات العد التنازلي
+            ////countdownLabel.Text = $"⏳ {countdownSeconds} ثانية متبقية";
+            ///
+
+            //اعدادات العد التنازلي
+            if (AppConfig.BreakCountdownEnabled)
+            {
+                countdownLabel = new Label
+                {
+                    ForeColor = ColorTranslator.FromHtml(AppConfig.BreakTextColor),
+                    Font = new Font(AppConfig.BreakFontFamily, AppConfig.BreakFontSize - 4, FontStyle.Regular),
+                    AutoSize = true,
+                    BackColor = Color.Transparent
+                };
+
+                countdownLabel.Text = $"⏳ {countdownSeconds} ثانية متبقية";
+                countdownLabel.Location = new Point(
+                    (this.ClientSize.Width - countdownLabel.PreferredWidth) / 2,
+                    message.Location.Y + message.Height + 20
+                );
+
+                // اعادة ضبط موضع العد التنازلي
+                //countdownLabel.Anchor = AnchorStyles.None;
+                Controls.Add(countdownLabel);
+            }
+
+
 
 
             // إضافة زر الطوارئ
@@ -94,16 +148,56 @@ namespace _202020Pro.Forms
 
 
             breakTimer = new Timer();
-            breakTimer.Interval = 20000; // 20 ثانية
+            //breakTimer.Interval = 20000; // 20 ثانية
+            breakTimer.Interval = 1000; // 1 ثانية
             breakTimer.Tick += BreakTimer_Tick;
             breakTimer.Start();
         }
 
+        //private void BreakTimer_Tick(object sender, EventArgs e)
+        //{
+        //    breakTimer.Stop();
+        //    this.Close(); // إغلاق بعد انتهاء المدة
+        //}
+
+        //private void BreakTimer_Tick(object sender, EventArgs e)
+        //{
+        //    if (AppConfig.BreakCountdownEnabled && countdownLabel != null)
+        //    {
+        //        countdownLabel.Text = $"⏳ {countdownSeconds} ثانية متبقية";
+        //        countdownLabel.Left = (this.ClientSize.Width - countdownLabel.PreferredWidth) / 2;
+        //    }
+
+        //    countdownSeconds--;
+
+        //    countdownLabel.Text = $"⏳ {countdownSeconds} ثانية متبقية";
+        //    countdownLabel.Left = (this.ClientSize.Width - countdownLabel.PreferredWidth) / 2;
+
+        //    if (countdownSeconds <= 0)
+        //    {
+        //        breakTimer.Stop();
+        //        this.Close();
+        //    }
+        //}
         private void BreakTimer_Tick(object sender, EventArgs e)
         {
-            breakTimer.Stop();
-            this.Close(); // إغلاق بعد انتهاء المدة
+            if (AppConfig.BreakCountdownEnabled && countdownLabel != null)
+            {
+                countdownLabel.Text = $"⏳ {countdownSeconds} ثانية متبقية";
+                countdownLabel.Left = (this.ClientSize.Width - countdownLabel.PreferredWidth) / 2;
+            }
+
+            countdownSeconds--;
+
+            if (countdownSeconds <= 0)
+            {
+                breakTimer.Stop();
+                this.Close();
+            }
         }
+
+
+
 
         private void BtnEmergency_Click(object sender, EventArgs e)
         {
