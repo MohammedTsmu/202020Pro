@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using _202020Pro.Models;
 
 namespace _202020Pro.Forms
 {
@@ -17,6 +18,16 @@ namespace _202020Pro.Forms
 
         public BreakForm()
         {
+            // إذا كان في وضع الألعاب، لا نعرض نافذة الاستراحة
+            if (AppSettings.IsGamingMode)
+            {
+                // تشغيل إشعار صوتي فقط
+                System.Media.SystemSounds.Exclamation.Play();
+                this.Close();
+                return;
+            }
+
+            // إعدادات النموذج
             InitializeComponent();
             this.FormBorderStyle = FormBorderStyle.None;
             this.WindowState = FormWindowState.Maximized;
