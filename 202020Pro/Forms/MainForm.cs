@@ -11,6 +11,8 @@ using System.Windows.Forms;
 using _202020Pro.Forms;
 using _202020Pro.Models;
 using Microsoft.VisualBasic;
+using System.Media;
+
 
 
 namespace _202020Pro.Forms
@@ -57,6 +59,10 @@ namespace _202020Pro.Forms
 
             trayMenu.Items.Add("📄 عرض سجل وضع الألعاب", null, ShowGamingLog_Click);
             trayMenu.Items.Add(new ToolStripSeparator()); // فاصل بين العناصر
+
+            //
+            trayMenu.Items.Add("🔊 تشغيل صوت تجريبي", null, TestSound_Click);
+
 
 
             // إضافة قائمة فرعية للإعدادات
@@ -126,6 +132,25 @@ namespace _202020Pro.Forms
                     // تخطي الاستراحة أثناء الوضع الليلي
                     return;
                 }
+            }
+
+
+            // إذا كان وضع الألعاب مفعلًا، تحقق من الوقت المستهلك
+            if (AppSettings.IsGamingMode)
+            {
+                if (GamingModeManager.TotalUsedToday >= GamingModeManager.AllowedPerDay)
+                {
+                    // إيقاف وضع الألعاب تلقائيًا بعد انتهاء المدة
+                    GamingModeManager.DisableGamingMode();
+                    GamingLogger.Log("تم إيقاف وضع الألعاب تلقائيًا بعد انتهاء المدة");
+                    AppUtilities.PlayReminderSound();
+                }
+                else
+                {
+                    AppUtilities.PlayReminderSound(); // تشغيل صوت التنبيه
+                }
+
+                return; // لا تعرض نافذة الاستراحة
             }
 
             try
@@ -223,6 +248,7 @@ namespace _202020Pro.Forms
 
                 if (timeLeft.TotalMinutes <= 0)
                 {
+                    AppUtilities.PlayReminderSound(); // تشغيل صوت التنبيه
                     GamingModeManager.DisableGamingMode();
                     trayIcon.Text = "📴 تم إيقاف وضع الألعاب تلقائيًا";
                     GamingLogger.Log("تم تعطيل وضع الألعاب تلقائيًا");
@@ -298,8 +324,13 @@ namespace _202020Pro.Forms
         // 🟦 مدة وضع الألعاب
         private void ChangeGamingDuration_Click(object sender, EventArgs e)
         {
-            string input = Microsoft.VisualBasic.Interaction.InputBox("أدخل عدد الدقائق المسموحة لوضع الألعاب (30 - 240):", "مدة وضع الألعاب", AppConfig.GamingModeMinutes.ToString());
-            if (int.TryParse(input, out int value) && value >= 30 && value <= 240)
+            //string input = Microsoft.VisualBasic.Interaction.InputBox("أدخل عدد الدقائق المسموحة لوضع الألعاب (30 - 240):", "مدة وضع الألعاب", AppConfig.GamingModeMinutes.ToString());
+            string input = Microsoft.VisualBasic.Interaction.InputBox("أدخل عدد الدقائق المسموحة لوضع الألعاب (1 - 240):", "مدة وضع الألعاب", AppConfig.GamingModeMinutes.ToString());
+            //Delete Later For Testing
+
+            //if (int.TryParse(input, out int value) && value >= 30 && value <= 240)
+            if (int.TryParse(input, out int value) && value >= 1 && value <= 240)
+            //Delete Later For Testing
             {
                 AppConfig.GamingModeMinutes = value;
                 MessageBox.Show($"تم تعيين مدة وضع الألعاب إلى {value} دقيقة.", "نجاح");
@@ -381,6 +412,11 @@ namespace _202020Pro.Forms
         private bool IsNightHour(int hour)
         {
             return (hour >= 0 && hour <= 7) || (hour >= 22 && hour <= 23);
+        }
+
+        private void TestSound_Click(object sender, EventArgs e)
+        {
+            AppUtilities.PlayReminderSound();
         }
 
 

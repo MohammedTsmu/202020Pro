@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using _202020Pro.Models;
+using _202020Pro.Forms;
+
 
 namespace _202020Pro.Forms
 {
@@ -31,12 +33,16 @@ namespace _202020Pro.Forms
                 {
                     // تشغيل إشعار صوتي فقط
                     System.Media.SystemSounds.Exclamation.Play();
+                    AppUtilities.PlayReminderSound(); // تشغيل صوت التنبيه
+
                     // إغلاق نافذة الاستراحة
                     this.Close();
                     return;
                 }
             }
 
+            // تشغيل صوت التنبيه
+            AppUtilities.PlayReminderSound();
 
             // إعدادات النموذج
             InitializeComponent();
