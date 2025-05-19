@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -26,8 +27,6 @@ namespace _202020Pro.Forms
         public MainForm()
         {
             InitializeComponent();
-            //this.WindowState = FormWindowState.Minimized;
-            //this.ShowInTaskbar = false;
 
             mainTimer = new Timer();
             //mainTimer.Interval = 20 * 60 * 1000; // 20 دقيقة
@@ -51,8 +50,13 @@ namespace _202020Pro.Forms
             // إعداد القائمة المنبثقة
             trayMenu = new ContextMenuStrip();
             trayMenu.Items.Add("تفعيل/تعطيل وضع الألعاب", null, ToggleGamingMode_Click);
+
             trayMenu.Items.Add("خروج", null, Exit_Click);
 
+            trayMenu.Items.Add(new ToolStripSeparator()); // فاصل بين العناصر
+
+
+            trayMenu.Items.Add("📄 عرض سجل وضع الألعاب", null, ShowGamingLog_Click);
             trayMenu.Items.Add(new ToolStripSeparator()); // فاصل بين العناصر
 
 
@@ -135,6 +139,7 @@ namespace _202020Pro.Forms
             {
                 AppSettings.IsGamingMode = false;
                 MessageBox.Show("تم تعطيل وضع الألعاب", "202020Pro", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                GamingLogger.Log("تم تعطيل وضع الألعاب يدويًا");
             }
             else
             {
@@ -181,6 +186,7 @@ namespace _202020Pro.Forms
                 {
                     GamingModeManager.DisableGamingMode();
                     trayIcon.Text = "📴 تم إيقاف وضع الألعاب تلقائيًا";
+                    GamingLogger.Log("تم تعطيل وضع الألعاب تلقائيًا");
                     return;
                 }
 
@@ -279,6 +285,26 @@ namespace _202020Pro.Forms
             AppConfig.ResetToDefaults();
             mainTimer.Interval = AppConfig.BreakMinutes * 60 * 1000;
             MessageBox.Show("تمت إعادة الإعدادات إلى الوضع الافتراضي.", "نجاح");
+        }
+
+        private void ShowGamingLog_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string logPath = Path.Combine(
+                    Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
+                    "202020Pro", "gaming_log.txt"
+                );
+
+                if (File.Exists(logPath))
+                    System.Diagnostics.Process.Start("notepad.exe", logPath);
+                else
+                    MessageBox.Show("لا يوجد سجل حتى الآن.", "سجل فارغ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch
+            {
+                MessageBox.Show("تعذر فتح السجل.", "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
 

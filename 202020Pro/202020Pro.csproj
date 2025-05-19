@@ -79,6 +79,7 @@
     </Compile>
     <Compile Include="Models\AppConfig.cs" />
     <Compile Include="Models\AppSettings.cs" />
+    <Compile Include="Models\GamingLogger.cs" />
     <Compile Include="Models\GamingModeManager.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

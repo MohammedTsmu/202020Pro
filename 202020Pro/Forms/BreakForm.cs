@@ -21,22 +21,17 @@ namespace _202020Pro.Forms
             // إذا كان في وضع الألعاب، لا نعرض نافذة الاستراحة
             if (AppSettings.IsGamingMode)
             {
-                // تشغيل إشعار صوتي فقط
-                System.Media.SystemSounds.Exclamation.Play();
-                this.Close();
-                return;
-            }
-
-            if (AppSettings.IsGamingMode)
-            {
                 // تحقق إذا انتهت المدة المسموحة
                 if (GamingModeManager.TotalUsedToday >= GamingModeManager.AllowedPerDay)
                 {
                     GamingModeManager.DisableGamingMode();
+                    GamingLogger.Log("تم إيقاف وضع الألعاب تلقائيًا بعد انتهاء المدة");
                 }
                 else
                 {
+                    // تشغيل إشعار صوتي فقط
                     System.Media.SystemSounds.Exclamation.Play();
+                    // إغلاق نافذة الاستراحة
                     this.Close();
                     return;
                 }

@@ -54,6 +54,7 @@ namespace _202020Pro.Forms
                     }
 
                     GamingModeManager.EnableGamingMode();
+                    GamingLogger.Log("تم تفعيل وضع الألعاب");
                     MessageBox.Show("تم تفعيل وضع الألعاب بنجاح", "نجاح", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.Close();
                 }
