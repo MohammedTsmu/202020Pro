@@ -67,6 +67,7 @@ namespace _202020Pro.Forms
             Controls.Add(txtPassword);
             Controls.Add(lbl);
         }
+
     }
 
 }

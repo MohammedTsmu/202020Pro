@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using _202020Pro.Forms;
 using _202020Pro.Models;
+using Microsoft.VisualBasic;
+
 
 namespace _202020Pro.Forms
 {
@@ -29,7 +31,8 @@ namespace _202020Pro.Forms
 
             mainTimer = new Timer();
             //mainTimer.Interval = 20 * 60 * 1000; // 20 دقيقة
-            mainTimer.Interval = 1 * 60 * 1000; // 20 دقيقة
+            //mainTimer.Interval = 1 * 60 * 1000; // 20 دقيقة
+            mainTimer.Interval = AppConfig.BreakMinutes * 60 * 1000; // 20 دقيقة
             mainTimer.Tick += MainTimer_Tick;
             mainTimer.Start();
 
@@ -49,6 +52,21 @@ namespace _202020Pro.Forms
             trayMenu = new ContextMenuStrip();
             trayMenu.Items.Add("تفعيل/تعطيل وضع الألعاب", null, ToggleGamingMode_Click);
             trayMenu.Items.Add("خروج", null, Exit_Click);
+
+            //trayMenu.Items.Add(new ToolStripSeparator()); // فاصل بين العناصر
+            //trayMenu.Items.Add("⏱️ تعديل مدة الراحة", null, ChangeBreakInterval_Click);
+
+
+            // إضافة قائمة فرعية للإعدادات
+            var settingsMenu = new ToolStripMenuItem("⚙️ الإعدادات");
+            settingsMenu.DropDownItems.Add("🔐 تعديل كلمة مرور الطوارئ", null, ChangeEmergencyPassword_Click);
+            settingsMenu.DropDownItems.Add("🕹️ تعديل كلمة مرور الألعاب", null, ChangeGamingPassword_Click);
+            settingsMenu.DropDownItems.Add("⏱️ تعديل مدة الراحة", null, ChangeBreakInterval_Click);
+            settingsMenu.DropDownItems.Add("⌛ تعديل مدة وضع الألعاب", null, ChangeGamingDuration_Click);
+            settingsMenu.DropDownItems.Add("🔊 تشغيل/إيقاف الصوت", null, ToggleSound_Click);
+            settingsMenu.DropDownItems.Add("🔁 إعادة الإعدادات الافتراضية", null, ResetSettings_Click);
+
+            trayMenu.Items.Add(settingsMenu);
 
             // إنشاء الأيقونة
             trayIcon = new NotifyIcon
@@ -206,6 +224,85 @@ namespace _202020Pro.Forms
                 return $"{(int)ts.TotalHours} ساعة و {ts.Minutes} دقيقة";
             else
                 return $"{ts.Minutes} دقيقة";
+        }
+
+        // 🟦 كلمة مرور الطوارئ
+        private void ChangeEmergencyPassword_Click(object sender, EventArgs e)
+        {
+            string input = Microsoft.VisualBasic.Interaction.InputBox("أدخل كلمة المرور الجديدة للطوارئ:", "تعديل كلمة مرور الطوارئ", AppConfig.EmergencyPassword);
+            if (!string.IsNullOrWhiteSpace(input) && input.Length >= 3)
+            {
+                AppConfig.EmergencyPassword = input;
+                MessageBox.Show("تم تحديث كلمة المرور للطوارئ.", "نجاح");
+            }
+            else
+            {
+                MessageBox.Show("كلمة المرور يجب أن تكون 3 أحرف أو أكثر.", "خطأ");
+            }
+        }
+
+        // 🟦 كلمة مرور الألعاب
+        private void ChangeGamingPassword_Click(object sender, EventArgs e)
+        {
+            string input = Microsoft.VisualBasic.Interaction.InputBox("أدخل كلمة المرور الجديدة لوضع الألعاب:", "تعديل كلمة المرور", AppConfig.GamingPassword);
+            if (!string.IsNullOrWhiteSpace(input) && input.Length >= 3)
+            {
+                AppConfig.GamingPassword = input;
+                MessageBox.Show("تم تحديث كلمة المرور لوضع الألعاب.", "نجاح");
+            }
+            else
+            {
+                MessageBox.Show("كلمة المرور يجب أن تكون 3 أحرف أو أكثر.", "خطأ");
+            }
+        }
+
+        // 🟦 مدة الراحة
+        private void ChangeBreakInterval_Click(object sender, EventArgs e)
+        {
+            //string input = Microsoft.VisualBasic.Interaction.InputBox("أدخل عدد الدقائق بين كل استراحة (10 - 60):", "مدة الراحة", AppConfig.BreakMinutes.ToString());
+            string input = Microsoft.VisualBasic.Interaction.InputBox("أدخل عدد الدقائق بين كل استراحة (1 - 60):", "مدة الراحة", AppConfig.BreakMinutes.ToString());
+            //if (int.TryParse(input, out int value) && value >= 10 && value <= 60)
+            if (int.TryParse(input, out int value) && value >= 1 && value <= 60)//For testing delete later 1 minute timer
+            {
+                AppConfig.BreakMinutes = value;
+                mainTimer.Interval = value * 60 * 1000;
+                MessageBox.Show($"تم تعيين مدة الراحة إلى {value} دقيقة.", "نجاح");
+            }
+            else
+            {
+                MessageBox.Show("القيمة غير صالحة. الرجاء اختيار رقم بين 10 و 60.", "خطأ");
+            }
+        }
+
+        // 🟦 مدة وضع الألعاب
+        private void ChangeGamingDuration_Click(object sender, EventArgs e)
+        {
+            string input = Microsoft.VisualBasic.Interaction.InputBox("أدخل عدد الدقائق المسموحة لوضع الألعاب (30 - 240):", "مدة وضع الألعاب", AppConfig.GamingModeMinutes.ToString());
+            if (int.TryParse(input, out int value) && value >= 30 && value <= 240)
+            {
+                AppConfig.GamingModeMinutes = value;
+                MessageBox.Show($"تم تعيين مدة وضع الألعاب إلى {value} دقيقة.", "نجاح");
+            }
+            else
+            {
+                MessageBox.Show("القيمة غير صالحة. الرجاء اختيار رقم بين 30 و 240.", "خطأ");
+            }
+        }
+
+
+        // 🟦 تشغيل/إيقاف الصوت
+        private void ToggleSound_Click(object sender, EventArgs e)
+        {
+            AppConfig.SoundEnabled = !AppConfig.SoundEnabled;
+            MessageBox.Show("تم " + (AppConfig.SoundEnabled ? "تفعيل" : "إيقاف") + " الصوت.", "الإعدادات");
+        }
+
+        // 🟦 إعادة الإعدادات الافتراضية
+        private void ResetSettings_Click(object sender, EventArgs e)
+        {
+            AppConfig.ResetToDefaults();
+            mainTimer.Interval = AppConfig.BreakMinutes * 60 * 1000;
+            MessageBox.Show("تمت إعادة الإعدادات إلى الوضع الافتراضي.", "نجاح");
         }
 
 

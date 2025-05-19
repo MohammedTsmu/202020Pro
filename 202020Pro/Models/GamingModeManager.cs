@@ -21,7 +21,9 @@ namespace _202020Pro.Models
 
         public static DateTime? GamingStartTime { get; private set; } = null;
 
-        public static TimeSpan AllowedPerDay = TimeSpan.FromHours(3);
+        //public static TimeSpan AllowedPerDay = TimeSpan.FromHours(3);
+        public static TimeSpan AllowedPerDay => TimeSpan.FromMinutes(AppConfig.GamingModeMinutes);
+
 
         public static TimeSpan TotalUsedToday
         {
