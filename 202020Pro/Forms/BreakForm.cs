@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using _202020Pro.Models;
 using _202020Pro.Forms;
+using System.Runtime.InteropServices;
 
 
 namespace _202020Pro.Forms
@@ -18,6 +19,20 @@ namespace _202020Pro.Forms
         private Timer breakTimer;
         private int countdownSeconds = 20;
         private Label countdownLabel = null;
+
+        private bool forceClose = false;
+
+        // تعريف الرسائل الخاصة بلوحة المفاتيح والفأرة
+        private const int WM_KEYDOWN = 0x0100;
+        private const int WM_SYSKEYDOWN = 0x0104;
+        private const int WM_LBUTTONDOWN = 0x0201;
+        private const int WM_RBUTTONDOWN = 0x0204;
+        private const int WM_MBUTTONDOWN = 0x0207;
+        private const int WM_MOUSEMOVE = 0x0200;
+
+        
+        private Timer focusTimer;
+
 
 
         public BreakForm()
@@ -43,18 +58,19 @@ namespace _202020Pro.Forms
                 }
             }
 
-            // تشغيل صوت التنبيه
-            AppUtilities.PlayReminderSound();
+
 
             // إعدادات النموذج
             InitializeComponent();
             this.FormBorderStyle = FormBorderStyle.None;
             this.WindowState = FormWindowState.Maximized;
             this.TopMost = true;
-            //this.BackColor = Color.Black;
             this.BackColor = ColorTranslator.FromHtml(AppConfig.BreakBackgroundColor);           
             this.Opacity = 0.8;
 
+            // تشغيل صوت التنبيه
+            AppUtilities.PlayReminderSound();
+            StartFocusLoop(); // بدء حلقة التركيز
 
             // إعدادات الرسالة
             Label message = new Label
@@ -128,6 +144,32 @@ namespace _202020Pro.Forms
 
         private void BreakTimer_Tick(object sender, EventArgs e)
         {
+            //if (AppConfig.BreakCountdownEnabled && countdownLabel != null)
+            //{
+            //    countdownLabel.Text = $"⏳ {countdownSeconds} ثانية متبقية";
+            //    countdownLabel.Left = (this.ClientSize.Width - countdownLabel.PreferredWidth) / 2;
+            //}
+            //else
+            //{
+            //    Console.WriteLine($"🕐 عد تنازلي (غير ظاهر): {countdownSeconds} ثانية");
+            //}
+
+            //countdownSeconds--;
+
+            //if (countdownSeconds <= 0)
+            //{
+            //    //breakTimer.Stop();
+            //    //this.Close();
+            //    forceClose = true;
+            //    this.Close();
+            //}
+            if (countdownSeconds <= 0)
+            {
+                forceClose = true;
+                this.Close();
+                return; // ضروري جداً لمنع الاستمرار
+            }
+
             if (AppConfig.BreakCountdownEnabled && countdownLabel != null)
             {
                 countdownLabel.Text = $"⏳ {countdownSeconds} ثانية متبقية";
@@ -140,30 +182,136 @@ namespace _202020Pro.Forms
 
             countdownSeconds--;
 
-            if (countdownSeconds <= 0)
-            {
-                breakTimer.Stop();
-                this.Close();
-            }
         }
 
+        //private void BtnEmergency_Click(object sender, EventArgs e)
+        //{
+        //    //this.TopMost = false; // نوقف الواجهة فوق الكل مؤقتاً
+
+        //    //using (EmergencyForm emergencyForm = new EmergencyForm())
+        //    //{
+        //    //    emergencyForm.ShowDialog();
+        //    //    if (emergencyForm.IsAuthorized)
+        //    //    {
+        //    //        //breakTimer.Stop(); // إيقاف المؤقت
+        //    //        //this.Close();     // إغلاق نافذة الاستراحة
+        //    //        forceClose = true; // إغلاق نافذة الاستراحة
+        //    //        this.Close();
+        //    //    }
+        //    //}
+
+        //    //this.TopMost = true; // نعيدها فوق الكل
+        //    this.TopMost = false;
+        //    this.Enabled = false; // ⛔️ اجعل الفورم غير قابل للتفاعل
+
+        //    using (EmergencyForm emergencyForm = new EmergencyForm())
+        //    {
+        //        emergencyForm.StartPosition = FormStartPosition.CenterScreen;
+        //        emergencyForm.ShowDialog();
+
+        //        if (emergencyForm.IsAuthorized)
+        //        {
+        //            forceClose = true;
+        //            this.Close();
+        //        }
+        //    }
+
+        //    this.Enabled = true;  // ✅ إعادة التفاعل مع الفورم
+        //    this.TopMost = true;
+        //}
         private void BtnEmergency_Click(object sender, EventArgs e)
         {
-            this.TopMost = false; // نوقف الواجهة فوق الكل مؤقتاً
+            this.TopMost = false;
+            this.Enabled = false;
+
+            focusTimer.Stop(); // ⛔️ إيقاف مؤقت التركيز حتى لا يسحب الفوكس
 
             using (EmergencyForm emergencyForm = new EmergencyForm())
             {
+                emergencyForm.StartPosition = FormStartPosition.CenterScreen;
                 emergencyForm.ShowDialog();
+
                 if (emergencyForm.IsAuthorized)
                 {
-                    breakTimer.Stop(); // إيقاف المؤقت
-                    this.Close();     // إغلاق نافذة الاستراحة
+                    forceClose = true;
+                    this.Close();
+                    return; // لا نرجع لتشغيل المؤقت
                 }
             }
 
-            this.TopMost = true; // نعيدها فوق الكل
+            this.Enabled = true;
+            this.TopMost = true;
+            focusTimer.Start(); // ✅ إعادة تشغيل المؤقت فقط إذا لم يتم الإغلاق
         }
 
+
+
+        // نحدد المفاتيح المسموح بها فقط
+        private bool IsAllowedKey(Keys key)
+        {
+            // نسمح فقط بـ Ctrl+E مثلاً أو مفتاح الطوارئ حسب ما تختار لاحقاً
+            return false; // لا نسمح بأي مفتاح الآن
+        }
+
+        protected override void WndProc(ref Message m)
+        {
+            // منع الكيبورد
+            if (m.Msg == WM_KEYDOWN || m.Msg == WM_SYSKEYDOWN)
+            {
+                Keys key = (Keys)(int)m.WParam & Keys.KeyCode;
+                if (!IsAllowedKey(key))
+                {
+                    return; // تجاهل المفتاح
+                }
+            }
+
+            // منع الضغط على الماوس (يسار، يمين، أوسط)
+            if (m.Msg == WM_LBUTTONDOWN || m.Msg == WM_RBUTTONDOWN || m.Msg == WM_MBUTTONDOWN)
+            {
+                return; // تجاهل الضغط
+            }
+
+            base.WndProc(ref m); // استدعاء السلوك الطبيعي لباقي الرسائل
+        }
+
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                const int WS_SYSMENU = 0x80000;
+                CreateParams cp = base.CreateParams;
+                cp.ClassStyle = cp.ClassStyle | 0x200; // Prevent Alt+F4
+                cp.Style &= ~WS_SYSMENU; // Remove system menu (no close)
+                return cp;
+            }
+        }
+
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            if (!forceClose)
+            {
+                e.Cancel = true; // لا نسمح بالإغلاق من Alt+F4
+            }
+
+            base.OnFormClosing(e);
+        }
+
+        private void StartFocusLoop()
+        {
+            focusTimer = new Timer();
+            focusTimer.Interval = 500; // كل نصف ثانية
+            focusTimer.Tick += (s, e) =>
+            {
+                if (!this.Focused)
+                {
+                    this.Activate();
+                }
+            };
+            focusTimer.Start();
+        }
+
+
+        //private bool forceClose = false;
 
     }
 }
