@@ -52,6 +52,42 @@
             }
         }
 
+        /// Night Mode Settings
+        public static bool NightModeEnabled
+        {
+            get => Properties.Settings.Default.NightModeEnabled;
+            set
+            {
+                Properties.Settings.Default.NightModeEnabled = value;
+                Properties.Settings.Default.Save();
+            }
+        }
+
+        /// Night Mode Start and End Hours
+        public static int NightModeStartHour
+        {
+            get => Properties.Settings.Default.NightModeStartHour;
+            set
+            {
+                Properties.Settings.Default.NightModeStartHour = value;
+                Properties.Settings.Default.Save();
+            }
+        }
+
+        /// Night Mode Start and End Hours
+        public static int NightModeEndHour
+        {
+            get => Properties.Settings.Default.NightModeEndHour;
+            set
+            {
+                Properties.Settings.Default.NightModeEndHour = value;
+                Properties.Settings.Default.Save();
+            }
+        }
+
+
+
+
         public static void ResetToDefaults()
         {
             EmergencyPassword = "911";

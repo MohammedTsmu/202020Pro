@@ -55,7 +55,6 @@ namespace _202020Pro.Forms
 
             trayMenu.Items.Add(new ToolStripSeparator()); // فاصل بين العناصر
 
-
             trayMenu.Items.Add("📄 عرض سجل وضع الألعاب", null, ShowGamingLog_Click);
             trayMenu.Items.Add(new ToolStripSeparator()); // فاصل بين العناصر
 
@@ -69,6 +68,10 @@ namespace _202020Pro.Forms
             settingsMenu.DropDownItems.Add("🔊 تشغيل/إيقاف الصوت", null, ToggleSound_Click);
             settingsMenu.DropDownItems.Add("🔁 إعادة الإعدادات الافتراضية", null, ResetSettings_Click);
 
+            settingsMenu.DropDownItems.Add(new ToolStripSeparator()); // فاصل بين العناصر
+            settingsMenu.DropDownItems.Add("🌙 تفعيل/تعطيل الوضع الليلي", null, ToggleNightMode_Click);
+            settingsMenu.DropDownItems.Add("🕓 تعديل وقت الوضع الليلي", null, EditNightModeHours_Click);
+
             trayMenu.Items.Add(settingsMenu);
 
             // إنشاء الأيقونة
@@ -81,13 +84,48 @@ namespace _202020Pro.Forms
             };
         }
 
-        
+
+        //private void MainTimer_Tick(object sender, EventArgs e)
+        //{
+        //    if (this.IsDisposed || !this.IsHandleCreated)
+        //    {
+        //        mainTimer.Stop();
+        //        return;
+        //    }
+
+        //    try
+        //    {
+        //        BreakForm breakForm = new BreakForm();
+        //        breakForm.ShowDialog(); // نافذة لا يمكن تجاوزها بسهولة
+        //    }
+        //    catch (ObjectDisposedException)
+        //    {
+        //        mainTimer.Stop();
+        //    }
+        //}
         private void MainTimer_Tick(object sender, EventArgs e)
         {
             if (this.IsDisposed || !this.IsHandleCreated)
             {
                 mainTimer.Stop();
                 return;
+            }
+
+            if (AppConfig.NightModeEnabled)
+            {
+                int nowHour = DateTime.Now.Hour;
+                int start = AppConfig.NightModeStartHour;
+                int end = AppConfig.NightModeEndHour;
+
+                // التحقق من كون الوقت الحالي داخل النطاق
+                bool isNightNow = (start < end && nowHour >= start && nowHour < end) ||
+                                  (start > end && (nowHour >= start || nowHour < end)); // تغطية النطاق العكسي مثل 22–3
+
+                if (isNightNow)
+                {
+                    // تخطي الاستراحة أثناء الوضع الليلي
+                    return;
+                }
             }
 
             try
@@ -100,6 +138,7 @@ namespace _202020Pro.Forms
                 mainTimer.Stop();
             }
         }
+
 
 
         protected override void OnFormClosing(FormClosingEventArgs e)
@@ -305,6 +344,43 @@ namespace _202020Pro.Forms
             {
                 MessageBox.Show("تعذر فتح السجل.", "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        // 🔘 تفعيل / تعطيل الوضع الليلي
+        private void ToggleNightMode_Click(object sender, EventArgs e)
+        {
+            AppConfig.NightModeEnabled = !AppConfig.NightModeEnabled;
+            MessageBox.Show("تم " + (AppConfig.NightModeEnabled ? "تفعيل" : "تعطيل") + " الوضع الليلي.", "الإعدادات");
+        }
+
+        // ⏱️ تعديل وقت الوضع الليلي
+        private void EditNightModeHours_Click(object sender, EventArgs e)
+        {
+            string inputStart = Interaction.InputBox("أدخل ساعة البدء (0 إلى 23):", "بداية الوضع الليلي", AppConfig.NightModeStartHour.ToString());
+            string inputEnd = Interaction.InputBox("أدخل ساعة الانتهاء (0 إلى 23):", "نهاية الوضع الليلي", AppConfig.NightModeEndHour.ToString());
+
+            if (int.TryParse(inputStart, out int startHour) && int.TryParse(inputEnd, out int endHour))
+            {
+                if (IsNightHour(startHour) && IsNightHour(endHour))
+                {
+                    AppConfig.NightModeStartHour = startHour;
+                    AppConfig.NightModeEndHour = endHour;
+                    MessageBox.Show($"تم تعديل وقت الوضع الليلي: من {startHour}:00 إلى {endHour}:00", "نجاح");
+                }
+                else
+                {
+                    MessageBox.Show("الرجاء اختيار ساعات ليلية فقط (مثلاً من 0 إلى 7 أو من 22 إلى 6)", "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            else
+            {
+                MessageBox.Show("تنسيق غير صحيح.", "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private bool IsNightHour(int hour)
+        {
+            return (hour >= 0 && hour <= 7) || (hour >= 22 && hour <= 23);
         }
 
 

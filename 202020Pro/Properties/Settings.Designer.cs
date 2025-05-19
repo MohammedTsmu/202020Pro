@@ -82,5 +82,41 @@ namespace _202020Pro.Properties {
                 this["SoundEnabled"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool NightModeEnabled {
+            get {
+                return ((bool)(this["NightModeEnabled"]));
+            }
+            set {
+                this["NightModeEnabled"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int NightModeStartHour {
+            get {
+                return ((int)(this["NightModeStartHour"]));
+            }
+            set {
+                this["NightModeStartHour"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("7")]
+        public int NightModeEndHour {
+            get {
+                return ((int)(this["NightModeEndHour"]));
+            }
+            set {
+                this["NightModeEndHour"] = value;
+            }
+        }
     }
 }
