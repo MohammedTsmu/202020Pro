@@ -85,6 +85,33 @@
             }
         }
 
+        /// Background Color for Break Message
+        public static string BreakBackgroundColor
+        {
+            get => Properties.Settings.Default.BreakBackgroundColor;
+            set { Properties.Settings.Default.BreakBackgroundColor = value; Properties.Settings.Default.Save(); }
+        }
+
+        /// Text Color for Break Message
+        public static string BreakTextColor
+        {
+            get => Properties.Settings.Default.BreakTextColor;
+            set { Properties.Settings.Default.BreakTextColor = value; Properties.Settings.Default.Save(); }
+        }
+
+        /// Font Family for Break Message
+        public static string BreakFontFamily
+        {
+            get => Properties.Settings.Default.BreakFontFamily;
+            set { Properties.Settings.Default.BreakFontFamily = value; Properties.Settings.Default.Save(); }
+        }
+
+        /// Font Size for Break Message
+        public static int BreakFontSize
+        {
+            get => Properties.Settings.Default.BreakFontSize;
+            set { Properties.Settings.Default.BreakFontSize = value; Properties.Settings.Default.Save(); }
+        }
 
 
 

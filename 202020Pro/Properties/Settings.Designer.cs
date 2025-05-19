@@ -118,5 +118,53 @@ namespace _202020Pro.Properties {
                 this["NightModeEndHour"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("#000000")]
+        public string BreakBackgroundColor {
+            get {
+                return ((string)(this["BreakBackgroundColor"]));
+            }
+            set {
+                this["BreakBackgroundColor"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("#FFFFFF")]
+        public string BreakTextColor {
+            get {
+                return ((string)(this["BreakTextColor"]));
+            }
+            set {
+                this["BreakTextColor"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Segoe UI")]
+        public string BreakFontFamily {
+            get {
+                return ((string)(this["BreakFontFamily"]));
+            }
+            set {
+                this["BreakFontFamily"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("24")]
+        public int BreakFontSize {
+            get {
+                return ((int)(this["BreakFontSize"]));
+            }
+            set {
+                this["BreakFontSize"] = value;
+            }
+        }
     }
 }

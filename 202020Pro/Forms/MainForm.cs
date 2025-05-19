@@ -78,6 +78,11 @@ namespace _202020Pro.Forms
             settingsMenu.DropDownItems.Add("🌙 تفعيل/تعطيل الوضع الليلي", null, ToggleNightMode_Click);
             settingsMenu.DropDownItems.Add("🕓 تعديل وقت الوضع الليلي", null, EditNightModeHours_Click);
 
+            settingsMenu.DropDownItems.Add(new ToolStripSeparator()); // فاصل بين العناصر
+            settingsMenu.DropDownItems.Add("🎨 تخصيص واجهة الاستراحة", null, CustomizeBreakScreen_Click);
+
+
+
             trayMenu.Items.Add(settingsMenu);
 
             // إنشاء الأيقونة
@@ -419,6 +424,28 @@ namespace _202020Pro.Forms
             AppUtilities.PlayReminderSound();
         }
 
+        private void CustomizeBreakScreen_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string bg = Interaction.InputBox("لون الخلفية (HTML مثل #000000):", "لون الخلفية", AppConfig.BreakBackgroundColor);
+                string fg = Interaction.InputBox("لون النص (HTML مثل #FFFFFF):", "لون النص", AppConfig.BreakTextColor);
+                string font = Interaction.InputBox("اسم الخط (مثلاً Segoe UI):", "نوع الخط", AppConfig.BreakFontFamily);
+                string size = Interaction.InputBox("حجم الخط (مثلاً 24):", "حجم الخط", AppConfig.BreakFontSize.ToString());
+
+                if (!string.IsNullOrWhiteSpace(bg)) AppConfig.BreakBackgroundColor = bg;
+                if (!string.IsNullOrWhiteSpace(fg)) AppConfig.BreakTextColor = fg;
+                if (!string.IsNullOrWhiteSpace(font)) AppConfig.BreakFontFamily = font;
+                if (int.TryParse(size, out int fontSize) && fontSize >= 10 && fontSize <= 48)
+                    AppConfig.BreakFontSize = fontSize;
+
+                MessageBox.Show("تم تحديث إعدادات الاستراحة.", "نجاح");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("حدث خطأ أثناء التخصيص: " + ex.Message, "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
 
     }
 

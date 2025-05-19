@@ -49,15 +49,19 @@ namespace _202020Pro.Forms
             this.FormBorderStyle = FormBorderStyle.None;
             this.WindowState = FormWindowState.Maximized;
             this.TopMost = true;
-            this.BackColor = Color.Black;
+            //this.BackColor = Color.Black;
+            this.BackColor = ColorTranslator.FromHtml(AppConfig.BreakBackgroundColor);           
             this.Opacity = 0.8;
+
 
             // إعدادات الرسالة
             Label message = new Label
             {
                 Text = "👁️ خذ استراحة الآن! انظر بعيداً لمدة 20 ثانية",
-                ForeColor = Color.White,
-                Font = new Font("Segoe UI", 24, FontStyle.Bold),
+                //ForeColor = Color.White,
+                //Font = new Font("Segoe UI", 24, FontStyle.Bold),
+                ForeColor = ColorTranslator.FromHtml(AppConfig.BreakTextColor),
+                Font = new Font(AppConfig.BreakFontFamily, AppConfig.BreakFontSize, FontStyle.Bold),
                 AutoSize = true,
                 BackColor = Color.Transparent
             };
