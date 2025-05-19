@@ -424,28 +424,102 @@ namespace _202020Pro.Forms
             AppUtilities.PlayReminderSound();
         }
 
+        //private void CustomizeBreakScreen_Click(object sender, EventArgs e)
+        //{
+        //    try
+        //    {
+        //        string bg = Interaction.InputBox("لون الخلفية (HTML مثل #000000):", "لون الخلفية", AppConfig.BreakBackgroundColor);
+        //        string fg = Interaction.InputBox("لون النص (HTML مثل #FFFFFF):", "لون النص", AppConfig.BreakTextColor);
+        //        string font = Interaction.InputBox("اسم الخط (مثلاً Segoe UI):", "نوع الخط", AppConfig.BreakFontFamily);
+        //        string size = Interaction.InputBox("حجم الخط (مثلاً 24):", "حجم الخط", AppConfig.BreakFontSize.ToString());
+
+        //        if (!string.IsNullOrWhiteSpace(bg)) AppConfig.BreakBackgroundColor = bg;
+        //        if (!string.IsNullOrWhiteSpace(fg)) AppConfig.BreakTextColor = fg;
+        //        if (!string.IsNullOrWhiteSpace(font)) AppConfig.BreakFontFamily = font;
+        //        if (int.TryParse(size, out int fontSize) && fontSize >= 10 && fontSize <= 48)
+        //            AppConfig.BreakFontSize = fontSize;
+
+        //        MessageBox.Show("تم تحديث إعدادات الاستراحة.", "نجاح");
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show("حدث خطأ أثناء التخصيص: " + ex.Message, "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //    }
+        //}
+        // 📁 MainForm.cs
+
         private void CustomizeBreakScreen_Click(object sender, EventArgs e)
         {
             try
             {
-                string bg = Interaction.InputBox("لون الخلفية (HTML مثل #000000):", "لون الخلفية", AppConfig.BreakBackgroundColor);
-                string fg = Interaction.InputBox("لون النص (HTML مثل #FFFFFF):", "لون النص", AppConfig.BreakTextColor);
-                string font = Interaction.InputBox("اسم الخط (مثلاً Segoe UI):", "نوع الخط", AppConfig.BreakFontFamily);
-                string size = Interaction.InputBox("حجم الخط (مثلاً 24):", "حجم الخط", AppConfig.BreakFontSize.ToString());
+                // 🎨 اختيار لون الخلفية
+                ColorDialog bgDialog = new ColorDialog();
+                bgDialog.Color = ColorTranslator.FromHtml(AppConfig.BreakBackgroundColor);
+                if (bgDialog.ShowDialog() == DialogResult.OK)
+                {
+                    AppConfig.BreakBackgroundColor = ColorTranslator.ToHtml(bgDialog.Color);
+                }
 
-                if (!string.IsNullOrWhiteSpace(bg)) AppConfig.BreakBackgroundColor = bg;
-                if (!string.IsNullOrWhiteSpace(fg)) AppConfig.BreakTextColor = fg;
-                if (!string.IsNullOrWhiteSpace(font)) AppConfig.BreakFontFamily = font;
-                if (int.TryParse(size, out int fontSize) && fontSize >= 10 && fontSize <= 48)
-                    AppConfig.BreakFontSize = fontSize;
+                // 🎨 اختيار لون النص
+                ColorDialog fgDialog = new ColorDialog();
+                fgDialog.Color = ColorTranslator.FromHtml(AppConfig.BreakTextColor);
+                if (fgDialog.ShowDialog() == DialogResult.OK)
+                {
+                    AppConfig.BreakTextColor = ColorTranslator.ToHtml(fgDialog.Color);
+                }
 
-                MessageBox.Show("تم تحديث إعدادات الاستراحة.", "نجاح");
+                // 🔤 اختيار الخط
+                FontDialog fontDialog = new FontDialog();
+                fontDialog.Font = new Font(AppConfig.BreakFontFamily, AppConfig.BreakFontSize);
+                if (fontDialog.ShowDialog() == DialogResult.OK)
+                {
+                    AppConfig.BreakFontFamily = fontDialog.Font.FontFamily.Name;
+                    AppConfig.BreakFontSize = (int)fontDialog.Font.Size;
+                }
+
+                // 👀 عرض معاينة مباشرة
+                ShowBreakPreview();
+
+                // 🔁 تأكيد عرض إعادة الإعدادات
+                if (MessageBox.Show("هل ترغب بإعادة الإعدادات الافتراضية؟", "إعادة؟", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    AppConfig.BreakBackgroundColor = "#000000";
+                    AppConfig.BreakTextColor = "#FFFFFF";
+                    AppConfig.BreakFontFamily = "Segoe UI";
+                    AppConfig.BreakFontSize = 24;
+                    MessageBox.Show("تمت إعادة الإعدادات الافتراضية.", "تم");
+                }
+                else
+                {
+                    MessageBox.Show("تم حفظ التخصيص بنجاح.", "نجاح");
+                }
             }
             catch (Exception ex)
             {
                 MessageBox.Show("حدث خطأ أثناء التخصيص: " + ex.Message, "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        // 🖼️ معاينة بسيطة للاستراحة
+        private void ShowBreakPreview()
+        {
+            Form preview = new Form();
+            preview.Text = "معاينة الاستراحة";
+            preview.Size = new Size(500, 200);
+            preview.BackColor = ColorTranslator.FromHtml(AppConfig.BreakBackgroundColor);
+            preview.StartPosition = FormStartPosition.CenterScreen;
+
+            Label lbl = new Label();
+            lbl.Text = "👁️ خذ استراحة الآن! انظر بعيداً لمدة 20 ثانية";
+            lbl.ForeColor = ColorTranslator.FromHtml(AppConfig.BreakTextColor);
+            lbl.Font = new Font(AppConfig.BreakFontFamily, AppConfig.BreakFontSize, FontStyle.Bold);
+            lbl.Dock = DockStyle.Fill;
+            lbl.TextAlign = ContentAlignment.MiddleCenter;
+
+            preview.Controls.Add(lbl);
+            preview.ShowDialog();
+        }
+
 
     }
 
