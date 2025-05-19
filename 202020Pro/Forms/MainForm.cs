@@ -18,6 +18,7 @@ namespace _202020Pro.Forms
 
         private NotifyIcon trayIcon;
         private ContextMenuStrip trayMenu;
+        private System.Windows.Forms.Timer gamingTooltipTimer;
 
 
         public MainForm()
@@ -31,6 +32,13 @@ namespace _202020Pro.Forms
             mainTimer.Interval = 1 * 60 * 1000; // 20 دقيقة
             mainTimer.Tick += MainTimer_Tick;
             mainTimer.Start();
+
+            // مؤقت عرض الوقت المتبقي في Gaming Mode
+            gamingTooltipTimer = new Timer();
+            gamingTooltipTimer.Interval = 60 * 1000; // كل دقيقة
+            gamingTooltipTimer.Tick += GamingTooltipTimer_Tick;
+            gamingTooltipTimer.Start(); // يعمل دائمًا في الخلفية
+
 
             // إعدادات النموذج
             this.ShowInTaskbar = false;
@@ -169,6 +177,36 @@ namespace _202020Pro.Forms
             }
         }
 
+        private void GamingTooltipTimer_Tick(object sender, EventArgs e)
+        {
+            if (AppSettings.IsGamingMode && GamingModeManager.GamingStartTime != null)
+            {
+                var timeUsed = GamingModeManager.TotalUsedToday;
+                var timeLeft = GamingModeManager.AllowedPerDay - timeUsed;
+
+                if (timeLeft.TotalMinutes <= 0)
+                {
+                    GamingModeManager.DisableGamingMode();
+                    trayIcon.Text = "📴 تم إيقاف وضع الألعاب تلقائيًا";
+                    return;
+                }
+
+                string tooltip = $"🎮 وضع الألعاب مفعل\n⏳ الوقت المتبقي: {FormatTimeSpan(timeLeft)}";
+                trayIcon.Text = tooltip;
+            }
+            else
+            {
+                trayIcon.Text = "202020Pro - حماية العين";
+            }
+        }
+
+        private string FormatTimeSpan(TimeSpan ts)
+        {
+            if (ts.TotalHours >= 1)
+                return $"{(int)ts.TotalHours} ساعة و {ts.Minutes} دقيقة";
+            else
+                return $"{ts.Minutes} دقيقة";
+        }
 
 
     }
