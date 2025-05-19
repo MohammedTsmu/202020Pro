@@ -27,6 +27,22 @@ namespace _202020Pro.Forms
                 return;
             }
 
+            if (AppSettings.IsGamingMode)
+            {
+                // تحقق إذا انتهت المدة المسموحة
+                if (GamingModeManager.TotalUsedToday >= GamingModeManager.AllowedPerDay)
+                {
+                    GamingModeManager.DisableGamingMode();
+                }
+                else
+                {
+                    System.Media.SystemSounds.Exclamation.Play();
+                    this.Close();
+                    return;
+                }
+            }
+
+
             // إعدادات النموذج
             InitializeComponent();
             this.FormBorderStyle = FormBorderStyle.None;

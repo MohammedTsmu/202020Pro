@@ -49,11 +49,31 @@ namespace _202020Pro.Forms
                 Dock = DockStyle.Top
             };
 
+            //btnConfirm.Click += (s, e) =>
+            //{
+            //    if (txtPassword.Text == "gamer") // رمز التفعيل
+            //    {
+            //        AppSettings.IsGamingMode = true;
+            //        MessageBox.Show("تم تفعيل وضع الألعاب بنجاح", "نجاح", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //        this.Close();
+            //    }
+            //    else
+            //    {
+            //        MessageBox.Show("رمز خاطئ", "رفض", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    }
+            //};
             btnConfirm.Click += (s, e) =>
             {
-                if (txtPassword.Text == "gamer") // رمز التفعيل
+                if (txtPassword.Text == "gamer")
                 {
-                    AppSettings.IsGamingMode = true;
+                    if (!GamingModeManager.CanEnableGamingMode())
+                    {
+                        MessageBox.Show("لقد تجاوزت الحد المسموح لوضع الألعاب اليوم.", "مرفوض", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        this.Close();
+                        return;
+                    }
+
+                    GamingModeManager.EnableGamingMode();
                     MessageBox.Show("تم تفعيل وضع الألعاب بنجاح", "نجاح", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.Close();
                 }
@@ -62,6 +82,7 @@ namespace _202020Pro.Forms
                     MessageBox.Show("رمز خاطئ", "رفض", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             };
+
 
             Controls.Add(btnConfirm);
             Controls.Add(txtPassword);
