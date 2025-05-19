@@ -79,6 +79,7 @@ namespace _202020Pro.Forms
             settingsMenu.DropDownItems.Add("🕓 تعديل وقت الوضع الليلي", null, EditNightModeHours_Click);
 
             settingsMenu.DropDownItems.Add(new ToolStripSeparator()); // فاصل بين العناصر
+             settingsMenu.DropDownItems.Add("🎭 اختيار ثيم جاهز", null, (s, e) => ShowThemeSelector());
             settingsMenu.DropDownItems.Add("🎨 تخصيص واجهة الاستراحة", null, CustomizeBreakScreen_Click);
             settingsMenu.DropDownItems.Add("🧹 إعادة واجهة الاستراحة للوضع الافتراضي", null, ResetBreakScreenDefaults_Click);
             settingsMenu.DropDownItems.Add("🧪 عرض واجهة الاستراحة الآن للمعاينة", null, ShowBreakScreenNow_Click);
@@ -573,6 +574,73 @@ namespace _202020Pro.Forms
             AppConfig.BreakCountdownEnabled = !AppConfig.BreakCountdownEnabled;
             MessageBox.Show("تم " + (AppConfig.BreakCountdownEnabled ? "تفعيل" : "إيقاف") + " العداد العكسي.", "الإعدادات");
         }
+
+        // 📁 داخل MainForm.cs
+
+        private void ApplyTheme(string themeName)
+        {
+            switch (themeName)
+            {
+                case "🌑 Dark":
+                    AppConfig.BreakBackgroundColor = "#000000";
+                    AppConfig.BreakTextColor = "#FFFFFF";
+                    AppConfig.BreakFontFamily = "Segoe UI";
+                    AppConfig.BreakFontSize = 24;
+                    break;
+
+                case "🌤️ Light":
+                    AppConfig.BreakBackgroundColor = "#FFFFFF";
+                    AppConfig.BreakTextColor = "#000000";
+                    AppConfig.BreakFontFamily = "Calibri";
+                    AppConfig.BreakFontSize = 22;
+                    break;
+
+                case "🟦 Calm Blue":
+                    AppConfig.BreakBackgroundColor = "#1A2B44";
+                    AppConfig.BreakTextColor = "#BBDFFF";
+                    AppConfig.BreakFontFamily = "Arial";
+                    AppConfig.BreakFontSize = 26;
+                    break;
+
+                case "🌿 Nature":
+                    AppConfig.BreakBackgroundColor = "#1E3D2F";
+                    AppConfig.BreakTextColor = "#E2F5D0";
+                    AppConfig.BreakFontFamily = "Tahoma";
+                    AppConfig.BreakFontSize = 24;
+                    break;
+            }
+
+            MessageBox.Show("تم تطبيق الثيم: " + themeName, "نجاح");
+        }
+
+        private void ShowThemeSelector()
+        {
+            List<string> themes = new List<string>
+    {
+        "🌑 Dark",
+        "🌤️ Light",
+        "🟦 Calm Blue",
+        "🌿 Nature"
+    };
+
+            string selected = Microsoft.VisualBasic.Interaction.InputBox(
+                "اختر أحد الثيمات التالية:\n\n" +
+                string.Join("\n", themes),
+                "اختيار ثيم الاستراحة",
+                themes[0]
+            );
+
+            if (themes.Contains(selected))
+            {
+                ApplyTheme(selected);
+            }
+            else if (!string.IsNullOrWhiteSpace(selected))
+            {
+                MessageBox.Show("الثيم غير معروف.", "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        
 
     }
 

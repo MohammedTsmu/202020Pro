@@ -74,34 +74,6 @@ namespace _202020Pro.Forms
             message.Anchor = AnchorStyles.None;
             Controls.Add(message);
 
-            // إعدادات العد التنازلي
-            //Label countdownLabel = new Label
-            //{
-            //    ForeColor = ColorTranslator.FromHtml(AppConfig.BreakTextColor),
-            //    Font = new Font(AppConfig.BreakFontFamily, AppConfig.BreakFontSize - 4, FontStyle.Regular),
-            //    AutoSize = true,
-            //    BackColor = Color.Transparent
-            //};
-
-
-
-
-            //countdownLabel = new Label
-            //{
-            //    ForeColor = ColorTranslator.FromHtml(AppConfig.BreakTextColor),
-            //    Font = new Font(AppConfig.BreakFontFamily, AppConfig.BreakFontSize - 4, FontStyle.Regular),
-            //    AutoSize = true,
-            //    BackColor = Color.Transparent
-            //};
-
-            //countdownLabel.Location = new Point(
-            //    (this.ClientSize.Width - countdownLabel.PreferredWidth) / 2,
-            //    message.Location.Y + message.Height + 20
-            //);
-            //Controls.Add(countdownLabel);
-            //// إعدادات العد التنازلي
-            ////countdownLabel.Text = $"⏳ {countdownSeconds} ثانية متبقية";
-            ///
 
             //اعدادات العد التنازلي
             if (AppConfig.BreakCountdownEnabled)
@@ -154,37 +126,16 @@ namespace _202020Pro.Forms
             breakTimer.Start();
         }
 
-        //private void BreakTimer_Tick(object sender, EventArgs e)
-        //{
-        //    breakTimer.Stop();
-        //    this.Close(); // إغلاق بعد انتهاء المدة
-        //}
-
-        //private void BreakTimer_Tick(object sender, EventArgs e)
-        //{
-        //    if (AppConfig.BreakCountdownEnabled && countdownLabel != null)
-        //    {
-        //        countdownLabel.Text = $"⏳ {countdownSeconds} ثانية متبقية";
-        //        countdownLabel.Left = (this.ClientSize.Width - countdownLabel.PreferredWidth) / 2;
-        //    }
-
-        //    countdownSeconds--;
-
-        //    countdownLabel.Text = $"⏳ {countdownSeconds} ثانية متبقية";
-        //    countdownLabel.Left = (this.ClientSize.Width - countdownLabel.PreferredWidth) / 2;
-
-        //    if (countdownSeconds <= 0)
-        //    {
-        //        breakTimer.Stop();
-        //        this.Close();
-        //    }
-        //}
         private void BreakTimer_Tick(object sender, EventArgs e)
         {
             if (AppConfig.BreakCountdownEnabled && countdownLabel != null)
             {
                 countdownLabel.Text = $"⏳ {countdownSeconds} ثانية متبقية";
                 countdownLabel.Left = (this.ClientSize.Width - countdownLabel.PreferredWidth) / 2;
+            }
+            else
+            {
+                Console.WriteLine($"🕐 عد تنازلي (غير ظاهر): {countdownSeconds} ثانية");
             }
 
             countdownSeconds--;
@@ -195,9 +146,6 @@ namespace _202020Pro.Forms
                 this.Close();
             }
         }
-
-
-
 
         private void BtnEmergency_Click(object sender, EventArgs e)
         {
