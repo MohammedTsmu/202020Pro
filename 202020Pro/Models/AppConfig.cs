@@ -138,17 +138,6 @@ namespace _202020Pro.Models
         }
 
 
-        //Custom Sound Path
-        public static string CustomSoundPath
-        {
-            get => Properties.Settings.Default.CustomSoundPath;
-            set
-            {
-                Properties.Settings.Default.CustomSoundPath = value;
-                Properties.Settings.Default.Save();
-            }
-        }
-
         //Selected Sound Name
         public static string SelectedSoundName
         {

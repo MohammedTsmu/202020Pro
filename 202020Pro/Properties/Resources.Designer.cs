@@ -99,15 +99,6 @@ namespace _202020Pro.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
-        public static System.IO.UnmanagedMemoryStream gold_ring_bounces_4_times_on_formica_table {
-            get {
-                return ResourceManager.GetStream("gold_ring_bounces_4_times_on_formica_table", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
-        /// </summary>
         public static System.IO.UnmanagedMemoryStream ligering_chime_1 {
             get {
                 return ResourceManager.GetStream("ligering_chime_1", resourceCulture);

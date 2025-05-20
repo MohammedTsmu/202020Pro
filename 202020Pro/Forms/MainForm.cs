@@ -91,7 +91,7 @@ namespace _202020Pro.Forms
             settingsMenu.DropDownItems.Add("⏳ تشغيل/إيقاف العداد العكسي", null, ToggleBreakCountdown_Click);
 
             settingsMenu.DropDownItems.Add(new ToolStripSeparator()); // فاصل بين العناصر
-            settingsMenu.DropDownItems.Add("📁 تغيير صوت التنبيه", null, ChangeReminderSound_Click);
+            //settingsMenu.DropDownItems.Add("📁 تغيير صوت التنبيه", null, ChangeReminderSound_Click);
 
             // إضافة قائمة فرعية لاختيار الصوت
             BuildSoundMenu(settingsMenu);
@@ -625,20 +625,20 @@ namespace _202020Pro.Forms
             }
         }
 
-        private void ChangeReminderSound_Click(object sender, EventArgs e)
-        {
-            OpenFileDialog dialog = new OpenFileDialog
-            {
-                Title = "اختر ملف صوت بصيغة WAV",
-                Filter = "ملفات صوتية (*.wav)|*.wav"
-            };
+        //private void ChangeReminderSound_Click(object sender, EventArgs e)
+        //{
+        //    //OpenFileDialog dialog = new OpenFileDialog
+        //    //{
+        //    //    Title = "اختر ملف صوت بصيغة WAV",
+        //    //    Filter = "ملفات صوتية (*.wav)|*.wav"
+        //    //};
 
-            if (dialog.ShowDialog() == DialogResult.OK)
-            {
-                AppConfig.CustomSoundPath = dialog.FileName;
-                MessageBox.Show("تم تحديث صوت التنبيه بنجاح.", "202020Pro", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-        }
+        //    //if (dialog.ShowDialog() == DialogResult.OK)
+        //    //{
+        //    //    AppConfig.CustomSoundPath = dialog.FileName;
+        //    //    MessageBox.Show("تم تحديث صوت التنبيه بنجاح.", "202020Pro", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        //    //}
+        //}
 
         private void BuildSoundMenu(ToolStripMenuItem settingsMenu)
         {

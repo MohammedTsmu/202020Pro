@@ -130,9 +130,6 @@
   <data name="fire_alarm" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\fire-alarm.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="gold_ring_bounces_4_times_on_formica_table" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\gold ring bounces 4 times on formica table.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="ligering_chime_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ligering_chime_1.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>

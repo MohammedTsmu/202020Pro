@@ -147,5 +147,8 @@
   <ItemGroup>
     <None Include="Resources\shadowisp__stop-rest.wav" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\smg firing handling.wav" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

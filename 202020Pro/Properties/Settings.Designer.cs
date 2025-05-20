@@ -193,18 +193,6 @@ namespace _202020Pro.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string CustomSoundPath {
-            get {
-                return ((string)(this["CustomSoundPath"]));
-            }
-            set {
-                this["CustomSoundPath"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("null")]
         public string SelectedSoundName {
             get {
