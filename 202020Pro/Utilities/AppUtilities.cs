@@ -104,6 +104,7 @@ namespace _202020Pro
             return soundNames;
         }
 
+
         //public static void PlayReminderSound()
         //{
         //    if (!AppConfig.SoundEnabled || string.IsNullOrEmpty(AppConfig.SelectedSoundName)) return;
@@ -128,29 +129,34 @@ namespace _202020Pro
         //    }
         //}
 
+        // ✅ تستدعى في أي مكان لتشغيل الصوت الحالي المحدد
         public static void PlayReminderSound()
         {
-            if (!AppConfig.SoundEnabled || string.IsNullOrEmpty(AppConfig.SelectedSoundName)) return;
+            PlayReminderSound(AppConfig.SelectedSoundName);
+        }
 
-            object soundObj = Properties.Resources.ResourceManager.GetObject(AppConfig.SelectedSoundName);
+        // ✅ تستدعى لتجربة أي صوت قبل التحديد
+        public static void PlayReminderSound(string soundName)
+        {
+            if (string.IsNullOrEmpty(soundName)) return;
 
+            object soundObj = Properties.Resources.ResourceManager.GetObject(soundName);
             if (soundObj is System.IO.Stream stream)
             {
                 try
                 {
-                    System.Media.SoundPlayer player = new System.Media.SoundPlayer(stream);
-                    player.Play();
+                    using (System.Media.SoundPlayer player = new System.Media.SoundPlayer(stream))
+                    {
+                        player.Play();
+                    }
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine("🔊 خطأ أثناء تشغيل الصوت: " + ex.Message);
+                    MessageBox.Show("تعذر تشغيل صوت التنبيه.\n" + ex.Message, "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-            else
-            {
-                Console.WriteLine($"⚠️ الصوت المطلوب '{AppConfig.SelectedSoundName}' غير موجود في الموارد أو غير صالح.");
-            }
         }
+
 
 
 

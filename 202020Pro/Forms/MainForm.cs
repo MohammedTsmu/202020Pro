@@ -25,6 +25,9 @@ namespace _202020Pro.Forms
         private ContextMenuStrip trayMenu;
         private System.Windows.Forms.Timer gamingTooltipTimer;
 
+        
+        private ToolStripMenuItem settingsMenu;
+
 
         public MainForm()
         {
@@ -66,7 +69,9 @@ namespace _202020Pro.Forms
 
 
             // إضافة قائمة فرعية للإعدادات
-            var settingsMenu = new ToolStripMenuItem("⚙️ الإعدادات");
+            //var settingsMenu = new ToolStripMenuItem("⚙️ الإعدادات");
+            settingsMenu = new ToolStripMenuItem("⚙️ الإعدادات");
+
             settingsMenu.DropDownItems.Add("🔐 تعديل كلمة مرور الطوارئ", null, ChangeEmergencyPassword_Click);
             settingsMenu.DropDownItems.Add("🕹️ تعديل كلمة مرور الألعاب", null, ChangeGamingPassword_Click);
             settingsMenu.DropDownItems.Add("⏱️ تعديل مدة الراحة", null, ChangeBreakInterval_Click);
@@ -712,17 +717,29 @@ namespace _202020Pro.Forms
 
             foreach (var name in AppUtilities.GetAvailableSoundNames())
             {
-                var item = new ToolStripMenuItem(name, null, (s, e) =>
+                // عنصر رئيسي لكل صوت
+                var parentItem = new ToolStripMenuItem(name);
+                parentItem.Checked = (name == AppConfig.SelectedSoundName);
+
+                // خيار التحديد
+                var selectItem = new ToolStripMenuItem("🟢 اختيار هذا الصوت", null, (s, e) =>
                 {
                     AppConfig.SelectedSoundName = name;
-                    MessageBox.Show("تم اختيار الصوت: " + name);
-                    BuildSoundMenu(settingsMenu); // إعادة تحميل القائمة لتحديث الـ Checked
+                    MessageBox.Show("✅ تم اختيار الصوت: " + name);
+                    BuildSoundMenu(settingsMenu); // 🔁 تحديث القائمة لتحديث علامة الصح
                 });
 
-                // نحدد العنصر الحالي كمفعّل
-                item.Checked = (name == AppConfig.SelectedSoundName);
-                soundSelectionItem.DropDownItems.Add(item);
+                // خيار المعاينة
+                var testItem = new ToolStripMenuItem("🔊 تجربة", null, (s, e) =>
+                {
+                    AppUtilities.PlayReminderSound(name); // نمرر الاسم لاختباره فقط
+                });
+
+                parentItem.DropDownItems.Add(selectItem);
+                parentItem.DropDownItems.Add(testItem);
+                soundSelectionItem.DropDownItems.Add(parentItem);
             }
+
 
             settingsMenu.DropDownItems.Add(soundSelectionItem);
 
