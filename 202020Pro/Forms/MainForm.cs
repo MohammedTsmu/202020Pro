@@ -51,52 +51,24 @@ namespace _202020Pro.Forms
             this.Visible = false;
 
             // إعداد القائمة المنبثقة
-            trayMenu = new ContextMenuStrip();
-            trayMenu.Items.Add("تفعيل/تعطيل وضع الألعاب", null, ToggleGamingMode_Click);
+            trayMenu = new ContextMenuStrip
+            {
+                // إعدادات القائمة المنبثقة
+                RightToLeft = RightToLeft.Yes // مهم جداً
+            };
 
-            trayMenu.Items.Add("خروج", null, Exit_Click);
-
-            trayMenu.Items.Add(new ToolStripSeparator()); // فاصل بين العناصر
-
+            trayMenu.Items.Add("🎮 تفعيل/تعطيل وضع الألعاب", null, ToggleGamingMode_Click);
             trayMenu.Items.Add("📄 عرض سجل وضع الألعاب", null, ShowGamingLog_Click);
-            trayMenu.Items.Add(new ToolStripSeparator()); // فاصل بين العناصر
-
-            //
             trayMenu.Items.Add("🔊 تشغيل صوت تجريبي", null, TestSound_Click);
 
+            trayMenu.Items.Add(new ToolStripSeparator());
 
-
-            // إضافة قائمة فرعية للإعدادات
-            //var settingsMenu = new ToolStripMenuItem("⚙️ الإعدادات");
-            settingsMenu = new ToolStripMenuItem("⚙️ الإعدادات");
-
-            settingsMenu.DropDownItems.Add("🔐 تعديل كلمة مرور الطوارئ", null, ChangeEmergencyPassword_Click);
-            settingsMenu.DropDownItems.Add("🕹️ تعديل كلمة مرور الألعاب", null, ChangeGamingPassword_Click);
-            settingsMenu.DropDownItems.Add("⏱️ تعديل مدة الراحة", null, ChangeBreakInterval_Click);
-            settingsMenu.DropDownItems.Add("⌛ تعديل مدة وضع الألعاب", null, ChangeGamingDuration_Click);
-            settingsMenu.DropDownItems.Add("🔊 تشغيل/إيقاف الصوت", null, ToggleSound_Click);
-            settingsMenu.DropDownItems.Add("🔁 إعادة الإعدادات الافتراضية", null, ResetSettings_Click);
-
-            settingsMenu.DropDownItems.Add(new ToolStripSeparator()); // فاصل بين العناصر
-            settingsMenu.DropDownItems.Add("🌙 تفعيل/تعطيل الوضع الليلي", null, ToggleNightMode_Click);
-            settingsMenu.DropDownItems.Add("🕓 تعديل وقت الوضع الليلي", null, EditNightModeHours_Click);
-
-            settingsMenu.DropDownItems.Add(new ToolStripSeparator()); // فاصل بين العناصر
-             settingsMenu.DropDownItems.Add("🎭 اختيار ثيم جاهز", null, (s, e) => ShowThemeSelector());
-            settingsMenu.DropDownItems.Add("🎨 تخصيص واجهة الاستراحة", null, CustomizeBreakScreen_Click);
-            settingsMenu.DropDownItems.Add("🧹 إعادة واجهة الاستراحة للوضع الافتراضي", null, ResetBreakScreenDefaults_Click);
-            settingsMenu.DropDownItems.Add("🧪 عرض واجهة الاستراحة الآن للمعاينة", null, ShowBreakScreenNow_Click);
-
-            settingsMenu.DropDownItems.Add(new ToolStripSeparator()); // فاصل بين العناصر
-            settingsMenu.DropDownItems.Add("⏳ تشغيل/إيقاف العداد العكسي", null, ToggleBreakCountdown_Click);
-
-            settingsMenu.DropDownItems.Add(new ToolStripSeparator()); // فاصل بين العناصر
-            //settingsMenu.DropDownItems.Add("📁 تغيير صوت التنبيه", null, ChangeReminderSound_Click);
-
-            // إضافة قائمة فرعية لاختيار الصوت
-            BuildSoundMenu(settingsMenu);
-
+            BuildSettingsMenu(); // قائمة الإعدادات بطريقة منظمة
             trayMenu.Items.Add(settingsMenu);
+
+            trayMenu.Items.Add(new ToolStripSeparator());
+            trayMenu.Items.Add("🚪 خروج", null, Exit_Click);
+
 
             // إنشاء الأيقونة
             trayIcon = new NotifyIcon
@@ -686,6 +658,55 @@ namespace _202020Pro.Forms
                 AppUtilities.PlayReminderSound();
             });
         }
+
+        private void BuildSettingsMenu()
+        {
+            settingsMenu = new ToolStripMenuItem("⚙️ الإعدادات")
+            {
+                RightToLeft = RightToLeft.Yes
+            };
+
+            // 🔐 كلمات المرور
+            settingsMenu.DropDownItems.Add("🔐 تعديل كلمة مرور الطوارئ", null, ChangeEmergencyPassword_Click);
+            settingsMenu.DropDownItems.Add("🕹️ تعديل كلمة مرور الألعاب", null, ChangeGamingPassword_Click);
+
+            settingsMenu.DropDownItems.Add(new ToolStripSeparator());
+
+            // ⏱️ مدد التوقيت
+            settingsMenu.DropDownItems.Add("⏱️ تعديل مدة الراحة", null, ChangeBreakInterval_Click);
+            settingsMenu.DropDownItems.Add("⌛ تعديل مدة وضع الألعاب", null, ChangeGamingDuration_Click);
+
+            settingsMenu.DropDownItems.Add(new ToolStripSeparator());
+
+            // 🔊 الصوت
+            settingsMenu.DropDownItems.Add("🔊 تشغيل/إيقاف الصوت", null, ToggleSound_Click);
+            settingsMenu.DropDownItems.Add("🔁 إعادة اعدادات الوقت الافتراضية", null, ResetSettings_Click);
+
+            settingsMenu.DropDownItems.Add(new ToolStripSeparator());
+
+            // 🌙 الوضع الليلي
+            settingsMenu.DropDownItems.Add("🌙 تفعيل/تعطيل الوضع الليلي", null, ToggleNightMode_Click);
+            settingsMenu.DropDownItems.Add("🕓 تعديل وقت الوضع الليلي", null, EditNightModeHours_Click);
+
+            settingsMenu.DropDownItems.Add(new ToolStripSeparator());
+
+            // 🎨 تصميم واجهة الاستراحة
+            settingsMenu.DropDownItems.Add("🎭 اختيار ثيم جاهز", null, (s, e) => ShowThemeSelector());
+            settingsMenu.DropDownItems.Add("🎨 تخصيص واجهة الاستراحة", null, CustomizeBreakScreen_Click);
+            settingsMenu.DropDownItems.Add("🧹 إعادة واجهة الاستراحة للوضع الافتراضي", null, ResetBreakScreenDefaults_Click);
+            settingsMenu.DropDownItems.Add("🧪 عرض واجهة الاستراحة الآن للمعاينة", null, ShowBreakScreenNow_Click);
+
+            settingsMenu.DropDownItems.Add(new ToolStripSeparator());
+
+            // ⏳ العداد العكسي
+            settingsMenu.DropDownItems.Add("⏳ تشغيل/إيقاف العداد العكسي", null, ToggleBreakCountdown_Click);
+
+            settingsMenu.DropDownItems.Add(new ToolStripSeparator());
+
+            // 🔈 قائمة الأصوات
+            BuildSoundMenu(settingsMenu);
+        }
+
     }
 
 }
