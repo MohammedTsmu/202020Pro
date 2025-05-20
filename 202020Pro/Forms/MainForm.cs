@@ -29,7 +29,7 @@ namespace _202020Pro.Forms
         public MainForm()
         {
             InitializeComponent();
-
+            
             mainTimer = new Timer();
             //mainTimer.Interval = 20 * 60 * 1000; // 20 دقيقة
             //mainTimer.Interval = 1 * 60 * 1000; // 20 دقيقة
@@ -102,24 +102,6 @@ namespace _202020Pro.Forms
         }
 
 
-        //private void MainTimer_Tick(object sender, EventArgs e)
-        //{
-        //    if (this.IsDisposed || !this.IsHandleCreated)
-        //    {
-        //        mainTimer.Stop();
-        //        return;
-        //    }
-
-        //    try
-        //    {
-        //        BreakForm breakForm = new BreakForm();
-        //        breakForm.ShowDialog(); // نافذة لا يمكن تجاوزها بسهولة
-        //    }
-        //    catch (ObjectDisposedException)
-        //    {
-        //        mainTimer.Stop();
-        //    }
-        //}
         private void MainTimer_Tick(object sender, EventArgs e)
         {
             if (this.IsDisposed || !this.IsHandleCreated)
@@ -430,29 +412,6 @@ namespace _202020Pro.Forms
             AppUtilities.PlayReminderSound();
         }
 
-        //private void CustomizeBreakScreen_Click(object sender, EventArgs e)
-        //{
-        //    try
-        //    {
-        //        string bg = Interaction.InputBox("لون الخلفية (HTML مثل #000000):", "لون الخلفية", AppConfig.BreakBackgroundColor);
-        //        string fg = Interaction.InputBox("لون النص (HTML مثل #FFFFFF):", "لون النص", AppConfig.BreakTextColor);
-        //        string font = Interaction.InputBox("اسم الخط (مثلاً Segoe UI):", "نوع الخط", AppConfig.BreakFontFamily);
-        //        string size = Interaction.InputBox("حجم الخط (مثلاً 24):", "حجم الخط", AppConfig.BreakFontSize.ToString());
-
-        //        if (!string.IsNullOrWhiteSpace(bg)) AppConfig.BreakBackgroundColor = bg;
-        //        if (!string.IsNullOrWhiteSpace(fg)) AppConfig.BreakTextColor = fg;
-        //        if (!string.IsNullOrWhiteSpace(font)) AppConfig.BreakFontFamily = font;
-        //        if (int.TryParse(size, out int fontSize) && fontSize >= 10 && fontSize <= 48)
-        //            AppConfig.BreakFontSize = fontSize;
-
-        //        MessageBox.Show("تم تحديث إعدادات الاستراحة.", "نجاح");
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show("حدث خطأ أثناء التخصيص: " + ex.Message, "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //    }
-        //}
-        // 📁 MainForm.cs
 
         // 🎨 تخصيص واجهة الاستراحة
         private void CustomizeBreakScreen_Click(object sender, EventArgs e)
@@ -486,20 +445,6 @@ namespace _202020Pro.Forms
 
                 // 👀 عرض معاينة مباشرة
                 ShowBreakPreview();
-
-                //// 🔁 تأكيد عرض إعادة الإعدادات
-                //if (MessageBox.Show("هل ترغب بإعادة الإعدادات الافتراضية؟", "إعادة؟", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                //{
-                //    AppConfig.BreakBackgroundColor = "#000000";
-                //    AppConfig.BreakTextColor = "#FFFFFF";
-                //    AppConfig.BreakFontFamily = "Segoe UI";
-                //    AppConfig.BreakFontSize = 24;
-                //    MessageBox.Show("تمت إعادة الإعدادات الافتراضية.", "تم");
-                //}
-                //else
-                //{
-                //    MessageBox.Show("تم حفظ التخصيص بنجاح.", "نجاح");
-                //}
             }
             catch (Exception ex)
             {
@@ -527,15 +472,7 @@ namespace _202020Pro.Forms
             preview.ShowDialog();
         }
 
-        // 🧹 إعادة واجهة الاستراحة للوضع الافتراضي
-        //private void ResetBreakScreenDefaults_Click(object sender, EventArgs e)
-        //{
-        //    AppConfig.BreakBackgroundColor = "#000000";
-        //    AppConfig.BreakTextColor = "#FFFFFF";
-        //    AppConfig.BreakFontFamily = "Segoe UI";
-        //    AppConfig.BreakFontSize = 24;
-        //    MessageBox.Show("تمت إعادة واجهة الاستراحة للوضع الافتراضي.", "نجاح");
-        //}
+        
         private void ResetBreakScreenDefaults_Click(object sender, EventArgs e)
         {
             // تأكيد إعادة الإعدادات الافتراضية
@@ -581,28 +518,32 @@ namespace _202020Pro.Forms
         {
             switch (themeName)
             {
-                case "🌑 Dark":
+                // "Dark Theme"
+                case "d":
                     AppConfig.BreakBackgroundColor = "#000000";
                     AppConfig.BreakTextColor = "#FFFFFF";
                     AppConfig.BreakFontFamily = "Segoe UI";
                     AppConfig.BreakFontSize = 24;
                     break;
 
-                case "🌤️ Light":
+                // "Light Theme"
+                case "l":
                     AppConfig.BreakBackgroundColor = "#FFFFFF";
                     AppConfig.BreakTextColor = "#000000";
                     AppConfig.BreakFontFamily = "Calibri";
                     AppConfig.BreakFontSize = 22;
                     break;
 
-                case "🟦 Calm Blue":
+                // "Calm Blue Theme"
+                case "cb":
                     AppConfig.BreakBackgroundColor = "#1A2B44";
                     AppConfig.BreakTextColor = "#BBDFFF";
                     AppConfig.BreakFontFamily = "Arial";
                     AppConfig.BreakFontSize = 26;
                     break;
 
-                case "🌿 Nature":
+                // "Nature Theme"
+                case "n":
                     AppConfig.BreakBackgroundColor = "#1E3D2F";
                     AppConfig.BreakTextColor = "#E2F5D0";
                     AppConfig.BreakFontFamily = "Tahoma";
@@ -617,10 +558,15 @@ namespace _202020Pro.Forms
         {
             List<string> themes = new List<string>
     {
-        "🌑 Dark",
-        "🌤️ Light",
-        "🟦 Calm Blue",
-        "🌿 Nature"
+        //"🌑 Dark",
+        //"🌤️ Light",
+        //"🟦 Calm Blue",
+        //"🌿 Nature"
+
+        "d",
+        "l",
+        "cb",
+        "n"
     };
 
             string selected = Microsoft.VisualBasic.Interaction.InputBox(

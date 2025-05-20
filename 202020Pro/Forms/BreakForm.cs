@@ -144,25 +144,6 @@ namespace _202020Pro.Forms
 
         private void BreakTimer_Tick(object sender, EventArgs e)
         {
-            //if (AppConfig.BreakCountdownEnabled && countdownLabel != null)
-            //{
-            //    countdownLabel.Text = $"⏳ {countdownSeconds} ثانية متبقية";
-            //    countdownLabel.Left = (this.ClientSize.Width - countdownLabel.PreferredWidth) / 2;
-            //}
-            //else
-            //{
-            //    Console.WriteLine($"🕐 عد تنازلي (غير ظاهر): {countdownSeconds} ثانية");
-            //}
-
-            //countdownSeconds--;
-
-            //if (countdownSeconds <= 0)
-            //{
-            //    //breakTimer.Stop();
-            //    //this.Close();
-            //    forceClose = true;
-            //    this.Close();
-            //}
             if (countdownSeconds <= 0)
             {
                 forceClose = true;
@@ -181,44 +162,8 @@ namespace _202020Pro.Forms
             }
 
             countdownSeconds--;
-
         }
 
-        //private void BtnEmergency_Click(object sender, EventArgs e)
-        //{
-        //    //this.TopMost = false; // نوقف الواجهة فوق الكل مؤقتاً
-
-        //    //using (EmergencyForm emergencyForm = new EmergencyForm())
-        //    //{
-        //    //    emergencyForm.ShowDialog();
-        //    //    if (emergencyForm.IsAuthorized)
-        //    //    {
-        //    //        //breakTimer.Stop(); // إيقاف المؤقت
-        //    //        //this.Close();     // إغلاق نافذة الاستراحة
-        //    //        forceClose = true; // إغلاق نافذة الاستراحة
-        //    //        this.Close();
-        //    //    }
-        //    //}
-
-        //    //this.TopMost = true; // نعيدها فوق الكل
-        //    this.TopMost = false;
-        //    this.Enabled = false; // ⛔️ اجعل الفورم غير قابل للتفاعل
-
-        //    using (EmergencyForm emergencyForm = new EmergencyForm())
-        //    {
-        //        emergencyForm.StartPosition = FormStartPosition.CenterScreen;
-        //        emergencyForm.ShowDialog();
-
-        //        if (emergencyForm.IsAuthorized)
-        //        {
-        //            forceClose = true;
-        //            this.Close();
-        //        }
-        //    }
-
-        //    this.Enabled = true;  // ✅ إعادة التفاعل مع الفورم
-        //    this.TopMost = true;
-        //}
         private void BtnEmergency_Click(object sender, EventArgs e)
         {
             this.TopMost = false;
@@ -309,9 +254,5 @@ namespace _202020Pro.Forms
             };
             focusTimer.Start();
         }
-
-
-        //private bool forceClose = false;
-
     }
 }
