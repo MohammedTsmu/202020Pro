@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using _202020Pro.Models;
 
 namespace _202020Pro.Forms
 {
@@ -17,47 +18,37 @@ namespace _202020Pro.Forms
         public EmergencyForm()
         {
             InitializeComponent();
-            this.Text = "تأكيد الطوارئ";
-            this.Width = 300;
-            this.Height = 150;
-            this.FormBorderStyle = FormBorderStyle.FixedDialog;
-            this.StartPosition = FormStartPosition.CenterScreen;
+            this.AcceptButton = btnConfirm; // ✅ لتفعيل زر Enter
 
-            Label lbl = new Label
+            // ❌ لتفعيل زر Esc
+            Button btnCancel = new Button
             {
-                Text = "أدخل رمز الطوارئ:",
-                Dock = DockStyle.Top,
+                Text = "إلغاء",
+                DialogResult = DialogResult.Cancel,
+                Width = 80,
                 Height = 30,
-                TextAlign = ContentAlignment.MiddleCenter
+                Anchor = AnchorStyles.Bottom,
+                Left = 30,
+                Top = btnConfirm.Bottom + 10 // حسب ترتيبك
             };
-            TextBox txtPassword = new TextBox
-            {
-                Dock = DockStyle.Top,
-                PasswordChar = '*',
-                TextAlign = HorizontalAlignment.Center
-            };
-            Button btnConfirm = new Button
-            {
-                Text = "تأكيد",
-                Dock = DockStyle.Top
-            };
+            this.Controls.Add(btnCancel);
 
-            btnConfirm.Click += (s, e) =>
-            {
-                if (txtPassword.Text == "911") // الرمز السري للطوارئ
-                {
-                    IsAuthorized = true;
-                    this.Close();
-                }
-                else
-                {
-                    MessageBox.Show("رمز غير صحيح", "رفض", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-            };
+            this.CancelButton = btnCancel; // ❌ لتفعيل زر Esc
+        }
 
-            Controls.Add(btnConfirm);
-            Controls.Add(txtPassword);
-            Controls.Add(lbl);
+        private void btnConfirm_Click(object sender, EventArgs e)
+        {
+            if (txtPassword.Text == AppConfig.EmergencyPassword) // الرمز السري للطوارئ
+            {
+                IsAuthorized = true;
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("رمز غير صحيح", "رفض", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtPassword.Clear();
+                txtPassword.Focus();
+            }
         }
     }
 }
