@@ -178,5 +178,53 @@ namespace _202020Pro.Properties {
                 this["BreakCountdownEnabled"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("2000-01-01")]
+        public global::System.DateTime LastGamingToggleTime {
+            get {
+                return ((global::System.DateTime)(this["LastGamingToggleTime"]));
+            }
+            set {
+                this["LastGamingToggleTime"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string CustomSoundPath {
+            get {
+                return ((string)(this["CustomSoundPath"]));
+            }
+            set {
+                this["CustomSoundPath"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("null")]
+        public string SelectedSoundName {
+            get {
+                return ((string)(this["SelectedSoundName"]));
+            }
+            set {
+                this["SelectedSoundName"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool DefaultSoundAssignedBefore {
+            get {
+                return ((bool)(this["DefaultSoundAssignedBefore"]));
+            }
+            set {
+                this["DefaultSoundAssignedBefore"] = value;
+            }
+        }
     }
 }

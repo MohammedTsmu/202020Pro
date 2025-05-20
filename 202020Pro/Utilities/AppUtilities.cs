@@ -2,6 +2,12 @@
 using System.IO;
 using System;
 using _202020Pro.Forms;
+using _202020Pro.Models;
+using System.Collections.Generic;
+
+using System.Linq;
+using System.Resources;
+using System.Windows.Forms;
 
 namespace _202020Pro
 {
@@ -34,20 +40,120 @@ namespace _202020Pro
         //    }
         //}
 
+        //public static void PlayReminderSound()
+        //{
+        //    if (!Models.AppConfig.SoundEnabled)
+        //        return;
+
+        //    try
+        //    {
+        //        SoundPlayer player = new SoundPlayer(Properties.Resources.alert);
+        //        player.Play();
+        //    }
+        //    catch
+        //    {
+        //        SystemSounds.Exclamation.Play();
+        //    }
+        //}
+
+
+        //public static void PlayReminderSound()
+        //{
+        //    try
+        //    {
+        //        if (!AppConfig.SoundEnabled)
+        //            return;
+
+        //        string customPath = AppConfig.CustomSoundPath;
+
+        //        if (!string.IsNullOrEmpty(customPath) && File.Exists(customPath))
+        //        {
+        //            using (SoundPlayer player = new SoundPlayer(customPath))
+        //            {
+        //                player.Play();
+        //            }
+        //        }
+        //        else
+        //        {
+        //            // إذا ماكو صوت مخصص أو مفقود، نرجع على الصوت الافتراضي من الموارد
+        //            using (SoundPlayer player = new SoundPlayer(Properties.Resources.alert))
+        //            {
+        //                player.Play();
+        //            }
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        Console.WriteLine("خطأ في تشغيل الصوت: " + ex.Message);
+        //    }
+        //}
+
+        public static List<string> GetAvailableSoundNames()
+        {
+            var soundNames = new List<string>();
+            var resourceSet = Properties.Resources.ResourceManager.GetResourceSet(System.Globalization.CultureInfo.CurrentCulture, true, true);
+
+            foreach (System.Collections.DictionaryEntry entry in resourceSet)
+            {
+                if (entry.Value is System.IO.UnmanagedMemoryStream) // صوت
+                {
+                    soundNames.Add(entry.Key.ToString());
+                }
+            }
+
+            return soundNames;
+        }
+
+        //public static void PlayReminderSound()
+        //{
+        //    if (!AppConfig.SoundEnabled || string.IsNullOrEmpty(AppConfig.SelectedSoundName)) return;
+
+        //    object soundObj = Properties.Resources.ResourceManager.GetObject(AppConfig.SelectedSoundName);
+
+        //    if (soundObj is System.IO.Stream stream)
+        //    {
+        //        try
+        //        {
+        //            System.Media.SoundPlayer player = new System.Media.SoundPlayer(stream);
+        //            player.Play();
+        //        }
+        //        catch (Exception ex)
+        //        {
+        //            Console.WriteLine("🔊 خطأ أثناء تشغيل الصوت: " + ex.Message);
+        //        }
+        //    }
+        //    else
+        //    {
+        //        Console.WriteLine($"⚠️ الصوت المطلوب '{AppConfig.SelectedSoundName}' غير موجود في الموارد أو غير صالح.");
+        //    }
+        //}
+
         public static void PlayReminderSound()
         {
-            if (!Models.AppConfig.SoundEnabled)
-                return;
+            if (!AppConfig.SoundEnabled || string.IsNullOrEmpty(AppConfig.SelectedSoundName)) return;
 
-            try
+            object soundObj = Properties.Resources.ResourceManager.GetObject(AppConfig.SelectedSoundName);
+
+            if (soundObj is System.IO.Stream stream)
             {
-                SoundPlayer player = new SoundPlayer(Properties.Resources.alert);
-                player.Play();
+                try
+                {
+                    System.Media.SoundPlayer player = new System.Media.SoundPlayer(stream);
+                    player.Play();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("🔊 خطأ أثناء تشغيل الصوت: " + ex.Message);
+                }
             }
-            catch
+            else
             {
-                SystemSounds.Exclamation.Play();
+                Console.WriteLine($"⚠️ الصوت المطلوب '{AppConfig.SelectedSoundName}' غير موجود في الموارد أو غير صالح.");
             }
         }
+
+
+
+
     }
 }

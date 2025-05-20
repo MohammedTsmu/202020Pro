@@ -87,6 +87,33 @@ namespace _202020Pro.Forms
             settingsMenu.DropDownItems.Add(new ToolStripSeparator()); // فاصل بين العناصر
             settingsMenu.DropDownItems.Add("⏳ تشغيل/إيقاف العداد العكسي", null, ToggleBreakCountdown_Click);
 
+            settingsMenu.DropDownItems.Add(new ToolStripSeparator()); // فاصل بين العناصر
+            settingsMenu.DropDownItems.Add("📁 تغيير صوت التنبيه", null, ChangeReminderSound_Click);
+
+            // إضافة قائمة فرعية لاختيار الصوت
+            BuildSoundMenu(settingsMenu);
+            //ToolStripMenuItem soundSelectionItem = new ToolStripMenuItem("🔈 اختيار صوت التنبيه");
+            //foreach (var name in AppUtilities.GetAvailableSoundNames())
+            //{
+            //    var item = new ToolStripMenuItem(name, null, (s, e) =>
+            //    {
+            //        AppConfig.SelectedSoundName = name;
+            //        MessageBox.Show("تم اختيار الصوت: " + name);
+            //    });
+
+            //    item.Checked = (name == AppConfig.SelectedSoundName);
+            //    soundSelectionItem.DropDownItems.Add(item);
+            //}
+
+            //settingsMenu.DropDownItems.Add(soundSelectionItem);
+
+            //// إضافة خيار لتجربة الصوت الحالي
+            //settingsMenu.DropDownItems.Add("🔊 تجربة الصوت الحالي", null, (s, e) =>
+            //{
+            //    AppUtilities.PlayReminderSound();
+            //});
+
+
 
 
             trayMenu.Items.Add(settingsMenu);
@@ -171,6 +198,29 @@ namespace _202020Pro.Forms
             base.OnFormClosing(e);
         }
 
+        //protected override void OnLoad(EventArgs e)
+        //{
+        //    base.OnLoad(e);
+        //    StartupHelper.AddToStartup();
+
+        //    // اختصار سريع للتجربة
+        //    this.KeyPreview = true;
+        //    this.KeyDown += MainForm_KeyDown;
+
+        //    // تعيين الصوت الافتراضي إذا لم يكن محددًا
+        //    if (string.IsNullOrEmpty(AppConfig.SelectedSoundName))
+        //    {
+        //        var availableSounds = AppUtilities.GetAvailableSoundNames();
+        //        if (availableSounds.Count > 0)
+        //        {
+        //            AppConfig.SelectedSoundName = availableSounds[0];
+        //        }
+        //        AppConfig.SelectedSoundName = availableSounds[0];
+        //        AppUtilities.PlayReminderSound(); // 🎧 تجربة فورية عند أول تعيين
+        //        MessageBox.Show("تم اختيار صوت افتراضي: " + AppConfig.SelectedSoundName, "الصوت الحالي", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        //    }
+        //}
+
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
@@ -179,7 +229,29 @@ namespace _202020Pro.Forms
             // اختصار سريع للتجربة
             this.KeyPreview = true;
             this.KeyDown += MainForm_KeyDown;
+
+            // تعيين الصوت الافتراضي إذا لم يكن محددًا مسبقًا
+            if (string.IsNullOrEmpty(AppConfig.SelectedSoundName))
+            {
+                var availableSounds = AppUtilities.GetAvailableSoundNames();
+                if (availableSounds.Count > 0)
+                {
+                    string defaultSound = availableSounds[0];
+                    AppConfig.SelectedSoundName = defaultSound;
+
+                    // تشغيل الصوت فورًا + عرض رسالة فقط في أول مرة
+                    AppUtilities.PlayReminderSound();
+
+                    if (!Properties.Settings.Default.DefaultSoundAssignedBefore)
+                    {
+                        MessageBox.Show("تم اختيار صوت افتراضي: " + defaultSound, "الصوت الحالي", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        Properties.Settings.Default.DefaultSoundAssignedBefore = true;
+                        Properties.Settings.Default.Save();
+                    }
+                }
+            }
         }
+
 
         private void MainForm_KeyDown(object sender, KeyEventArgs e)
         {
@@ -190,8 +262,32 @@ namespace _202020Pro.Forms
             }
         }
 
+        //private void ToggleGamingMode_Click(object sender, EventArgs e)
+        //{
+        //    if (AppSettings.IsGamingMode)
+        //    {
+        //        AppSettings.IsGamingMode = false;
+        //        MessageBox.Show("تم تعطيل وضع الألعاب", "202020Pro", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        //        GamingLogger.Log("تم تعطيل وضع الألعاب يدويًا");
+        //    }
+        //    else
+        //    {
+        //        GamingModeForm gmForm = new GamingModeForm();
+        //        gmForm.ShowDialog();
+        //    }
+        //}
         private void ToggleGamingMode_Click(object sender, EventArgs e)
         {
+            TimeSpan sinceLastToggle = DateTime.Now - AppConfig.LastGamingToggleTime;
+            if (sinceLastToggle.TotalSeconds < 30)
+            {
+                MessageBox.Show("لا يمكنك تبديل وضع الألعاب أكثر من مرة كل 30 ثانية.", "تنبيه", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            //AppSettings.LastGamingToggleTime = DateTime.Now;
+            AppConfig.LastGamingToggleTime = DateTime.Now; // تحديث الوقت الأخير لتبديل وضع الألعاب 
+
             if (AppSettings.IsGamingMode)
             {
                 AppSettings.IsGamingMode = false;
@@ -204,6 +300,7 @@ namespace _202020Pro.Forms
                 gmForm.ShowDialog();
             }
         }
+
 
 
         private void Exit_Click(object sender, EventArgs e)
@@ -586,8 +683,55 @@ namespace _202020Pro.Forms
             }
         }
 
-        
+        private void ChangeReminderSound_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog dialog = new OpenFileDialog
+            {
+                Title = "اختر ملف صوت بصيغة WAV",
+                Filter = "ملفات صوتية (*.wav)|*.wav"
+            };
 
+            if (dialog.ShowDialog() == DialogResult.OK)
+            {
+                AppConfig.CustomSoundPath = dialog.FileName;
+                MessageBox.Show("تم تحديث صوت التنبيه بنجاح.", "202020Pro", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void BuildSoundMenu(ToolStripMenuItem settingsMenu)
+        {
+            // حذف العناصر القديمة أولاً إذا تم استدعاء الدالة أكثر من مرة
+            var existingSoundMenu = settingsMenu.DropDownItems
+                .OfType<ToolStripMenuItem>()
+                .FirstOrDefault(i => i.Text.Contains("🔈 اختيار صوت التنبيه"));
+            if (existingSoundMenu != null)
+                settingsMenu.DropDownItems.Remove(existingSoundMenu);
+
+            // قائمة جديدة لاختيار الصوت
+            ToolStripMenuItem soundSelectionItem = new ToolStripMenuItem("🔈 اختيار صوت التنبيه");
+
+            foreach (var name in AppUtilities.GetAvailableSoundNames())
+            {
+                var item = new ToolStripMenuItem(name, null, (s, e) =>
+                {
+                    AppConfig.SelectedSoundName = name;
+                    MessageBox.Show("تم اختيار الصوت: " + name);
+                    BuildSoundMenu(settingsMenu); // إعادة تحميل القائمة لتحديث الـ Checked
+                });
+
+                // نحدد العنصر الحالي كمفعّل
+                item.Checked = (name == AppConfig.SelectedSoundName);
+                soundSelectionItem.DropDownItems.Add(item);
+            }
+
+            settingsMenu.DropDownItems.Add(soundSelectionItem);
+
+            // ✅ إضافة خيار لتجربة الصوت
+            settingsMenu.DropDownItems.Add("🔊 تجربة الصوت الحالي", null, (s, e) =>
+            {
+                AppUtilities.PlayReminderSound();
+            });
+        }
     }
 
 }

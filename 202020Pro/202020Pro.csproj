@@ -117,5 +117,35 @@
   <ItemGroup>
     <None Include="Resources\alert.wav" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gold ring bounces 4 times on formica table.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ligering_chime_1.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fire-alarm.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\announcement-sound-4.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\simple-clean.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\announcement-sound.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\countdown female 5 to 1 finishings.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lovescotch__its-alright.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\wadaltmon__stop-rest.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\shadowisp__stop-rest.wav" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

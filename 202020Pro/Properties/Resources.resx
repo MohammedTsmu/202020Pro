@@ -118,7 +118,34 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="alert" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\alert.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="announcement_sound" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\announcement-sound.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="announcement_sound_4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\announcement-sound-4.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="countdown_female_5_to_1_finishings" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\countdown female 5 to 1 finishings.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="fire_alarm" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\fire-alarm.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="gold_ring_bounces_4_times_on_formica_table" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\gold ring bounces 4 times on formica table.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="ligering_chime_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ligering_chime_1.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="lovescotch__its_alright" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\lovescotch__its-alright.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="shadowisp__stop_rest" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\shadowisp__stop-rest.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="simple_clean" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\simple-clean.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="wadaltmon__stop_rest" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\wadaltmon__stop-rest.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
 </root>

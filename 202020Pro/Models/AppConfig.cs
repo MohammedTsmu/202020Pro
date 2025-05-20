@@ -1,4 +1,6 @@
-﻿namespace _202020Pro.Models
+﻿using System;
+
+namespace _202020Pro.Models
 {
     public static class AppConfig
     {
@@ -120,6 +122,40 @@
             set
             {
                 Properties.Settings.Default.BreakCountdownEnabled = value;
+                Properties.Settings.Default.Save();
+            }
+        }
+
+        //Gaming Mode Last Toggle Time
+        public static DateTime LastGamingToggleTime
+        {
+            get => Properties.Settings.Default.LastGamingToggleTime;
+            set
+            {
+                Properties.Settings.Default.LastGamingToggleTime = value;
+                Properties.Settings.Default.Save();
+            }
+        }
+
+
+        //Custom Sound Path
+        public static string CustomSoundPath
+        {
+            get => Properties.Settings.Default.CustomSoundPath;
+            set
+            {
+                Properties.Settings.Default.CustomSoundPath = value;
+                Properties.Settings.Default.Save();
+            }
+        }
+
+        //Selected Sound Name
+        public static string SelectedSoundName
+        {
+            get => Properties.Settings.Default.SelectedSoundName;
+            set
+            {
+                Properties.Settings.Default.SelectedSoundName = value;
                 Properties.Settings.Default.Save();
             }
         }

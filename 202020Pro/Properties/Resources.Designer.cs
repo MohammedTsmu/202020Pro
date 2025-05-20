@@ -63,9 +63,90 @@ namespace _202020Pro.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
-        public static System.IO.UnmanagedMemoryStream alert {
+        public static System.IO.UnmanagedMemoryStream announcement_sound {
             get {
-                return ResourceManager.GetStream("alert", resourceCulture);
+                return ResourceManager.GetStream("announcement_sound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        public static System.IO.UnmanagedMemoryStream announcement_sound_4 {
+            get {
+                return ResourceManager.GetStream("announcement_sound_4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        public static System.IO.UnmanagedMemoryStream countdown_female_5_to_1_finishings {
+            get {
+                return ResourceManager.GetStream("countdown_female_5_to_1_finishings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        public static System.IO.UnmanagedMemoryStream fire_alarm {
+            get {
+                return ResourceManager.GetStream("fire_alarm", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        public static System.IO.UnmanagedMemoryStream gold_ring_bounces_4_times_on_formica_table {
+            get {
+                return ResourceManager.GetStream("gold_ring_bounces_4_times_on_formica_table", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        public static System.IO.UnmanagedMemoryStream ligering_chime_1 {
+            get {
+                return ResourceManager.GetStream("ligering_chime_1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        public static System.IO.UnmanagedMemoryStream lovescotch__its_alright {
+            get {
+                return ResourceManager.GetStream("lovescotch__its_alright", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        public static System.IO.UnmanagedMemoryStream shadowisp__stop_rest {
+            get {
+                return ResourceManager.GetStream("shadowisp__stop_rest", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        public static System.IO.UnmanagedMemoryStream simple_clean {
+            get {
+                return ResourceManager.GetStream("simple_clean", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        public static System.IO.UnmanagedMemoryStream wadaltmon__stop_rest {
+            get {
+                return ResourceManager.GetStream("wadaltmon__stop_rest", resourceCulture);
             }
         }
     }
