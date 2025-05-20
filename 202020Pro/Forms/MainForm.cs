@@ -34,8 +34,6 @@ namespace _202020Pro.Forms
             InitializeComponent();
             
             mainTimer = new Timer();
-            //mainTimer.Interval = 20 * 60 * 1000; // 20 دقيقة
-            //mainTimer.Interval = 1 * 60 * 1000; // 20 دقيقة
             mainTimer.Interval = AppConfig.BreakMinutes * 60 * 1000; // 20 دقيقة
             mainTimer.Tick += MainTimer_Tick;
             mainTimer.Start();
@@ -97,29 +95,6 @@ namespace _202020Pro.Forms
 
             // إضافة قائمة فرعية لاختيار الصوت
             BuildSoundMenu(settingsMenu);
-            //ToolStripMenuItem soundSelectionItem = new ToolStripMenuItem("🔈 اختيار صوت التنبيه");
-            //foreach (var name in AppUtilities.GetAvailableSoundNames())
-            //{
-            //    var item = new ToolStripMenuItem(name, null, (s, e) =>
-            //    {
-            //        AppConfig.SelectedSoundName = name;
-            //        MessageBox.Show("تم اختيار الصوت: " + name);
-            //    });
-
-            //    item.Checked = (name == AppConfig.SelectedSoundName);
-            //    soundSelectionItem.DropDownItems.Add(item);
-            //}
-
-            //settingsMenu.DropDownItems.Add(soundSelectionItem);
-
-            //// إضافة خيار لتجربة الصوت الحالي
-            //settingsMenu.DropDownItems.Add("🔊 تجربة الصوت الحالي", null, (s, e) =>
-            //{
-            //    AppUtilities.PlayReminderSound();
-            //});
-
-
-
 
             trayMenu.Items.Add(settingsMenu);
 
@@ -203,29 +178,6 @@ namespace _202020Pro.Forms
             base.OnFormClosing(e);
         }
 
-        //protected override void OnLoad(EventArgs e)
-        //{
-        //    base.OnLoad(e);
-        //    StartupHelper.AddToStartup();
-
-        //    // اختصار سريع للتجربة
-        //    this.KeyPreview = true;
-        //    this.KeyDown += MainForm_KeyDown;
-
-        //    // تعيين الصوت الافتراضي إذا لم يكن محددًا
-        //    if (string.IsNullOrEmpty(AppConfig.SelectedSoundName))
-        //    {
-        //        var availableSounds = AppUtilities.GetAvailableSoundNames();
-        //        if (availableSounds.Count > 0)
-        //        {
-        //            AppConfig.SelectedSoundName = availableSounds[0];
-        //        }
-        //        AppConfig.SelectedSoundName = availableSounds[0];
-        //        AppUtilities.PlayReminderSound(); // 🎧 تجربة فورية عند أول تعيين
-        //        MessageBox.Show("تم اختيار صوت افتراضي: " + AppConfig.SelectedSoundName, "الصوت الحالي", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        //    }
-        //}
-
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
@@ -257,7 +209,6 @@ namespace _202020Pro.Forms
             }
         }
 
-
         private void MainForm_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Control && e.KeyCode == Keys.G)
@@ -267,20 +218,6 @@ namespace _202020Pro.Forms
             }
         }
 
-        //private void ToggleGamingMode_Click(object sender, EventArgs e)
-        //{
-        //    if (AppSettings.IsGamingMode)
-        //    {
-        //        AppSettings.IsGamingMode = false;
-        //        MessageBox.Show("تم تعطيل وضع الألعاب", "202020Pro", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        //        GamingLogger.Log("تم تعطيل وضع الألعاب يدويًا");
-        //    }
-        //    else
-        //    {
-        //        GamingModeForm gmForm = new GamingModeForm();
-        //        gmForm.ShowDialog();
-        //    }
-        //}
         private void ToggleGamingMode_Click(object sender, EventArgs e)
         {
             TimeSpan sinceLastToggle = DateTime.Now - AppConfig.LastGamingToggleTime;
@@ -305,7 +242,6 @@ namespace _202020Pro.Forms
                 gmForm.ShowDialog();
             }
         }
-
 
 
         private void Exit_Click(object sender, EventArgs e)
@@ -333,6 +269,7 @@ namespace _202020Pro.Forms
                 MessageBox.Show("خطأ أثناء الإغلاق: " + ex.Message);
             }
         }
+
 
         private void GamingTooltipTimer_Tick(object sender, EventArgs e)
         {
@@ -368,7 +305,6 @@ namespace _202020Pro.Forms
         }
 
         // 🟦 تعديل كلمة مرور الطوارئ
-        // 🟦 كلمة مرور الطوارئ 
         private void ChangeEmergencyPassword_Click(object sender, EventArgs e)
         {
             string input = Microsoft.VisualBasic.Interaction.InputBox("أدخل كلمة المرور الجديدة للطوارئ:", "تعديل كلمة مرور الطوارئ", AppConfig.EmergencyPassword);
@@ -452,6 +388,7 @@ namespace _202020Pro.Forms
             MessageBox.Show("تمت إعادة الإعدادات إلى الوضع الافتراضي.", "نجاح");
         }
 
+        // سجل حالات وضع الألعاب
         private void ShowGamingLog_Click(object sender, EventArgs e)
         {
             try
