@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using _202020Pro.Models;
 using _202020Pro.Forms;
 using System.Runtime.InteropServices;
+using DevExpress.XtraExport.Xls;
 
 
 namespace _202020Pro.Forms
@@ -18,8 +19,7 @@ namespace _202020Pro.Forms
     {
         private Timer breakTimer;
         private int countdownSeconds = 20;
-        private Label countdownLabel = null;
-
+        
         private bool forceClose = false;
 
         // تعريف الرسائل الخاصة بلوحة المفاتيح والفأرة
@@ -30,13 +30,13 @@ namespace _202020Pro.Forms
         private const int WM_MBUTTONDOWN = 0x0207;
         private const int WM_MOUSEMOVE = 0x0200;
 
-        
         private Timer focusTimer;
 
 
 
         public BreakForm()
         {
+
             // إذا كان في وضع الألعاب، لا نعرض نافذة الاستراحة
             if (AppSettings.IsGamingMode)
             {
@@ -58,83 +58,46 @@ namespace _202020Pro.Forms
                 }
             }
 
-
-
+        #region تهيئة النموذج
             // إعدادات النموذج
             InitializeComponent();
-            this.FormBorderStyle = FormBorderStyle.None;
-            this.WindowState = FormWindowState.Maximized;
-            this.TopMost = true;
-            this.BackColor = ColorTranslator.FromHtml(AppConfig.BreakBackgroundColor);           
-            this.Opacity = 0.8;
+
+            // إعدادات النافذة
+            this.BackColor = ColorTranslator.FromHtml(AppConfig.BreakBackgroundColor);
 
             // تشغيل صوت التنبيه
             AppUtilities.PlayReminderSound();
             StartFocusLoop(); // بدء حلقة التركيز
 
-            // إعدادات الرسالة
-            Label message = new Label
-            {
-                Text = "👁️ خذ استراحة الآن! انظر بعيداً لمدة 20 ثانية",
-                //ForeColor = Color.White,
-                //Font = new Font("Segoe UI", 24, FontStyle.Bold),
-                ForeColor = ColorTranslator.FromHtml(AppConfig.BreakTextColor),
-                Font = new Font(AppConfig.BreakFontFamily, AppConfig.BreakFontSize, FontStyle.Bold),
-                AutoSize = true,
-                BackColor = Color.Transparent
-            };
-            message.Location = new Point(
-                (this.ClientSize.Width - message.PreferredWidth) / 2,
-                (this.ClientSize.Height - message.PreferredHeight) / 2
-            );
-            message.Anchor = AnchorStyles.None;
-            Controls.Add(message);
+            //// إعدادات الرسالة
+            message.ForeColor = ColorTranslator.FromHtml(AppConfig.BreakTextColor);
+            message.Font = new Font(AppConfig.BreakFontFamily, AppConfig.BreakFontSize, FontStyle.Bold);
+            message.BackColor = Color.Transparent; // لجعل الخلفية شفافة
 
-
+            
             //اعدادات العد التنازلي
             if (AppConfig.BreakCountdownEnabled)
             {
-                countdownLabel = new Label
-                {
-                    ForeColor = ColorTranslator.FromHtml(AppConfig.BreakTextColor),
-                    Font = new Font(AppConfig.BreakFontFamily, AppConfig.BreakFontSize - 4, FontStyle.Regular),
-                    AutoSize = true,
-                    BackColor = Color.Transparent
-                };
+                countdownLabel.ForeColor = ColorTranslator.FromHtml(AppConfig.BreakTextColor);
+                countdownLabel.Font = new Font(AppConfig.BreakFontFamily, AppConfig.BreakFontSize - 4, FontStyle.Regular);
+                countdownLabel.AutoSize = true;
+                countdownLabel.BackColor = Color.Transparent;
+                
 
                 countdownLabel.Text = $"⏳ {countdownSeconds} ثانية متبقية";
-                countdownLabel.Location = new Point(
-                    (this.ClientSize.Width - countdownLabel.PreferredWidth) / 2,
-                    message.Location.Y + message.Height + 20
-                );
-
-                // اعادة ضبط موضع العد التنازلي
-                //countdownLabel.Anchor = AnchorStyles.None;
-                Controls.Add(countdownLabel);
+                //countdownLabel.Location = new Point(
+                //    (this.ClientSize.Width - countdownLabel.PreferredWidth) / 2,
+                //    message.Location.Y + message.Height + 20
+                //);
             }
 
 
-
-
             // إضافة زر الطوارئ
-            Button btnEmergency = new Button
-            {
-                Text = "طوارئ؟",
-                Font = new Font("Segoe UI", 10, FontStyle.Bold),
-                BackColor = Color.FromArgb(180, Color.Red), // شبه شفاف
-                ForeColor = Color.White,
-                Width = 90,
-                Height = 30,
-                FlatStyle = FlatStyle.Flat,
-                Top = 10,
-                Left = this.ClientSize.Width - 100,
-                Anchor = AnchorStyles.Top | AnchorStyles.Right
-            };
-            btnEmergency.FlatAppearance.BorderSize = 0;
-            btnEmergency.Click += BtnEmergency_Click;
-            Controls.Add(btnEmergency);
+            btnEmergency.BackColor = Color.FromArgb(180, Color.Red); // شبه شفاف
+            btnEmergency.ForeColor = Color.White;
+            #endregion
 
-
+        #region العد التنازلي والمؤقت
             breakTimer = new Timer();
             //breakTimer.Interval = 20000; // 20 ثانية
             breakTimer.Interval = 1000; // 1 ثانية
@@ -154,7 +117,6 @@ namespace _202020Pro.Forms
             if (AppConfig.BreakCountdownEnabled && countdownLabel != null)
             {
                 countdownLabel.Text = $"⏳ {countdownSeconds} ثانية متبقية";
-                countdownLabel.Left = (this.ClientSize.Width - countdownLabel.PreferredWidth) / 2;
             }
             else
             {
@@ -163,8 +125,10 @@ namespace _202020Pro.Forms
 
             countdownSeconds--;
         }
+        #endregion
 
-        private void BtnEmergency_Click(object sender, EventArgs e)
+        #region زر الطوارئ
+        private void btnEmergency_Click(object sender, EventArgs e)
         {
             this.TopMost = false;
             this.Enabled = false;
@@ -188,7 +152,7 @@ namespace _202020Pro.Forms
             this.TopMost = true;
             focusTimer.Start(); // ✅ إعادة تشغيل المؤقت فقط إذا لم يتم الإغلاق
         }
-
+        #endregion
 
 
         // نحدد المفاتيح المسموح بها فقط
@@ -198,6 +162,7 @@ namespace _202020Pro.Forms
             return false; // لا نسمح بأي مفتاح الآن
         }
 
+        #region التحكم في الإغلاق
         protected override void WndProc(ref Message m)
         {
             // منع الكيبورد
@@ -240,7 +205,9 @@ namespace _202020Pro.Forms
 
             base.OnFormClosing(e);
         }
+        #endregion
 
+        #region حلقة التركيز
         private void StartFocusLoop()
         {
             focusTimer = new Timer();
@@ -253,6 +220,28 @@ namespace _202020Pro.Forms
                 }
             };
             focusTimer.Start();
+        }
+        #endregion
+
+        private void BreakForm_Load(object sender, EventArgs e)
+        {
+            this.BackColor = ColorTranslator.FromHtml(AppConfig.BreakBackgroundColor);
+
+            message.Text = "👁️ خذ استراحة الآن! انظر بعيداً لمدة 20 ثانية";
+            message.Font = new Font(AppConfig.BreakFontFamily, AppConfig.BreakFontSize, FontStyle.Bold);
+            message.ForeColor = ColorTranslator.FromHtml(AppConfig.BreakTextColor);
+
+            countdownLabel.Visible = AppConfig.BreakCountdownEnabled;
+            if (AppConfig.BreakCountdownEnabled)
+            {
+                countdownLabel.Text = $"⏳ {countdownSeconds} ثانية متبقية";
+                countdownLabel.Font = new Font(AppConfig.BreakFontFamily, AppConfig.BreakFontSize - 4);
+                countdownLabel.ForeColor = ColorTranslator.FromHtml(AppConfig.BreakTextColor);
+            }
+            else
+            {
+                countdownLabel.Visible = false;
+            }
         }
     }
 }

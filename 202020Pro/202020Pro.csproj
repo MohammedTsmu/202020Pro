@@ -97,6 +97,9 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\BreakForm.resx">
+      <DependentUpon>BreakForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\EmergencyForm.resx">
       <DependentUpon>EmergencyForm.cs</DependentUpon>
     </EmbeddedResource>
