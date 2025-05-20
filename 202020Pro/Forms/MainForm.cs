@@ -680,7 +680,7 @@ namespace _202020Pro.Forms
 
             // 🔊 الصوت
             settingsMenu.DropDownItems.Add("🔊 تشغيل/إيقاف الصوت", null, ToggleSound_Click);
-            settingsMenu.DropDownItems.Add("🔁 إعادة اعدادات الوقت الافتراضية", null, ResetSettings_Click);
+            settingsMenu.DropDownItems.Add("🔁 إعادة اعدادات وقت الراحة الافتراضية", null, ResetSettings_Click);
 
             settingsMenu.DropDownItems.Add(new ToolStripSeparator());
 
