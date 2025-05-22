@@ -46,18 +46,21 @@
             this.lbl.Dock = System.Windows.Forms.DockStyle.Top;
             this.lbl.Location = new System.Drawing.Point(0, 0);
             this.lbl.Name = "lbl";
-            this.lbl.Size = new System.Drawing.Size(332, 50);
+            this.lbl.Size = new System.Drawing.Size(332, 30);
             this.lbl.TabIndex = 0;
-            this.lbl.Text = "أدخل رمز الطوارئ:";
+            this.lbl.Text = "أدخل رمز الطوارئ";
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(37, 68);
+            this.txtPassword.Location = new System.Drawing.Point(36, 36);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Properties.Appearance.Font = new System.Drawing.Font("LBC", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPassword.Properties.Appearance.Options.UseFont = true;
+            this.txtPassword.Properties.Appearance.Options.UseTextOptions = true;
+            this.txtPassword.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.txtPassword.Properties.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
             this.txtPassword.Properties.PasswordChar = '*';
-            this.txtPassword.Size = new System.Drawing.Size(258, 32);
+            this.txtPassword.Size = new System.Drawing.Size(260, 32);
             this.txtPassword.TabIndex = 1;
             // 
             // btnConfirm
@@ -66,9 +69,9 @@
             this.btnConfirm.Appearance.Options.UseFont = true;
             this.btnConfirm.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnConfirm.ImageOptions.SvgImage")));
             this.btnConfirm.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
-            this.btnConfirm.Location = new System.Drawing.Point(37, 106);
+            this.btnConfirm.Location = new System.Drawing.Point(36, 74);
             this.btnConfirm.Name = "btnConfirm";
-            this.btnConfirm.Size = new System.Drawing.Size(258, 43);
+            this.btnConfirm.Size = new System.Drawing.Size(260, 43);
             this.btnConfirm.TabIndex = 2;
             this.btnConfirm.Text = "تأكيد";
             this.btnConfirm.Click += new System.EventHandler(this.btnConfirm_Click);
@@ -77,7 +80,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(332, 153);
+            this.ClientSize = new System.Drawing.Size(332, 133);
             this.Controls.Add(this.btnConfirm);
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.lbl);

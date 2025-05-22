@@ -16,58 +16,48 @@ namespace _202020Pro.Forms
         public GamingModeForm()
         {
             InitializeComponent();
-            this.Text = "وضع الألعاب";
-            this.Width = 300;
-            this.Height = 150;
-            this.FormBorderStyle = FormBorderStyle.FixedDialog;
-            this.StartPosition = FormStartPosition.CenterScreen;
 
-            Label lbl = new Label
+            this.AcceptButton = btnConfirm;
+
+            // ❌ لتفعيل زر Esc
+            Button btnCancel = new Button
             {
-                Text = "أدخل رمز تفعيل الألعاب:",
-                Dock = DockStyle.Top,
+                Text = "إلغاء",
+                DialogResult = DialogResult.Cancel,
+                Width = 80,
                 Height = 30,
-                TextAlign = ContentAlignment.MiddleCenter
+                Anchor = AnchorStyles.Bottom,
+                Left = 30,
+                Top = btnConfirm.Bottom + 10 // حسب ترتيبك
             };
-            TextBox txtPassword = new TextBox
-            {
-                Dock = DockStyle.Top,
-                PasswordChar = '*',
-                TextAlign = HorizontalAlignment.Center
-            };
-            Button btnConfirm = new Button
-            {
-                Text = "تفعيل الوضع",
-                Dock = DockStyle.Top
-            };
+            this.Controls.Add(btnCancel);
 
+            this.CancelButton = btnCancel; // ❌ لتفعيل زر Esc
 
-            btnConfirm.Click += (s, e) =>
+            this.ActiveControl = txtPassword;
+        }
+
+        private void btnConfirm_Click(object sender, EventArgs e)
+        {
+            //if (txtPassword.Text == "gamer")
+            if (txtPassword.Text == AppConfig.GamingPassword)
             {
-                if (txtPassword.Text == "gamer")
+                if (!GamingModeManager.CanEnableGamingMode())
                 {
-                    if (!GamingModeManager.CanEnableGamingMode())
-                    {
-                        MessageBox.Show("لقد تجاوزت الحد المسموح لوضع الألعاب اليوم.", "مرفوض", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        this.Close();
-                        return;
-                    }
-
-                    GamingModeManager.EnableGamingMode();
-                    GamingLogger.Log("تم تفعيل وضع الألعاب");
-                    MessageBox.Show("تم تفعيل وضع الألعاب بنجاح", "نجاح", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("لقد تجاوزت الحد المسموح لوضع الألعاب اليوم.", "مرفوض", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     this.Close();
+                    return;
                 }
-                else
-                {
-                    MessageBox.Show("رمز خاطئ", "رفض", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            };
 
-
-            Controls.Add(btnConfirm);
-            Controls.Add(txtPassword);
-            Controls.Add(lbl);
+                GamingModeManager.EnableGamingMode();
+                GamingLogger.Log("تم تفعيل وضع الألعاب");
+                MessageBox.Show("تم تفعيل وضع الألعاب بنجاح", "نجاح", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("رمز خاطئ", "رفض", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
