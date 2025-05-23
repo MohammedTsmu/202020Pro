@@ -529,7 +529,7 @@ namespace _202020Pro.Forms
             switch (themeName)
             {
                 // "Dark Theme"
-                case "d":
+                case "Dark":
                     AppConfig.BreakBackgroundColor = "#000000";
                     AppConfig.BreakTextColor = "#FFFFFF";
                     AppConfig.BreakFontFamily = "Segoe UI";
@@ -537,7 +537,7 @@ namespace _202020Pro.Forms
                     break;
 
                 // "Light Theme"
-                case "l":
+                case "Light":
                     AppConfig.BreakBackgroundColor = "#FFFFFF";
                     AppConfig.BreakTextColor = "#000000";
                     AppConfig.BreakFontFamily = "Calibri";
@@ -545,7 +545,7 @@ namespace _202020Pro.Forms
                     break;
 
                 // "Calm Blue Theme"
-                case "cb":
+                case "Calm Blue":
                     AppConfig.BreakBackgroundColor = "#1A2B44";
                     AppConfig.BreakTextColor = "#BBDFFF";
                     AppConfig.BreakFontFamily = "Arial";
@@ -553,7 +553,7 @@ namespace _202020Pro.Forms
                     break;
 
                 // "Nature Theme"
-                case "n":
+                case "Nature":
                     AppConfig.BreakBackgroundColor = "#1E3D2F";
                     AppConfig.BreakTextColor = "#E2F5D0";
                     AppConfig.BreakFontFamily = "Tahoma";
@@ -564,37 +564,53 @@ namespace _202020Pro.Forms
             MessageBox.Show("تم تطبيق الثيم: " + themeName, "نجاح");
         }
 
+        //private void ShowThemeSelector()
+        //{
+        //    List<string> themes = new List<string>
+        //{
+       
+        //    //"🌑 Dark",
+        //    //"🌤️ Light",
+        //    //"🟦 Calm Blue",
+        //    //"🌿 Nature"
+
+        //    "d",
+        //    "l",
+        //    "cb",
+        //    "n"
+        //};
+
+        //    string selected = Microsoft.VisualBasic.Interaction.InputBox(
+        //        "اختر أحد الثيمات التالية:\n\n" +
+        //        string.Join("\n", themes),
+        //        "اختيار ثيم الاستراحة",
+        //        themes[0]
+        //    );
+
+        //    if (themes.Contains(selected))
+        //    {
+        //        ApplyTheme(selected);
+        //    }
+        //    else if (!string.IsNullOrWhiteSpace(selected))
+        //    {
+        //        MessageBox.Show("الثيم غير معروف.", "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        //    }
+        //}
+
+
         private void ShowThemeSelector()
         {
-            List<string> themes = new List<string>
-    {
-        //"🌑 Dark",
-        //"🌤️ Light",
-        //"🟦 Calm Blue",
-        //"🌿 Nature"
+            ThemeSelectorForm selector = new ThemeSelectorForm();
 
-        "d",
-        "l",
-        "cb",
-        "n"
-    };
-
-            string selected = Microsoft.VisualBasic.Interaction.InputBox(
-                "اختر أحد الثيمات التالية:\n\n" +
-                string.Join("\n", themes),
-                "اختيار ثيم الاستراحة",
-                themes[0]
-            );
-
-            if (themes.Contains(selected))
+            // ✅ هذا هو الربط مع الحدث
+            selector.OnThemeSelected += (selectedThemeCode) =>
             {
-                ApplyTheme(selected);
-            }
-            else if (!string.IsNullOrWhiteSpace(selected))
-            {
-                MessageBox.Show("الثيم غير معروف.", "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
+                ApplyTheme(selectedThemeCode); // هذا موجود عندك من قبل
+            };
+
+            selector.ShowDialog();
         }
+
 
 
         private void BuildSoundMenu(ToolStripMenuItem settingsMenu)
