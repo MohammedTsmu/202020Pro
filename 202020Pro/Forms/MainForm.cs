@@ -516,88 +516,114 @@ namespace _202020Pro.Forms
             }
         }
 
+        // ⏳ تشغيل/إيقاف العداد العكسي
         private void ToggleBreakCountdown_Click(object sender, EventArgs e)
         {
             AppConfig.BreakCountdownEnabled = !AppConfig.BreakCountdownEnabled;
             MessageBox.Show("تم " + (AppConfig.BreakCountdownEnabled ? "تفعيل" : "إيقاف") + " العداد العكسي.", "الإعدادات");
         }
 
-        // 📁 داخل MainForm.cs
-
+        // 🎭 اختيار ثيم جاهز
         private void ApplyTheme(string themeName)
         {
             switch (themeName)
             {
-                // "Dark Theme"
-                case "Dark":
-                    AppConfig.BreakBackgroundColor = "#000000";
-                    AppConfig.BreakTextColor = "#FFFFFF";
+                // 🌙 Midnight Dark
+                case "Midnight":
+                    AppConfig.BreakBackgroundColor = "#121212"; // رمادي غامق جدًا
+                    AppConfig.BreakTextColor = "#F5F5F5";
                     AppConfig.BreakFontFamily = "Segoe UI";
                     AppConfig.BreakFontSize = 24;
                     break;
 
-                // "Light Theme"
-                case "Light":
-                    AppConfig.BreakBackgroundColor = "#FFFFFF";
-                    AppConfig.BreakTextColor = "#000000";
+                // ☀️ Sunny Light
+                case "Sunny":
+                    AppConfig.BreakBackgroundColor = "#FFFDE7"; // أصفر فاتح دافئ
+                    AppConfig.BreakTextColor = "#333333";
                     AppConfig.BreakFontFamily = "Calibri";
                     AppConfig.BreakFontSize = 22;
                     break;
 
-                // "Calm Blue Theme"
-                case "Calm Blue":
-                    AppConfig.BreakBackgroundColor = "#1A2B44";
-                    AppConfig.BreakTextColor = "#BBDFFF";
-                    AppConfig.BreakFontFamily = "Arial";
+                // 🌊 Ocean Blue
+                case "Ocean":
+                    AppConfig.BreakBackgroundColor = "#01579B"; // أزرق عميق
+                    AppConfig.BreakTextColor = "#E1F5FE";
+                    AppConfig.BreakFontFamily = "Verdana";
                     AppConfig.BreakFontSize = 26;
                     break;
 
-                // "Nature Theme"
-                case "Nature":
-                    AppConfig.BreakBackgroundColor = "#1E3D2F";
-                    AppConfig.BreakTextColor = "#E2F5D0";
+                // 🌿 Forest Nature
+                case "Forest":
+                    AppConfig.BreakBackgroundColor = "#2E7D32"; // أخضر داكن طبيعي
+                    AppConfig.BreakTextColor = "#E8F5E9";
                     AppConfig.BreakFontFamily = "Tahoma";
                     AppConfig.BreakFontSize = 24;
                     break;
+
+                // 🎨 Modern Lavender
+                case "Lavender":
+                    AppConfig.BreakBackgroundColor = "#B39DDB"; // بنفسجي ناعم
+                    AppConfig.BreakTextColor = "#212121";
+                    AppConfig.BreakFontFamily = "Century Gothic";
+                    AppConfig.BreakFontSize = 23;
+                    break;
+
+                // 🍬 Candy Pink
+                case "Candy":
+                    AppConfig.BreakBackgroundColor = "#F8BBD0"; // وردي لطيف
+                    AppConfig.BreakTextColor = "#4A148C"; // بنفسجي غامق
+                    AppConfig.BreakFontFamily = "Comic Sans MS";
+                    AppConfig.BreakFontSize = 22;
+                    break;
+
+                case "Sunset":
+                    AppConfig.BreakBackgroundColor = "#FF6F61";
+                    AppConfig.BreakTextColor = "#FFECD2";
+                    AppConfig.BreakFontFamily = "LBC";
+                    AppConfig.BreakFontSize = 24;
+                    break;
+
+                case "AquaMint":
+                    AppConfig.BreakBackgroundColor = "#00BFA5";
+                    AppConfig.BreakTextColor = "#E0F2F1";
+                    AppConfig.BreakFontFamily = "Verdana";
+                    AppConfig.BreakFontSize = 24;
+                    break;
+
+                case "RoyalGold":
+                    AppConfig.BreakBackgroundColor = "#FFD700";
+                    AppConfig.BreakTextColor = "#3E2723";
+                    AppConfig.BreakFontFamily = "LBC";
+                    AppConfig.BreakFontSize = 25;
+                    break;
+
+                case "Galaxy":
+                    AppConfig.BreakBackgroundColor = "#1A1A2E";
+                    AppConfig.BreakTextColor = "#EDEDED";
+                    AppConfig.BreakFontFamily = "Consolas";
+                    AppConfig.BreakFontSize = 23;
+                    break;
+
+                case "MidnightBlue":
+                    AppConfig.BreakBackgroundColor = "#0F1C2E";
+                    AppConfig.BreakTextColor = "#D0E8F2";
+                    AppConfig.BreakFontFamily = "Segoe UI";
+                    AppConfig.BreakFontSize = 23;
+                    break;
+
+                case "NebulaPurple":
+                    AppConfig.BreakBackgroundColor = "#2C003E";
+                    AppConfig.BreakTextColor = "#E0D7F3";
+                    AppConfig.BreakFontFamily = "Trebuchet MS";
+                    AppConfig.BreakFontSize = 24;
+                    break;
+
             }
 
             MessageBox.Show("تم تطبيق الثيم: " + themeName, "نجاح");
         }
 
-        //private void ShowThemeSelector()
-        //{
-        //    List<string> themes = new List<string>
-        //{
-       
-        //    //"🌑 Dark",
-        //    //"🌤️ Light",
-        //    //"🟦 Calm Blue",
-        //    //"🌿 Nature"
-
-        //    "d",
-        //    "l",
-        //    "cb",
-        //    "n"
-        //};
-
-        //    string selected = Microsoft.VisualBasic.Interaction.InputBox(
-        //        "اختر أحد الثيمات التالية:\n\n" +
-        //        string.Join("\n", themes),
-        //        "اختيار ثيم الاستراحة",
-        //        themes[0]
-        //    );
-
-        //    if (themes.Contains(selected))
-        //    {
-        //        ApplyTheme(selected);
-        //    }
-        //    else if (!string.IsNullOrWhiteSpace(selected))
-        //    {
-        //        MessageBox.Show("الثيم غير معروف.", "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-        //    }
-        //}
-
-
+        // 🎭 اختيار ثيم جاهز
         private void ShowThemeSelector()
         {
             ThemeSelectorForm selector = new ThemeSelectorForm();
@@ -610,8 +636,6 @@ namespace _202020Pro.Forms
 
             selector.ShowDialog();
         }
-
-
 
         private void BuildSoundMenu(ToolStripMenuItem settingsMenu)
         {

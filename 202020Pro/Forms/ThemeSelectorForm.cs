@@ -15,8 +15,6 @@ namespace _202020Pro.Forms
 
     public partial class ThemeSelectorForm : Form
     {
-        //public Action<string> OnThemeSelected;
-
         public event Action<string> OnThemeSelected;
 
         public ThemeSelectorForm()
@@ -24,7 +22,7 @@ namespace _202020Pro.Forms
             InitializeComponent();
         }
 
-
+        
         private void ThemeButton_Click(object sender, EventArgs e)
         {
             // نحاول صعود التسلسل حتى نجد أول عنصر فيه Tag
