@@ -22,13 +22,7 @@ namespace _202020Pro.Forms
             // ❌ لتفعيل زر Esc
             Button btnCancel = new Button
             {
-                Text = "إلغاء",
-                DialogResult = DialogResult.Cancel,
-                Width = 80,
-                Height = 30,
-                Anchor = AnchorStyles.Bottom,
-                Left = 30,
-                Top = btnConfirm.Bottom + 10 // حسب ترتيبك
+                DialogResult = DialogResult.Cancel
             };
             this.Controls.Add(btnCancel);
             this.CancelButton = btnCancel; // ❌ لتفعيل زر Esc
