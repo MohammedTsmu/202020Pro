@@ -726,6 +726,16 @@ namespace _202020Pro.Forms
 
             // 🔈 قائمة الأصوات
             BuildSoundMenu(settingsMenu);
+
+            settingsMenu.DropDownItems.Add(new ToolStripSeparator());
+            // حول البرنامج
+            settingsMenu.DropDownItems.Add("ℹ️ حول البرنامج", null, ShowAboutForm_Click);
+        }
+
+        private void ShowAboutForm_Click(object sender, EventArgs e)
+        {
+            About aboutForm = new About();
+            aboutForm.ShowDialog();
         }
 
     }

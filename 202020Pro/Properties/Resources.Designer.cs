@@ -125,6 +125,16 @@ namespace _202020Pro.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap ChatGPTEyePng {
+            get {
+                object obj = ResourceManager.GetObject("ChatGPTEyePng", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to https://icon-icons.com/icon/Bookmarks-Favorites-eye-vision-show/1263.
         /// </summary>
         public static string EyeLink {
