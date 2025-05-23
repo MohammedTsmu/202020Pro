@@ -148,6 +148,14 @@ namespace _202020Pro.Forms
             base.OnLoad(e);
             StartupHelper.AddToStartup();
 
+            if (!Properties.Settings.Default.ToastShownOnce)
+            {
+                // 👁️ تشغيل إشعار الترحيب لأول مرة فقط
+                toastNotificationsManager1.ShowNotification(toastNotificationsManager1.Notifications[0]);
+                Properties.Settings.Default.ToastShownOnce = true;
+                Properties.Settings.Default.Save();
+            }
+
             // اختصار سريع للتجربة
             this.KeyPreview = true;
             this.KeyDown += MainForm_KeyDown;
@@ -730,6 +738,19 @@ namespace _202020Pro.Forms
             About aboutForm = new About();
             aboutForm.ShowDialog();
         }
+
+
+        // اخفاء نافذة التطبيق في شريط المهام
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams cp = base.CreateParams;
+                cp.ExStyle |= 0x80; // WS_EX_TOOLWINDOW
+                return cp;
+            }
+        }
+
 
     }
 

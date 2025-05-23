@@ -214,5 +214,17 @@ namespace _202020Pro.Properties {
                 this["DefaultSoundAssignedBefore"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool ToastShownOnce {
+            get {
+                return ((bool)(this["ToastShownOnce"]));
+            }
+            set {
+                this["ToastShownOnce"] = value;
+            }
+        }
     }
 }
