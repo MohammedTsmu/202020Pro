@@ -1,16 +1,4 @@
-﻿//using System;
-//using System.Collections.Generic;
-//using System.Linq;
-//using System.Text;
-//using System.Threading.Tasks;
-
-//namespace _202020Pro.Models
-//{
-//    internal class GamingLogger
-//    {
-//    }
-//}
-using System;
+﻿using System;
 using System.IO;
 
 namespace _202020Pro.Models

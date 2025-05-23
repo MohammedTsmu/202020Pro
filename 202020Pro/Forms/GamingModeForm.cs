@@ -31,7 +31,6 @@ namespace _202020Pro.Forms
                 Top = btnConfirm.Bottom + 10 // حسب ترتيبك
             };
             this.Controls.Add(btnCancel);
-
             this.CancelButton = btnCancel; // ❌ لتفعيل زر Esc
 
             this.ActiveControl = txtPassword;

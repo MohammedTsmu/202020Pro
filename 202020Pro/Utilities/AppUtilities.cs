@@ -36,28 +36,6 @@ namespace _202020Pro
             PlayReminderSound(AppConfig.SelectedSoundName);
         }
 
-        //// ✅ تستدعى لتجربة أي صوت قبل التحديد
-        //public static void PlayReminderSound(string soundName)
-        //{
-        //    if (string.IsNullOrEmpty(soundName)) return;
-
-        //    object soundObj = Properties.Resources.ResourceManager.GetObject(soundName);
-        //    if (soundObj is System.IO.Stream stream)
-        //    {
-        //        try
-        //        {
-        //            using (System.Media.SoundPlayer player = new System.Media.SoundPlayer(stream))
-        //            {
-        //                player.Play();
-        //            }
-        //        }
-        //        catch (Exception ex)
-        //        {
-        //            MessageBox.Show("تعذر تشغيل صوت التنبيه.\n" + ex.Message, "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //        }
-        //    }
-        //}
-
 
         // ✅ تستدعى لتجربة أي صوت قبل التحديد
         // ✅ محاولة تشغيل صوت احتياطي

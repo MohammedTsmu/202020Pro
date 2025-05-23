@@ -1,18 +1,4 @@
-﻿//using System;
-//using System.Collections.Generic;
-//using System.Linq;
-//using System.Text;
-//using System.Threading.Tasks;
-
-//namespace _202020Pro.Utilities
-//{
-//    internal class StartupHelper
-//    {
-//    }
-//}
-
-// ***C:\EyeCareApps\202020Pro\Utilities\StartupHelper.cs***
-using Microsoft.Win32;
+﻿using Microsoft.Win32;
 using System.Windows.Forms;
 
 
