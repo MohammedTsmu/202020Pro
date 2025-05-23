@@ -137,7 +137,6 @@ namespace _202020Pro.Forms
         }
 
 
-
         protected override void OnFormClosing(FormClosingEventArgs e)
         {
             if (trayIcon != null)
@@ -199,7 +198,7 @@ namespace _202020Pro.Forms
                 return;
             }
 
-            //AppSettings.LastGamingToggleTime = DateTime.Now;
+            
             AppConfig.LastGamingToggleTime = DateTime.Now; // تحديث الوقت الأخير لتبديل وضع الألعاب 
 
             if (AppSettings.IsGamingMode)
@@ -597,20 +596,6 @@ namespace _202020Pro.Forms
             }
         }
 
-        //private void ChangeReminderSound_Click(object sender, EventArgs e)
-        //{
-        //    //OpenFileDialog dialog = new OpenFileDialog
-        //    //{
-        //    //    Title = "اختر ملف صوت بصيغة WAV",
-        //    //    Filter = "ملفات صوتية (*.wav)|*.wav"
-        //    //};
-
-        //    //if (dialog.ShowDialog() == DialogResult.OK)
-        //    //{
-        //    //    AppConfig.CustomSoundPath = dialog.FileName;
-        //    //    MessageBox.Show("تم تحديث صوت التنبيه بنجاح.", "202020Pro", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        //    //}
-        //}
 
         private void BuildSoundMenu(ToolStripMenuItem settingsMenu)
         {

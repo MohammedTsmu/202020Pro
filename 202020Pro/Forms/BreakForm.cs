@@ -85,10 +85,6 @@ namespace _202020Pro.Forms
                 
 
                 countdownLabel.Text = $"⏳ {countdownSeconds} ثانية متبقية";
-                //countdownLabel.Location = new Point(
-                //    (this.ClientSize.Width - countdownLabel.PreferredWidth) / 2,
-                //    message.Location.Y + message.Height + 20
-                //);
             }
 
 

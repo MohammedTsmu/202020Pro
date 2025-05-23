@@ -32,7 +32,6 @@ namespace _202020Pro.Forms
 
         private void btnConfirm_Click(object sender, EventArgs e)
         {
-            //if (txtPassword.Text == "gamer")
             if (txtPassword.Text == AppConfig.GamingPassword)
             {
                 if (!GamingModeManager.CanEnableGamingMode())
