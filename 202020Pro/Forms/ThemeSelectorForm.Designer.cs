@@ -28,6 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ThemeSelectorForm));
+            DevExpress.Utils.SuperToolTip superToolTip1 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipItem toolTipItem1 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip2 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipItem toolTipItem2 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip3 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipItem toolTipItem3 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip4 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipItem toolTipItem4 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip5 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipItem toolTipItem5 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip6 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipItem toolTipItem6 = new DevExpress.Utils.ToolTipItem();
             DevExpress.Utils.SuperToolTip superToolTip7 = new DevExpress.Utils.SuperToolTip();
             DevExpress.Utils.ToolTipItem toolTipItem7 = new DevExpress.Utils.ToolTipItem();
             DevExpress.Utils.SuperToolTip superToolTip8 = new DevExpress.Utils.SuperToolTip();
@@ -40,20 +53,25 @@
             DevExpress.Utils.ToolTipItem toolTipItem11 = new DevExpress.Utils.ToolTipItem();
             DevExpress.Utils.SuperToolTip superToolTip12 = new DevExpress.Utils.SuperToolTip();
             DevExpress.Utils.ToolTipItem toolTipItem12 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.SuperToolTip superToolTip6 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipItem toolTipItem6 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.SuperToolTip superToolTip5 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipItem toolTipItem5 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.SuperToolTip superToolTip4 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipItem toolTipItem4 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.SuperToolTip superToolTip3 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipItem toolTipItem3 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.SuperToolTip superToolTip2 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipItem toolTipItem2 = new DevExpress.Utils.ToolTipItem();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ThemeSelectorForm));
-            DevExpress.Utils.SuperToolTip superToolTip1 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipItem toolTipItem1 = new DevExpress.Utils.ToolTipItem();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.panelNebulaPurple = new System.Windows.Forms.Panel();
+            this.simpleButton12 = new DevExpress.XtraEditors.SimpleButton();
+            this.labelControl12 = new DevExpress.XtraEditors.LabelControl();
+            this.panelMidnightBlue = new System.Windows.Forms.Panel();
+            this.simpleButton11 = new DevExpress.XtraEditors.SimpleButton();
+            this.labelControl11 = new DevExpress.XtraEditors.LabelControl();
+            this.panelGalaxy = new System.Windows.Forms.Panel();
+            this.simpleButton10 = new DevExpress.XtraEditors.SimpleButton();
+            this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
+            this.panelRoyalGold = new System.Windows.Forms.Panel();
+            this.simpleButton9 = new DevExpress.XtraEditors.SimpleButton();
+            this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
+            this.panelAquaMint = new System.Windows.Forms.Panel();
+            this.simpleButton8 = new DevExpress.XtraEditors.SimpleButton();
+            this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
+            this.panelSunset = new System.Windows.Forms.Panel();
+            this.simpleButton7 = new DevExpress.XtraEditors.SimpleButton();
+            this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
             this.panelCandy = new System.Windows.Forms.Panel();
             this.simpleButton6 = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
@@ -72,37 +90,19 @@
             this.panelMidnight = new System.Windows.Forms.Panel();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.panelSunset = new System.Windows.Forms.Panel();
-            this.simpleButton7 = new DevExpress.XtraEditors.SimpleButton();
-            this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
-            this.panelAquaMint = new System.Windows.Forms.Panel();
-            this.simpleButton8 = new DevExpress.XtraEditors.SimpleButton();
-            this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
-            this.panelRoyalGold = new System.Windows.Forms.Panel();
-            this.simpleButton9 = new DevExpress.XtraEditors.SimpleButton();
-            this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
-            this.panelGalaxy = new System.Windows.Forms.Panel();
-            this.simpleButton10 = new DevExpress.XtraEditors.SimpleButton();
-            this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
-            this.panelMidnightBlue = new System.Windows.Forms.Panel();
-            this.simpleButton11 = new DevExpress.XtraEditors.SimpleButton();
-            this.labelControl11 = new DevExpress.XtraEditors.LabelControl();
-            this.panelNebulaPurple = new System.Windows.Forms.Panel();
-            this.simpleButton12 = new DevExpress.XtraEditors.SimpleButton();
-            this.labelControl12 = new DevExpress.XtraEditors.LabelControl();
             this.tableLayoutPanel1.SuspendLayout();
+            this.panelNebulaPurple.SuspendLayout();
+            this.panelMidnightBlue.SuspendLayout();
+            this.panelGalaxy.SuspendLayout();
+            this.panelRoyalGold.SuspendLayout();
+            this.panelAquaMint.SuspendLayout();
+            this.panelSunset.SuspendLayout();
             this.panelCandy.SuspendLayout();
             this.panelLavender.SuspendLayout();
             this.panelForest.SuspendLayout();
             this.panelSunny.SuspendLayout();
             this.panelOcean.SuspendLayout();
             this.panelMidnight.SuspendLayout();
-            this.panelSunset.SuspendLayout();
-            this.panelAquaMint.SuspendLayout();
-            this.panelRoyalGold.SuspendLayout();
-            this.panelGalaxy.SuspendLayout();
-            this.panelMidnightBlue.SuspendLayout();
-            this.panelNebulaPurple.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -134,6 +134,264 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 24.99813F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(651, 402);
             this.tableLayoutPanel1.TabIndex = 0;
+            // 
+            // panelNebulaPurple
+            // 
+            this.panelNebulaPurple.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(0)))), ((int)(((byte)(62)))));
+            this.panelNebulaPurple.Controls.Add(this.simpleButton12);
+            this.panelNebulaPurple.Controls.Add(this.labelControl12);
+            this.panelNebulaPurple.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelNebulaPurple.Location = new System.Drawing.Point(437, 303);
+            this.panelNebulaPurple.Name = "panelNebulaPurple";
+            this.panelNebulaPurple.Size = new System.Drawing.Size(208, 93);
+            this.panelNebulaPurple.TabIndex = 11;
+            this.panelNebulaPurple.Tag = "NebulaPurple";
+            // 
+            // simpleButton12
+            // 
+            this.simpleButton12.Appearance.Font = new System.Drawing.Font("LBC", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.simpleButton12.Appearance.Options.UseFont = true;
+            this.simpleButton12.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.simpleButton12.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton12.ImageOptions.SvgImage")));
+            this.simpleButton12.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
+            this.simpleButton12.Location = new System.Drawing.Point(21, 40);
+            this.simpleButton12.Name = "simpleButton12";
+            this.simpleButton12.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.simpleButton12.Size = new System.Drawing.Size(164, 45);
+            toolTipItem1.Appearance.Font = new System.Drawing.Font("LBC", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            toolTipItem1.Appearance.Options.UseFont = true;
+            toolTipItem1.Text = "اضغط لاختيار الثيم الخاص بهذه الخلية";
+            superToolTip1.Items.Add(toolTipItem1);
+            this.simpleButton12.SuperTip = superToolTip1;
+            this.simpleButton12.TabIndex = 1;
+            this.simpleButton12.Text = "اختيار الثيم";
+            this.simpleButton12.Click += new System.EventHandler(this.ThemeButton_Click);
+            // 
+            // labelControl12
+            // 
+            this.labelControl12.Appearance.Font = new System.Drawing.Font("LBC", 12F);
+            this.labelControl12.Appearance.ForeColor = System.Drawing.Color.White;
+            this.labelControl12.Appearance.Options.UseFont = true;
+            this.labelControl12.Appearance.Options.UseForeColor = true;
+            this.labelControl12.Location = new System.Drawing.Point(30, 8);
+            this.labelControl12.Name = "labelControl12";
+            this.labelControl12.Size = new System.Drawing.Size(146, 26);
+            this.labelControl12.TabIndex = 0;
+            this.labelControl12.Text = "🪐 سديم بنفسجي";
+            // 
+            // panelMidnightBlue
+            // 
+            this.panelMidnightBlue.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(28)))), ((int)(((byte)(46)))));
+            this.panelMidnightBlue.Controls.Add(this.simpleButton11);
+            this.panelMidnightBlue.Controls.Add(this.labelControl11);
+            this.panelMidnightBlue.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelMidnightBlue.Location = new System.Drawing.Point(221, 303);
+            this.panelMidnightBlue.Name = "panelMidnightBlue";
+            this.panelMidnightBlue.Size = new System.Drawing.Size(207, 93);
+            this.panelMidnightBlue.TabIndex = 10;
+            this.panelMidnightBlue.Tag = "MidnightBlue";
+            // 
+            // simpleButton11
+            // 
+            this.simpleButton11.Appearance.Font = new System.Drawing.Font("LBC", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.simpleButton11.Appearance.Options.UseFont = true;
+            this.simpleButton11.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.simpleButton11.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton11.ImageOptions.SvgImage")));
+            this.simpleButton11.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
+            this.simpleButton11.Location = new System.Drawing.Point(21, 40);
+            this.simpleButton11.Name = "simpleButton11";
+            this.simpleButton11.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.simpleButton11.Size = new System.Drawing.Size(164, 45);
+            toolTipItem2.Appearance.Font = new System.Drawing.Font("LBC", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            toolTipItem2.Appearance.Options.UseFont = true;
+            toolTipItem2.Text = "اضغط لاختيار الثيم الخاص بهذه الخلية";
+            superToolTip2.Items.Add(toolTipItem2);
+            this.simpleButton11.SuperTip = superToolTip2;
+            this.simpleButton11.TabIndex = 1;
+            this.simpleButton11.Text = "اختيار الثيم";
+            this.simpleButton11.Click += new System.EventHandler(this.ThemeButton_Click);
+            // 
+            // labelControl11
+            // 
+            this.labelControl11.Appearance.Font = new System.Drawing.Font("LBC", 12F);
+            this.labelControl11.Appearance.ForeColor = System.Drawing.Color.White;
+            this.labelControl11.Appearance.Options.UseFont = true;
+            this.labelControl11.Appearance.Options.UseForeColor = true;
+            this.labelControl11.Location = new System.Drawing.Point(24, 8);
+            this.labelControl11.Name = "labelControl11";
+            this.labelControl11.Size = new System.Drawing.Size(158, 26);
+            this.labelControl11.TabIndex = 0;
+            this.labelControl11.Text = "🌙 أزرق منتصف الليل";
+            // 
+            // panelGalaxy
+            // 
+            this.panelGalaxy.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(46)))));
+            this.panelGalaxy.Controls.Add(this.simpleButton10);
+            this.panelGalaxy.Controls.Add(this.labelControl10);
+            this.panelGalaxy.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelGalaxy.Location = new System.Drawing.Point(6, 303);
+            this.panelGalaxy.Name = "panelGalaxy";
+            this.panelGalaxy.Size = new System.Drawing.Size(206, 93);
+            this.panelGalaxy.TabIndex = 9;
+            this.panelGalaxy.Tag = "Galaxy";
+            // 
+            // simpleButton10
+            // 
+            this.simpleButton10.Appearance.Font = new System.Drawing.Font("LBC", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.simpleButton10.Appearance.Options.UseFont = true;
+            this.simpleButton10.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.simpleButton10.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton10.ImageOptions.SvgImage")));
+            this.simpleButton10.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
+            this.simpleButton10.Location = new System.Drawing.Point(21, 40);
+            this.simpleButton10.Name = "simpleButton10";
+            this.simpleButton10.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.simpleButton10.Size = new System.Drawing.Size(164, 45);
+            toolTipItem3.Appearance.Font = new System.Drawing.Font("LBC", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            toolTipItem3.Appearance.Options.UseFont = true;
+            toolTipItem3.Text = "اضغط لاختيار الثيم الخاص بهذه الخلية";
+            superToolTip3.Items.Add(toolTipItem3);
+            this.simpleButton10.SuperTip = superToolTip3;
+            this.simpleButton10.TabIndex = 1;
+            this.simpleButton10.Text = "اختيار الثيم";
+            this.simpleButton10.Click += new System.EventHandler(this.ThemeButton_Click);
+            // 
+            // labelControl10
+            // 
+            this.labelControl10.Appearance.Font = new System.Drawing.Font("LBC", 12F);
+            this.labelControl10.Appearance.ForeColor = System.Drawing.Color.White;
+            this.labelControl10.Appearance.Options.UseFont = true;
+            this.labelControl10.Appearance.Options.UseForeColor = true;
+            this.labelControl10.Location = new System.Drawing.Point(50, 8);
+            this.labelControl10.Name = "labelControl10";
+            this.labelControl10.Size = new System.Drawing.Size(106, 26);
+            this.labelControl10.TabIndex = 0;
+            this.labelControl10.Text = "🌌 مجرة ليلية";
+            // 
+            // panelRoyalGold
+            // 
+            this.panelRoyalGold.BackColor = System.Drawing.Color.Gold;
+            this.panelRoyalGold.Controls.Add(this.simpleButton9);
+            this.panelRoyalGold.Controls.Add(this.labelControl9);
+            this.panelRoyalGold.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelRoyalGold.Location = new System.Drawing.Point(437, 204);
+            this.panelRoyalGold.Name = "panelRoyalGold";
+            this.panelRoyalGold.Size = new System.Drawing.Size(208, 90);
+            this.panelRoyalGold.TabIndex = 8;
+            this.panelRoyalGold.Tag = "RoyalGold";
+            // 
+            // simpleButton9
+            // 
+            this.simpleButton9.Appearance.Font = new System.Drawing.Font("LBC", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.simpleButton9.Appearance.Options.UseFont = true;
+            this.simpleButton9.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.simpleButton9.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton9.ImageOptions.SvgImage")));
+            this.simpleButton9.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
+            this.simpleButton9.Location = new System.Drawing.Point(21, 39);
+            this.simpleButton9.Name = "simpleButton9";
+            this.simpleButton9.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.simpleButton9.Size = new System.Drawing.Size(164, 45);
+            toolTipItem4.Appearance.Font = new System.Drawing.Font("LBC", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            toolTipItem4.Appearance.Options.UseFont = true;
+            toolTipItem4.Text = "اضغط لاختيار الثيم الخاص بهذه الخلية";
+            superToolTip4.Items.Add(toolTipItem4);
+            this.simpleButton9.SuperTip = superToolTip4;
+            this.simpleButton9.TabIndex = 1;
+            this.simpleButton9.Text = "اختيار الثيم";
+            this.simpleButton9.Click += new System.EventHandler(this.ThemeButton_Click);
+            // 
+            // labelControl9
+            // 
+            this.labelControl9.Appearance.Font = new System.Drawing.Font("LBC", 12F);
+            this.labelControl9.Appearance.Options.UseFont = true;
+            this.labelControl9.Location = new System.Drawing.Point(40, 7);
+            this.labelControl9.Name = "labelControl9";
+            this.labelControl9.Size = new System.Drawing.Size(126, 26);
+            this.labelControl9.TabIndex = 0;
+            this.labelControl9.Text = "👑 ذهبي ملكي";
+            // 
+            // panelAquaMint
+            // 
+            this.panelAquaMint.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(191)))), ((int)(((byte)(165)))));
+            this.panelAquaMint.Controls.Add(this.simpleButton8);
+            this.panelAquaMint.Controls.Add(this.labelControl8);
+            this.panelAquaMint.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelAquaMint.Location = new System.Drawing.Point(221, 204);
+            this.panelAquaMint.Name = "panelAquaMint";
+            this.panelAquaMint.Size = new System.Drawing.Size(207, 90);
+            this.panelAquaMint.TabIndex = 7;
+            this.panelAquaMint.Tag = "AquaMint";
+            // 
+            // simpleButton8
+            // 
+            this.simpleButton8.Appearance.Font = new System.Drawing.Font("LBC", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.simpleButton8.Appearance.Options.UseFont = true;
+            this.simpleButton8.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.simpleButton8.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton8.ImageOptions.SvgImage")));
+            this.simpleButton8.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
+            this.simpleButton8.Location = new System.Drawing.Point(21, 39);
+            this.simpleButton8.Name = "simpleButton8";
+            this.simpleButton8.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.simpleButton8.Size = new System.Drawing.Size(164, 45);
+            toolTipItem5.Appearance.Font = new System.Drawing.Font("LBC", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            toolTipItem5.Appearance.Options.UseFont = true;
+            toolTipItem5.Text = "اضغط لاختيار الثيم الخاص بهذه الخلية";
+            superToolTip5.Items.Add(toolTipItem5);
+            this.simpleButton8.SuperTip = superToolTip5;
+            this.simpleButton8.TabIndex = 1;
+            this.simpleButton8.Text = "اختيار الثيم";
+            this.simpleButton8.Click += new System.EventHandler(this.ThemeButton_Click);
+            // 
+            // labelControl8
+            // 
+            this.labelControl8.Appearance.Font = new System.Drawing.Font("LBC", 12F);
+            this.labelControl8.Appearance.Options.UseFont = true;
+            this.labelControl8.Location = new System.Drawing.Point(47, 7);
+            this.labelControl8.Name = "labelControl8";
+            this.labelControl8.Size = new System.Drawing.Size(112, 26);
+            this.labelControl8.TabIndex = 0;
+            this.labelControl8.Text = "💧 نعناع مائي";
+            // 
+            // panelSunset
+            // 
+            this.panelSunset.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(111)))), ((int)(((byte)(97)))));
+            this.panelSunset.Controls.Add(this.simpleButton7);
+            this.panelSunset.Controls.Add(this.labelControl7);
+            this.panelSunset.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelSunset.Location = new System.Drawing.Point(6, 204);
+            this.panelSunset.Name = "panelSunset";
+            this.panelSunset.Size = new System.Drawing.Size(206, 90);
+            this.panelSunset.TabIndex = 6;
+            this.panelSunset.Tag = "Sunset";
+            // 
+            // simpleButton7
+            // 
+            this.simpleButton7.Appearance.Font = new System.Drawing.Font("LBC", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.simpleButton7.Appearance.Options.UseFont = true;
+            this.simpleButton7.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.simpleButton7.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton7.ImageOptions.SvgImage")));
+            this.simpleButton7.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
+            this.simpleButton7.Location = new System.Drawing.Point(21, 39);
+            this.simpleButton7.Name = "simpleButton7";
+            this.simpleButton7.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.simpleButton7.Size = new System.Drawing.Size(164, 45);
+            toolTipItem6.Appearance.Font = new System.Drawing.Font("LBC", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            toolTipItem6.Appearance.Options.UseFont = true;
+            toolTipItem6.Text = "اضغط لاختيار الثيم الخاص بهذه الخلية";
+            superToolTip6.Items.Add(toolTipItem6);
+            this.simpleButton7.SuperTip = superToolTip6;
+            this.simpleButton7.TabIndex = 1;
+            this.simpleButton7.Text = "اختيار الثيم";
+            this.simpleButton7.Click += new System.EventHandler(this.ThemeButton_Click);
+            // 
+            // labelControl7
+            // 
+            this.labelControl7.Appearance.Font = new System.Drawing.Font("LBC", 12F);
+            this.labelControl7.Appearance.Options.UseFont = true;
+            this.labelControl7.Location = new System.Drawing.Point(36, 7);
+            this.labelControl7.Name = "labelControl7";
+            this.labelControl7.Size = new System.Drawing.Size(134, 26);
+            this.labelControl7.TabIndex = 0;
+            this.labelControl7.Text = "🌇 غروب برتقالي";
             // 
             // panelCandy
             // 
@@ -394,261 +652,6 @@
             this.labelControl1.TabIndex = 0;
             this.labelControl1.Text = "🌑 غامق فاخر";
             // 
-            // panelSunset
-            // 
-            this.panelSunset.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(111)))), ((int)(((byte)(97)))));
-            this.panelSunset.Controls.Add(this.simpleButton7);
-            this.panelSunset.Controls.Add(this.labelControl7);
-            this.panelSunset.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelSunset.Location = new System.Drawing.Point(6, 204);
-            this.panelSunset.Name = "panelSunset";
-            this.panelSunset.Size = new System.Drawing.Size(206, 90);
-            this.panelSunset.TabIndex = 6;
-            this.panelSunset.Tag = "Sunset";
-            // 
-            // simpleButton7
-            // 
-            this.simpleButton7.Appearance.Font = new System.Drawing.Font("LBC", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.simpleButton7.Appearance.Options.UseFont = true;
-            this.simpleButton7.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.simpleButton7.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton7.ImageOptions.SvgImage")));
-            this.simpleButton7.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
-            this.simpleButton7.Location = new System.Drawing.Point(21, 39);
-            this.simpleButton7.Name = "simpleButton7";
-            this.simpleButton7.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.simpleButton7.Size = new System.Drawing.Size(164, 45);
-            toolTipItem6.Appearance.Font = new System.Drawing.Font("LBC", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            toolTipItem6.Appearance.Options.UseFont = true;
-            toolTipItem6.Text = "اضغط لاختيار الثيم الخاص بهذه الخلية";
-            superToolTip6.Items.Add(toolTipItem6);
-            this.simpleButton7.SuperTip = superToolTip6;
-            this.simpleButton7.TabIndex = 1;
-            this.simpleButton7.Text = "اختيار الثيم";
-            this.simpleButton7.Click += new System.EventHandler(this.ThemeButton_Click);
-            // 
-            // labelControl7
-            // 
-            this.labelControl7.Appearance.Font = new System.Drawing.Font("LBC", 12F);
-            this.labelControl7.Appearance.Options.UseFont = true;
-            this.labelControl7.Location = new System.Drawing.Point(36, 7);
-            this.labelControl7.Name = "labelControl7";
-            this.labelControl7.Size = new System.Drawing.Size(134, 26);
-            this.labelControl7.TabIndex = 0;
-            this.labelControl7.Text = "🌇 غروب برتقالي";
-            // 
-            // panelAquaMint
-            // 
-            this.panelAquaMint.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(191)))), ((int)(((byte)(165)))));
-            this.panelAquaMint.Controls.Add(this.simpleButton8);
-            this.panelAquaMint.Controls.Add(this.labelControl8);
-            this.panelAquaMint.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelAquaMint.Location = new System.Drawing.Point(221, 204);
-            this.panelAquaMint.Name = "panelAquaMint";
-            this.panelAquaMint.Size = new System.Drawing.Size(207, 90);
-            this.panelAquaMint.TabIndex = 7;
-            this.panelAquaMint.Tag = "AquaMint";
-            // 
-            // simpleButton8
-            // 
-            this.simpleButton8.Appearance.Font = new System.Drawing.Font("LBC", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.simpleButton8.Appearance.Options.UseFont = true;
-            this.simpleButton8.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.simpleButton8.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton8.ImageOptions.SvgImage")));
-            this.simpleButton8.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
-            this.simpleButton8.Location = new System.Drawing.Point(21, 39);
-            this.simpleButton8.Name = "simpleButton8";
-            this.simpleButton8.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.simpleButton8.Size = new System.Drawing.Size(164, 45);
-            toolTipItem5.Appearance.Font = new System.Drawing.Font("LBC", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            toolTipItem5.Appearance.Options.UseFont = true;
-            toolTipItem5.Text = "اضغط لاختيار الثيم الخاص بهذه الخلية";
-            superToolTip5.Items.Add(toolTipItem5);
-            this.simpleButton8.SuperTip = superToolTip5;
-            this.simpleButton8.TabIndex = 1;
-            this.simpleButton8.Text = "اختيار الثيم";
-            this.simpleButton8.Click += new System.EventHandler(this.ThemeButton_Click);
-            // 
-            // labelControl8
-            // 
-            this.labelControl8.Appearance.Font = new System.Drawing.Font("LBC", 12F);
-            this.labelControl8.Appearance.Options.UseFont = true;
-            this.labelControl8.Location = new System.Drawing.Point(47, 7);
-            this.labelControl8.Name = "labelControl8";
-            this.labelControl8.Size = new System.Drawing.Size(112, 26);
-            this.labelControl8.TabIndex = 0;
-            this.labelControl8.Text = "💧 نعناع مائي";
-            // 
-            // panelRoyalGold
-            // 
-            this.panelRoyalGold.BackColor = System.Drawing.Color.Gold;
-            this.panelRoyalGold.Controls.Add(this.simpleButton9);
-            this.panelRoyalGold.Controls.Add(this.labelControl9);
-            this.panelRoyalGold.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelRoyalGold.Location = new System.Drawing.Point(437, 204);
-            this.panelRoyalGold.Name = "panelRoyalGold";
-            this.panelRoyalGold.Size = new System.Drawing.Size(208, 90);
-            this.panelRoyalGold.TabIndex = 8;
-            this.panelRoyalGold.Tag = "RoyalGold";
-            // 
-            // simpleButton9
-            // 
-            this.simpleButton9.Appearance.Font = new System.Drawing.Font("LBC", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.simpleButton9.Appearance.Options.UseFont = true;
-            this.simpleButton9.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.simpleButton9.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton9.ImageOptions.SvgImage")));
-            this.simpleButton9.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
-            this.simpleButton9.Location = new System.Drawing.Point(21, 39);
-            this.simpleButton9.Name = "simpleButton9";
-            this.simpleButton9.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.simpleButton9.Size = new System.Drawing.Size(164, 45);
-            toolTipItem4.Appearance.Font = new System.Drawing.Font("LBC", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            toolTipItem4.Appearance.Options.UseFont = true;
-            toolTipItem4.Text = "اضغط لاختيار الثيم الخاص بهذه الخلية";
-            superToolTip4.Items.Add(toolTipItem4);
-            this.simpleButton9.SuperTip = superToolTip4;
-            this.simpleButton9.TabIndex = 1;
-            this.simpleButton9.Text = "اختيار الثيم";
-            this.simpleButton9.Click += new System.EventHandler(this.ThemeButton_Click);
-            // 
-            // labelControl9
-            // 
-            this.labelControl9.Appearance.Font = new System.Drawing.Font("LBC", 12F);
-            this.labelControl9.Appearance.Options.UseFont = true;
-            this.labelControl9.Location = new System.Drawing.Point(40, 7);
-            this.labelControl9.Name = "labelControl9";
-            this.labelControl9.Size = new System.Drawing.Size(126, 26);
-            this.labelControl9.TabIndex = 0;
-            this.labelControl9.Text = "👑 ذهبي ملكي";
-            // 
-            // panelGalaxy
-            // 
-            this.panelGalaxy.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(46)))));
-            this.panelGalaxy.Controls.Add(this.simpleButton10);
-            this.panelGalaxy.Controls.Add(this.labelControl10);
-            this.panelGalaxy.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelGalaxy.Location = new System.Drawing.Point(6, 303);
-            this.panelGalaxy.Name = "panelGalaxy";
-            this.panelGalaxy.Size = new System.Drawing.Size(206, 93);
-            this.panelGalaxy.TabIndex = 9;
-            this.panelGalaxy.Tag = "Galaxy";
-            // 
-            // simpleButton10
-            // 
-            this.simpleButton10.Appearance.Font = new System.Drawing.Font("LBC", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.simpleButton10.Appearance.Options.UseFont = true;
-            this.simpleButton10.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.simpleButton10.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton10.ImageOptions.SvgImage")));
-            this.simpleButton10.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
-            this.simpleButton10.Location = new System.Drawing.Point(21, 40);
-            this.simpleButton10.Name = "simpleButton10";
-            this.simpleButton10.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.simpleButton10.Size = new System.Drawing.Size(164, 45);
-            toolTipItem3.Appearance.Font = new System.Drawing.Font("LBC", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            toolTipItem3.Appearance.Options.UseFont = true;
-            toolTipItem3.Text = "اضغط لاختيار الثيم الخاص بهذه الخلية";
-            superToolTip3.Items.Add(toolTipItem3);
-            this.simpleButton10.SuperTip = superToolTip3;
-            this.simpleButton10.TabIndex = 1;
-            this.simpleButton10.Text = "اختيار الثيم";
-            // 
-            // labelControl10
-            // 
-            this.labelControl10.Appearance.Font = new System.Drawing.Font("LBC", 12F);
-            this.labelControl10.Appearance.ForeColor = System.Drawing.Color.White;
-            this.labelControl10.Appearance.Options.UseFont = true;
-            this.labelControl10.Appearance.Options.UseForeColor = true;
-            this.labelControl10.Location = new System.Drawing.Point(50, 8);
-            this.labelControl10.Name = "labelControl10";
-            this.labelControl10.Size = new System.Drawing.Size(106, 26);
-            this.labelControl10.TabIndex = 0;
-            this.labelControl10.Text = "🌌 مجرة ليلية";
-            // 
-            // panelMidnightBlue
-            // 
-            this.panelMidnightBlue.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(28)))), ((int)(((byte)(46)))));
-            this.panelMidnightBlue.Controls.Add(this.simpleButton11);
-            this.panelMidnightBlue.Controls.Add(this.labelControl11);
-            this.panelMidnightBlue.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelMidnightBlue.Location = new System.Drawing.Point(221, 303);
-            this.panelMidnightBlue.Name = "panelMidnightBlue";
-            this.panelMidnightBlue.Size = new System.Drawing.Size(207, 93);
-            this.panelMidnightBlue.TabIndex = 10;
-            this.panelMidnightBlue.Tag = "MidnightBlue";
-            // 
-            // simpleButton11
-            // 
-            this.simpleButton11.Appearance.Font = new System.Drawing.Font("LBC", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.simpleButton11.Appearance.Options.UseFont = true;
-            this.simpleButton11.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.simpleButton11.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton11.ImageOptions.SvgImage")));
-            this.simpleButton11.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
-            this.simpleButton11.Location = new System.Drawing.Point(21, 40);
-            this.simpleButton11.Name = "simpleButton11";
-            this.simpleButton11.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.simpleButton11.Size = new System.Drawing.Size(164, 45);
-            toolTipItem2.Appearance.Font = new System.Drawing.Font("LBC", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            toolTipItem2.Appearance.Options.UseFont = true;
-            toolTipItem2.Text = "اضغط لاختيار الثيم الخاص بهذه الخلية";
-            superToolTip2.Items.Add(toolTipItem2);
-            this.simpleButton11.SuperTip = superToolTip2;
-            this.simpleButton11.TabIndex = 1;
-            this.simpleButton11.Text = "اختيار الثيم";
-            // 
-            // labelControl11
-            // 
-            this.labelControl11.Appearance.Font = new System.Drawing.Font("LBC", 12F);
-            this.labelControl11.Appearance.ForeColor = System.Drawing.Color.White;
-            this.labelControl11.Appearance.Options.UseFont = true;
-            this.labelControl11.Appearance.Options.UseForeColor = true;
-            this.labelControl11.Location = new System.Drawing.Point(24, 8);
-            this.labelControl11.Name = "labelControl11";
-            this.labelControl11.Size = new System.Drawing.Size(158, 26);
-            this.labelControl11.TabIndex = 0;
-            this.labelControl11.Text = "🌙 أزرق منتصف الليل";
-            // 
-            // panelNebulaPurple
-            // 
-            this.panelNebulaPurple.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(0)))), ((int)(((byte)(62)))));
-            this.panelNebulaPurple.Controls.Add(this.simpleButton12);
-            this.panelNebulaPurple.Controls.Add(this.labelControl12);
-            this.panelNebulaPurple.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelNebulaPurple.Location = new System.Drawing.Point(437, 303);
-            this.panelNebulaPurple.Name = "panelNebulaPurple";
-            this.panelNebulaPurple.Size = new System.Drawing.Size(208, 93);
-            this.panelNebulaPurple.TabIndex = 11;
-            this.panelNebulaPurple.Tag = "NebulaPurple";
-            // 
-            // simpleButton12
-            // 
-            this.simpleButton12.Appearance.Font = new System.Drawing.Font("LBC", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.simpleButton12.Appearance.Options.UseFont = true;
-            this.simpleButton12.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.simpleButton12.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton12.ImageOptions.SvgImage")));
-            this.simpleButton12.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
-            this.simpleButton12.Location = new System.Drawing.Point(21, 40);
-            this.simpleButton12.Name = "simpleButton12";
-            this.simpleButton12.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.simpleButton12.Size = new System.Drawing.Size(164, 45);
-            toolTipItem1.Appearance.Font = new System.Drawing.Font("LBC", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            toolTipItem1.Appearance.Options.UseFont = true;
-            toolTipItem1.Text = "اضغط لاختيار الثيم الخاص بهذه الخلية";
-            superToolTip1.Items.Add(toolTipItem1);
-            this.simpleButton12.SuperTip = superToolTip1;
-            this.simpleButton12.TabIndex = 1;
-            this.simpleButton12.Text = "اختيار الثيم";
-            // 
-            // labelControl12
-            // 
-            this.labelControl12.Appearance.Font = new System.Drawing.Font("LBC", 12F);
-            this.labelControl12.Appearance.ForeColor = System.Drawing.Color.White;
-            this.labelControl12.Appearance.Options.UseFont = true;
-            this.labelControl12.Appearance.Options.UseForeColor = true;
-            this.labelControl12.Location = new System.Drawing.Point(30, 8);
-            this.labelControl12.Name = "labelControl12";
-            this.labelControl12.Size = new System.Drawing.Size(146, 26);
-            this.labelControl12.TabIndex = 0;
-            this.labelControl12.Text = "🪐 سديم بنفسجي";
-            // 
             // ThemeSelectorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 26F);
@@ -656,6 +659,7 @@
             this.ClientSize = new System.Drawing.Size(651, 402);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Font = new System.Drawing.Font("LBC", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -665,6 +669,18 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "اختيار ثيم";
             this.tableLayoutPanel1.ResumeLayout(false);
+            this.panelNebulaPurple.ResumeLayout(false);
+            this.panelNebulaPurple.PerformLayout();
+            this.panelMidnightBlue.ResumeLayout(false);
+            this.panelMidnightBlue.PerformLayout();
+            this.panelGalaxy.ResumeLayout(false);
+            this.panelGalaxy.PerformLayout();
+            this.panelRoyalGold.ResumeLayout(false);
+            this.panelRoyalGold.PerformLayout();
+            this.panelAquaMint.ResumeLayout(false);
+            this.panelAquaMint.PerformLayout();
+            this.panelSunset.ResumeLayout(false);
+            this.panelSunset.PerformLayout();
             this.panelCandy.ResumeLayout(false);
             this.panelCandy.PerformLayout();
             this.panelLavender.ResumeLayout(false);
@@ -677,18 +693,6 @@
             this.panelOcean.PerformLayout();
             this.panelMidnight.ResumeLayout(false);
             this.panelMidnight.PerformLayout();
-            this.panelSunset.ResumeLayout(false);
-            this.panelSunset.PerformLayout();
-            this.panelAquaMint.ResumeLayout(false);
-            this.panelAquaMint.PerformLayout();
-            this.panelRoyalGold.ResumeLayout(false);
-            this.panelRoyalGold.PerformLayout();
-            this.panelGalaxy.ResumeLayout(false);
-            this.panelGalaxy.PerformLayout();
-            this.panelMidnightBlue.ResumeLayout(false);
-            this.panelMidnightBlue.PerformLayout();
-            this.panelNebulaPurple.ResumeLayout(false);
-            this.panelNebulaPurple.PerformLayout();
             this.ResumeLayout(false);
 
         }
