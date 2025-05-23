@@ -74,7 +74,8 @@ namespace _202020Pro.Forms
             trayIcon = new NotifyIcon
             {
                 Text = "202020Pro - حماية العين",
-                Icon = SystemIcons.Application,
+                //Icon = SystemIcons.Application,
+                Icon = Properties.Resources.ChatGPT_Eye,
                 ContextMenuStrip = trayMenu,
                 Visible = true
             };

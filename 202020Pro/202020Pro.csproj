@@ -32,6 +32,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Resources\eye_Ico_256.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="DevExpress.Data.Desktop.v24.1, Version=24.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Data.v24.1, Version=24.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
@@ -177,6 +180,36 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\smg firing handling.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\EyeLink.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\eye_Ico_256.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\eye_Ico_64.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\eye_Png_64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\eye_Png_256.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ChatGPT Image May 23, 2025, 11_55_36 AM.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ChatGPT Image May 23, 2025, 11_48_12 AM.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ChatGPT Image May 23, 2025, 11_55_36 AM.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ChatGPT Image May 23, 2025, 11_48_12 AM.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ChatGPT Eye.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

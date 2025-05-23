@@ -79,11 +79,30 @@ namespace _202020Pro.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        /// </summary>
+        public static System.Drawing.Icon ChatGPT_Eye {
+            get {
+                object obj = ResourceManager.GetObject("ChatGPT_Eye", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
         public static System.IO.UnmanagedMemoryStream countdown_female_5_to_1_finishings {
             get {
                 return ResourceManager.GetStream("countdown_female_5_to_1_finishings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to https://icon-icons.com/icon/Bookmarks-Favorites-eye-vision-show/1263.
+        /// </summary>
+        public static string EyeLink {
+            get {
+                return ResourceManager.GetString("EyeLink", resourceCulture);
             }
         }
         
