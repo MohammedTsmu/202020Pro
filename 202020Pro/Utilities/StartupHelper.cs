@@ -1,5 +1,5 @@
-﻿using Microsoft.Win32;
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
+using Microsoft.Win32;
 
 
 public static class StartupHelper

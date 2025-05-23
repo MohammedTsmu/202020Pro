@@ -1,16 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using _202020Pro.Models;
-using _202020Pro.Forms;
-using System.Runtime.InteropServices;
-using DevExpress.XtraExport.Xls;
 
 
 namespace _202020Pro.Forms
@@ -19,7 +10,7 @@ namespace _202020Pro.Forms
     {
         private Timer breakTimer;
         private int countdownSeconds = 20;
-        
+
         private bool forceClose = false;
 
         // تعريف الرسائل الخاصة بلوحة المفاتيح والفأرة
@@ -58,7 +49,7 @@ namespace _202020Pro.Forms
                 }
             }
 
-        #region تهيئة النموذج
+            #region تهيئة النموذج
             // إعدادات النموذج
             InitializeComponent();
 
@@ -74,7 +65,7 @@ namespace _202020Pro.Forms
             message.Font = new Font(AppConfig.BreakFontFamily, AppConfig.BreakFontSize, FontStyle.Bold);
             message.BackColor = Color.Transparent; // لجعل الخلفية شفافة
 
-            
+
             //اعدادات العد التنازلي
             if (AppConfig.BreakCountdownEnabled)
             {
@@ -82,7 +73,7 @@ namespace _202020Pro.Forms
                 countdownLabel.Font = new Font(AppConfig.BreakFontFamily, AppConfig.BreakFontSize - 4, FontStyle.Regular);
                 countdownLabel.AutoSize = true;
                 countdownLabel.BackColor = Color.Transparent;
-                
+
 
                 countdownLabel.Text = $"⏳ {countdownSeconds} ثانية متبقية";
             }
@@ -93,7 +84,7 @@ namespace _202020Pro.Forms
             btnEmergency.ForeColor = Color.White;
             #endregion
 
-        #region العد التنازلي والمؤقت
+            #region العد التنازلي والمؤقت
             breakTimer = new Timer();
             //breakTimer.Interval = 20000; // 20 ثانية
             breakTimer.Interval = 1000; // 1 ثانية

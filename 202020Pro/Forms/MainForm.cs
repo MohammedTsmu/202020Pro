@@ -1,17 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using _202020Pro.Forms;
 using _202020Pro.Models;
 using Microsoft.VisualBasic;
-using System.Media;
 
 
 
@@ -25,14 +18,14 @@ namespace _202020Pro.Forms
         private ContextMenuStrip trayMenu;
         private System.Windows.Forms.Timer gamingTooltipTimer;
 
-        
+
         private ToolStripMenuItem settingsMenu;
 
 
         public MainForm()
         {
             InitializeComponent();
-            
+
             mainTimer = new Timer();
             mainTimer.Interval = AppConfig.BreakMinutes * 60 * 1000; // 20 دقيقة
             mainTimer.Tick += MainTimer_Tick;
@@ -199,7 +192,7 @@ namespace _202020Pro.Forms
                 return;
             }
 
-            
+
             AppConfig.LastGamingToggleTime = DateTime.Now; // تحديث الوقت الأخير لتبديل وضع الألعاب 
 
             if (AppSettings.IsGamingMode)
@@ -478,7 +471,7 @@ namespace _202020Pro.Forms
             preview.ShowDialog();
         }
 
-        
+
         private void ResetBreakScreenDefaults_Click(object sender, EventArgs e)
         {
             // تأكيد إعادة الإعدادات الافتراضية
