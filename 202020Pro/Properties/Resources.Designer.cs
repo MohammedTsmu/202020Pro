@@ -63,18 +63,54 @@ namespace _202020Pro.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
-        public static System.IO.UnmanagedMemoryStream announcement_sound {
+        public static System.IO.UnmanagedMemoryStream Airport_1 {
             get {
-                return ResourceManager.GetStream("announcement_sound", resourceCulture);
+                return ResourceManager.GetStream("Airport_1", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
-        public static System.IO.UnmanagedMemoryStream announcement_sound_4 {
+        public static System.IO.UnmanagedMemoryStream Airport_2 {
             get {
-                return ResourceManager.GetStream("announcement_sound_4", resourceCulture);
+                return ResourceManager.GetStream("Airport_2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        public static System.IO.UnmanagedMemoryStream Announcement_sound_1 {
+            get {
+                return ResourceManager.GetStream("Announcement_sound_1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        public static System.IO.UnmanagedMemoryStream Announcement_sound_2 {
+            get {
+                return ResourceManager.GetStream("Announcement_sound_2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        public static System.IO.UnmanagedMemoryStream Aviation_alert_sound_alike {
+            get {
+                return ResourceManager.GetStream("Aviation_alert_sound_alike", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        public static System.IO.UnmanagedMemoryStream Bong_bing_bung {
+            get {
+                return ResourceManager.GetStream("Bong_bing_bung", resourceCulture);
             }
         }
         
@@ -85,15 +121,6 @@ namespace _202020Pro.Properties {
             get {
                 object obj = ResourceManager.GetObject("ChatGPT_Eye", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
-        /// </summary>
-        public static System.IO.UnmanagedMemoryStream countdown_female_5_to_1_finishings {
-            get {
-                return ResourceManager.GetStream("countdown_female_5_to_1_finishings", resourceCulture);
             }
         }
         
@@ -109,54 +136,90 @@ namespace _202020Pro.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
-        public static System.IO.UnmanagedMemoryStream fire_alarm {
+        public static System.IO.UnmanagedMemoryStream Fire_alarm {
             get {
-                return ResourceManager.GetStream("fire_alarm", resourceCulture);
+                return ResourceManager.GetStream("Fire_alarm", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
-        public static System.IO.UnmanagedMemoryStream ligering_chime_1 {
+        public static System.IO.UnmanagedMemoryStream Its_alright {
             get {
-                return ResourceManager.GetStream("ligering_chime_1", resourceCulture);
+                return ResourceManager.GetStream("Its_alright", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
-        public static System.IO.UnmanagedMemoryStream lovescotch__its_alright {
+        public static System.IO.UnmanagedMemoryStream Kualalumpur_International_Airport {
             get {
-                return ResourceManager.GetStream("lovescotch__its_alright", resourceCulture);
+                return ResourceManager.GetStream("Kualalumpur_International_Airport", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
-        public static System.IO.UnmanagedMemoryStream shadowisp__stop_rest {
+        public static System.IO.UnmanagedMemoryStream Ligering_chime {
             get {
-                return ResourceManager.GetStream("shadowisp__stop_rest", resourceCulture);
+                return ResourceManager.GetStream("Ligering_chime", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
-        public static System.IO.UnmanagedMemoryStream simple_clean {
+        public static System.IO.UnmanagedMemoryStream Quito_mariscal_sucre_old {
             get {
-                return ResourceManager.GetStream("simple_clean", resourceCulture);
+                return ResourceManager.GetStream("Quito_mariscal_sucre_old", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
-        public static System.IO.UnmanagedMemoryStream wadaltmon__stop_rest {
+        public static System.IO.UnmanagedMemoryStream San_salvador_comalapa {
             get {
-                return ResourceManager.GetStream("wadaltmon__stop_rest", resourceCulture);
+                return ResourceManager.GetStream("San_salvador_comalapa", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        public static System.IO.UnmanagedMemoryStream Simple_clean {
+            get {
+                return ResourceManager.GetStream("Simple_clean", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        public static System.IO.UnmanagedMemoryStream Smg_firing_handling {
+            get {
+                return ResourceManager.GetStream("Smg_firing_handling", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        public static System.IO.UnmanagedMemoryStream Stop_rest_female {
+            get {
+                return ResourceManager.GetStream("Stop_rest_female", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        public static System.IO.UnmanagedMemoryStream Stop_rest_male {
+            get {
+                return ResourceManager.GetStream("Stop_rest_male", resourceCulture);
             }
         }
     }

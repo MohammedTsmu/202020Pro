@@ -309,10 +309,8 @@ namespace _202020Pro.Forms
         // 🟦 مدة الراحة
         private void ChangeBreakInterval_Click(object sender, EventArgs e)
         {
-            //string input = Microsoft.VisualBasic.Interaction.InputBox("أدخل عدد الدقائق بين كل استراحة (10 - 60):", "مدة الراحة", AppConfig.BreakMinutes.ToString());
-            string input = Microsoft.VisualBasic.Interaction.InputBox("أدخل عدد الدقائق بين كل استراحة (1 - 60):", "مدة الراحة", AppConfig.BreakMinutes.ToString());
-            //if (int.TryParse(input, out int value) && value >= 10 && value <= 60)
-            if (int.TryParse(input, out int value) && value >= 1 && value <= 60)//For testing delete later 1 minute timer
+            string input = Microsoft.VisualBasic.Interaction.InputBox("أدخل عدد الدقائق بين كل استراحة (10 - 60):", "مدة الراحة", AppConfig.BreakMinutes.ToString());
+            if (int.TryParse(input, out int value) && value >= 10 && value <= 60)
             {
                 AppConfig.BreakMinutes = value;
                 mainTimer.Interval = value * 60 * 1000;
@@ -327,13 +325,10 @@ namespace _202020Pro.Forms
         // 🟦 مدة وضع الألعاب
         private void ChangeGamingDuration_Click(object sender, EventArgs e)
         {
-            //string input = Microsoft.VisualBasic.Interaction.InputBox("أدخل عدد الدقائق المسموحة لوضع الألعاب (30 - 240):", "مدة وضع الألعاب", AppConfig.GamingModeMinutes.ToString());
-            string input = Microsoft.VisualBasic.Interaction.InputBox("أدخل عدد الدقائق المسموحة لوضع الألعاب (1 - 240):", "مدة وضع الألعاب", AppConfig.GamingModeMinutes.ToString());
-            //Delete Later For Testing
+            string input = Microsoft.VisualBasic.Interaction.InputBox("أدخل عدد الدقائق المسموحة لوضع الألعاب (30 - 240):", "مدة وضع الألعاب", AppConfig.GamingModeMinutes.ToString());
 
-            //if (int.TryParse(input, out int value) && value >= 30 && value <= 240)
-            if (int.TryParse(input, out int value) && value >= 1 && value <= 240)
-            //Delete Later For Testing
+
+            if (int.TryParse(input, out int value) && value >= 30 && value <= 240)
             {
                 AppConfig.GamingModeMinutes = value;
                 MessageBox.Show($"تم تعيين مدة وضع الألعاب إلى {value} دقيقة.", "نجاح");

@@ -33,7 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>Resources\eye_Ico_256.ico</ApplicationIcon>
+    <ApplicationIcon>Resources\ChatGPT Eye.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="DevExpress.Data.Desktop.v24.1, Version=24.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
@@ -179,9 +179,6 @@
     <None Include="Resources\shadowisp__stop-rest.wav" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\smg firing handling.wav" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\EyeLink.txt" />
   </ItemGroup>
   <ItemGroup>
@@ -210,6 +207,54 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\ChatGPT Eye.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Aviation alert sound alike.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Airport 1.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Airport 2.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Bong bing bung.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Kualalumpur International Airport.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\San salvador comalapa.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Quito mariscal sucre old.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Smg firing handling.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ligering chime.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Fire alarm.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Announcement sound 2.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Simple clean.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Announcement sound 1.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\its alright.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Stop rest male.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Stop rest female.wav" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
