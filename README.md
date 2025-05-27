@@ -1,120 +1,106 @@
-# 202020Pro 👁️✨  
-تطبيق ذكي لحماية العين من إجهاد الشاشات عبر قاعدة "20-20-20"
+# 👁️ 202020Pro
+
+**A smart, lightweight Windows desktop app that protects your eyes from screen fatigue using the 20-20-20 rule.**
+
+> Every 20 minutes, take a 20-second break and look at something 20 feet away.  
+> This app makes sure you actually do it — no skipping, no cheating. 💪
 
 ---
 
-## 🎯 ما هو 202020Pro؟
+## 🎯 What Is 202020Pro?
 
-تطبيق سطح مكتب خفيف وسهل الاستخدام مبني بتقنية **C# (.NET Framework 4.7.2)** باستخدام **مكونات DevExpress**.  
-مصمم لمساعدة المستخدمين على تقليل إجهاد العين عبر تذكيرهم بالقاعدة الطبية "20-20-20":  
-**كل 20 دقيقة، خذ استراحة لمدة 20 ثانية وانظر إلى شيء يبعد 20 قدمًا.**
+202020Pro is a personal wellness companion built with **C# (.NET Framework 4.7.2)** and **DevExpress** components.  
+It silently runs in your system tray and enforces eye-saving screen breaks using a clean, customizable full-screen timer.
 
----
-
-## 🧠 المزايا الرئيسية
-
-### 👁️ شاشة استراحة تفاعلية
-- تمنع التفاعل مع الماوس والكيبورد أثناء الاستراحة
-- تعرض عدادًا تنازليًا مع تصميم جذّاب وقابل للتخصيص
-- إمكانية تخصيص الخلفية، النص، نوع الخط، الحجم، الألوان
-
-### 🎨 ثيمات جاهزة
-- 6+ ثيمات أنيقة مثل: **Galaxy**, **Nature**, **Calm Blue**, وغيرها
-- واجهة اختيار ثيم بسيطة بزر واحد
-
-### 🎮 وضع الألعاب (Gaming Mode)
-- مؤقت مخصص للعب بعد إدخال رمز المرور
-- إيقاف تلقائي بعد انتهاء الوقت المسموح
-- حفظ سجل الاستخدام في ملف نصي
-
-### 🌙 الوضع الليلي
-- يسمح لك بتحديد ساعات يتم فيها تعطيل شاشة الاستراحة (مثلاً من 00:00 إلى 07:00)
-
-### ⏳ عداد الاستراحة
-- عد تنازلي مرئي اختياري يُظهر الوقت المتبقي
-
-### 🔊 صوت مخصص للتذكير
-- أكثر من صوت متاح للاختيار
-- إمكانية تشغيل أو إيقاف الصوت بسهولة
-
-### 🔐 حماية بكلمات مرور
-- كلمة مرور خاصة بالخروج من شاشة الاستراحة (الطوارئ)
-- كلمة مرور لتفعيل وضع الألعاب
-
-### ☁️ حفظ تلقائي للإعدادات
-- يتم حفظ كل التعديلات في `AppSettings` تلقائيًا بين كل تشغيل
+Whether you're a student, developer, gamer, or just spend hours in front of your screen — this app helps you stay healthy.
 
 ---
 
-## 🖥️ التشغيل والواجهة
+## 🧠 Key Features
 
-- يبدأ التطبيق تلقائيًا مع تشغيل النظام
-- لا يظهر في شريط المهام أو قائمة Alt+Tab
-- يتم التحكم بالتطبيق من خلال أيقونة في **System Tray**
+### 👁️ Interactive Break Screen
+- Blocks mouse and keyboard during break
+- Countdown timer with optional visibility
+- Customizable background, text, font, colors, and more
 
----
+### 🎨 Built-in Themes
+- 6+ elegant themes like **Galaxy**, **Nature**, **Calm Blue**, etc.
+- Simple one-click theme selector
 
-## 🔐 كلمات المرور الافتراضية
+### 🎮 Gaming Mode
+- Time-limited session access behind password
+- Auto-disables after session ends
+- Usage history saved locally
 
-عند التثبيت لأول مرة، تكون كلمات المرور الافتراضية كالتالي:
+### 🌙 Night Mode
+- Disable enforced breaks during sleep hours (e.g., 12:00 AM – 07:00 AM)
 
-| الوظيفة                  | كلمة المرور الافتراضية |
-|---------------------------|-------------------------|
-| الطوارئ (Emergency)       | `911`                   |
-| وضع الألعاب (Gaming Mode)| `gamer`                 |
+### 🔊 Audio Reminder
+- Choose from multiple reminder sounds
+- Optional mute toggle
 
-> يمكنك تغيير هذه الكلمات لاحقًا من خلال **قائمة الإعدادات** في System Tray.
+### 🔐 Password Protection
+- Password to exit break screen (Emergency)
+- Password to enable Gaming Mode
 
----
-
-## ⚙️ الإعدادات المتقدمة (Advanced Settings)
-
-- يتم حفظ الإعدادات تلقائيًا باستخدام `AppSettings`
-- يمكن تعديل كلمات المرور ومدة الاستراحة ووضع الألعاب من خلال **System Tray**
-- تتوفر واجهات مخصصة لتغيير كل إعداد بسهولة
-
----
-
-## 📦 المتطلبات (Requirements)
-
-- 🖥️ **نظام التشغيل:** Windows 10 أو أعلى  
-- 🔧 **الإطار:** .NET Framework 4.7.2  
-- 🧩 **DevExpress 24.1** (يجب أن يكون مثبتًا على الجهاز)
+### 💾 Auto-Save Settings
+- All changes are saved using `AppSettings` between sessions
 
 ---
 
-## 📄 الترخيص (License)
+## 🔐 Default Passwords
 
-هذا المشروع **مفتوح المصدر** ومتاح لأغراض **شخصية وتعليمية فقط**.  
-جميع الحقوق محفوظة للمطور.
+| Purpose            | Default Password |
+|--------------------|------------------|
+| Emergency Exit     | `911`            |
+| Gaming Mode Access | `gamer`          |
 
----
-
-## 🙌 الشكر والتقدير (Thanks & Credits)
-
-- للمبرمج الذي يجمع بين **الطب والبرمجة** ❤️‍🔥  
-- لفريق **DevExpress** على أدواتهم الرائعة  
-- ولكل من يهتم بصحّة عينيه 👁️
+> You can change these anytime from the settings menu via the system tray icon.
 
 ---
 
-## 📁 بنية المشروع (Project Structure)
+## 🖥️ How to Use
 
-```plaintext
-/202020Pro
-│
-├── Forms/
-│   ├── MainForm.cs
-│   ├── BreakForm.cs
-│   ├── EmergencyForm.cs
-│   ├── GamingModeForm.cs
-│   └── ThemeSelectorForm.cs
-│
-├── Models/
-│   └── AppConfig.cs
-│
-├── Properties/
-│   └── Resources.resx  (أيقونات وصور)
-│
-├── App.config
-└── Program.cs
+1. [Download the latest release here](https://github.com/MohammedTsmu/202020Pro/releases)
+2. Extract the `.zip` file and run `202020Pro.exe`
+3. The app will launch in the system tray (next to the clock)
+4. Right-click the tray icon to:
+   - Enable/disable features
+   - Open settings
+   - Exit the app
+
+---
+
+## 📸 Screenshots & Demo
+
+> Coming soon: images + a 60-second video demo
+
+---
+
+## 📦 Requirements
+
+- Windows 10 or higher
+- .NET Framework 4.7.2 installed
+- (Recommended) DevExpress 24.1 Runtime
+
+---
+
+## ⭐ Support the Project
+
+If this app helped protect your eyes or boosted your focus,  
+please consider giving it a **⭐ on GitHub** — it helps others discover it too!
+
+---
+
+## 📜 License
+
+This project is open source for **personal and educational use only.**  
+All rights reserved by the developer.
+
+---
+
+## 🙏 Special Thanks
+
+- To the developer bridging **medicine & code** 👨‍⚕️💻  
+- To the DevExpress team for their awesome UI tools  
+- And to every user who values their vision 👁️
