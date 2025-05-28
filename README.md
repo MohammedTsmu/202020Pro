@@ -73,9 +73,15 @@ Whether you're a student, developer, gamer, or just spend hours in front of your
 
 ## 📸 Screenshots & Demo
 
-> Coming soon: images + a 60-second video demo
-
 ---
+### Main Menu
+![Main Menu](https://github.com/MohammedTsmu/202020Pro/blob/master/202020Pro%20ScreenShots/Menu.png)
+### Break Screen
+![Break Screen](https://github.com/MohammedTsmu/202020Pro/blob/master/202020Pro%20ScreenShots/BreakScreen.png)
+### Themes
+![Themes ](https://github.com/MohammedTsmu/202020Pro/blob/master/202020Pro%20ScreenShots/Themes.png)
+### Gif of how it works
+![202020Pro Gif](https://github.com/MohammedTsmu/202020Pro/blob/master/202020Pro%20ScreenShots/202020Pro%20Gif.gif)
 
 ## 📦 Requirements
 
